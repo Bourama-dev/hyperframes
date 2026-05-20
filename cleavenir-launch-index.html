@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <script src="node_modules/gsap/dist/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        width: 1920px; height: 1080px;
+        overflow: hidden;
+        background: #F8FAFC;
+      }
+      .scene {
+        position: absolute; top: 0; left: 0;
+        width: 1920px; height: 1080px;
+        overflow: hidden;
+        background: #F8FAFC;
+      }
+      #scene1 { z-index: 10; }
+      #scene2 { z-index: 20; }
+      #scene3 { z-index: 30; }
+      #scene4 { z-index: 40; }
+      #scene5 { z-index: 50; }
+      #scene6 { z-index: 60; }
+
+      /* ── Gradient utility ── */
+      .grad-text {
+        background: linear-gradient(135deg, #E91E8C 0%, #06B6D4 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ─── SCENE 1 — Hook ─── */
+      #s1-panel {
+        position: absolute; left: 0; top: 0;
+        width: 640px; height: 1080px;
+        background: linear-gradient(180deg, #E91E8C 0%, #BE185D 100%);
+      }
+      #s1-label {
+        position: absolute; left: 56px; top: 80px;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700; font-size: 16px;
+        letter-spacing: 0.28em; text-transform: uppercase;
+        color: rgba(255,255,255,0.65);
+      }
+      /* Sprout icon on panel */
+      #s1-icon {
+        position: absolute; left: 56px; top: 130px;
+        font-size: 40px; opacity: 0.5;
+      }
+      #s1-word1 {
+        position: absolute; left: 56px; top: 50%;
+        translate: 0 -70%;
+        font-family: "Anton", sans-serif;
+        font-size: 240px; line-height: 0.88;
+        color: #fff; letter-spacing: -0.02em;
+      }
+      #s1-word2 {
+        position: absolute; left: 700px; top: 50%;
+        translate: 0 -60%;
+        font-family: "Anton", sans-serif;
+        font-size: 240px; line-height: 0.88;
+        letter-spacing: -0.02em;
+        /* gradient via .grad-text applied in HTML */
+      }
+      #s1-tagline {
+        position: absolute; left: 700px; bottom: 220px;
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300; font-size: 40px;
+        letter-spacing: 0.01em; color: #334155;
+      }
+      #s1-badge {
+        position: absolute; left: 700px; bottom: 152px;
+        display: inline-flex; align-items: center; gap: 10px;
+        background: rgba(233,30,140,0.08);
+        border: 1px solid rgba(233,30,140,0.2);
+        border-radius: 100px;
+        padding: 10px 24px;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600; font-size: 18px;
+        letter-spacing: 0.04em;
+        color: #E91E8C;
+      }
+      #s1-dot {
+        position: absolute; right: 120px; bottom: 120px;
+        width: 80px; height: 80px; border-radius: 50%;
+        background: #06B6D4;
+      }
+      #s1-vdivider {
+        position: absolute; left: 640px; top: 0;
+        width: 3px; height: 1080px;
+        background: #0F172A; opacity: 0.08;
+        transform-origin: top center;
+      }
+
+      /* ─── SCENE 2 — Problem ─── */
+      #s2-bg-qmark {
+        position: absolute; right: 40px; top: -80px;
+        font-family: "Anton", sans-serif;
+        font-size: 900px; line-height: 1;
+        color: rgba(233,30,140,0.04);
+        pointer-events: none; user-select: none;
+      }
+      #s2-accent-bar {
+        position: absolute; left: 0; top: 0;
+        width: 12px; height: 1080px;
+        background: linear-gradient(180deg, #E91E8C 0%, #06B6D4 100%);
+        transform-origin: top center;
+      }
+      #s2-pad {
+        display: flex; flex-direction: column;
+        justify-content: center;
+        width: 100%; height: 100%;
+        padding: 0 240px;
+      }
+      #s2-eyebrow {
+        display: inline-flex; align-items: center; gap: 10px;
+        background: rgba(233,30,140,0.07);
+        border: 1px solid rgba(233,30,140,0.18);
+        border-radius: 100px;
+        padding: 8px 20px;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700; font-size: 16px;
+        letter-spacing: 0.22em; text-transform: uppercase;
+        color: #E91E8C;
+        margin-bottom: 44px;
+        width: fit-content;
+      }
+      #s2-line1 {
+        font-family: "Anton", sans-serif;
+        font-size: 148px; line-height: 0.88;
+        letter-spacing: -0.025em; color: #0F172A;
+      }
+      #s2-line2 {
+        font-family: "Anton", sans-serif;
+        font-size: 148px; line-height: 0.88;
+        letter-spacing: -0.025em;
+        /* gradient via class */
+      }
+      #s2-line3 {
+        font-family: "Anton", sans-serif;
+        font-size: 118px; line-height: 0.9;
+        letter-spacing: -0.025em; color: #0F172A;
+        margin-bottom: 44px;
+      }
+      #s2-divider {
+        width: 480px; height: 3px;
+        background: linear-gradient(90deg, #E91E8C, #06B6D4);
+        transform-origin: left center;
+        margin-bottom: 36px;
+      }
+      #s2-sub {
+        font-family: "DM Sans", sans-serif; font-weight: 300;
+        font-size: 34px; letter-spacing: 0.01em; color: #475569;
+        max-width: 860px;
+      }
+
+      /* ─── SCENE 3 — Features ─── */
+      #s3-bg-stamp {
+        position: absolute; right: -40px; top: -30px;
+        font-family: "Anton", sans-serif;
+        font-size: 520px; line-height: 1;
+        color: rgba(233,30,140,0.04);
+        letter-spacing: -0.04em;
+        user-select: none; pointer-events: none;
+      }
+      #s3-eyebrow {
+        display: inline-flex; align-items: center; gap: 10px;
+        background: rgba(233,30,140,0.07);
+        border: 1px solid rgba(233,30,140,0.18);
+        border-radius: 100px;
+        padding: 8px 20px;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700; font-size: 16px;
+        letter-spacing: 0.22em; text-transform: uppercase;
+        color: #E91E8C;
+        margin-bottom: 36px;
+        width: fit-content;
+      }
+      #s3-headline {
+        font-family: "Anton", sans-serif;
+        font-size: 140px; line-height: 0.88;
+        letter-spacing: -0.02em; color: #0F172A;
+        margin-bottom: 24px;
+      }
+      #s3-headline em {
+        font-style: normal;
+        background: linear-gradient(135deg, #E91E8C, #06B6D4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      #s3-hline {
+        width: 560px; height: 3px;
+        background: linear-gradient(90deg, #E91E8C, #06B6D4);
+        transform-origin: left center;
+        margin-bottom: 48px;
+      }
+      .s3-feat {
+        display: flex; align-items: center;
+        gap: 24px; margin-bottom: 28px;
+      }
+      .s3-feat-check {
+        width: 38px; height: 38px; border-radius: 50%;
+        background: #22C55E;
+        display: flex; align-items: center; justify-content: center;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700; font-size: 18px; color: #fff;
+        flex-shrink: 0;
+      }
+      .s3-feat-text {
+        font-family: "DM Sans", sans-serif; font-weight: 300;
+        font-size: 36px; letter-spacing: -0.01em; color: #1E293B;
+      }
+      .s3-feat-text strong {
+        font-weight: 700;
+        color: #E91E8C;
+      }
+      #s3-scene-pad {
+        display: flex; flex-direction: column;
+        justify-content: center;
+        width: 100%; height: 100%;
+        padding: 0 240px;
+      }
+
+      /* ─── SCENE 4 — Stats ─── */
+      #s4-left {
+        position: absolute; left: 0; top: 0;
+        width: 960px; height: 1080px;
+        display: flex; flex-direction: column;
+        justify-content: center;
+        padding: 0 120px 0 240px;
+      }
+      #s4-stat {
+        font-family: "Anton", sans-serif;
+        font-size: 260px; line-height: 0.84;
+        letter-spacing: -0.04em;
+        background: linear-gradient(135deg, #E91E8C, #06B6D4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      #s4-stat-label {
+        font-family: "DM Sans", sans-serif; font-weight: 200;
+        font-size: 40px; letter-spacing: 0.02em;
+        color: #475569; margin-top: 16px;
+      }
+      #s4-stat-sub {
+        font-family: "Space Grotesk", sans-serif; font-weight: 700;
+        font-size: 16px; letter-spacing: 0.24em; text-transform: uppercase;
+        color: #E91E8C; margin-top: 20px;
+      }
+      #s4-divider {
+        position: absolute; left: 960px; top: 15%;
+        width: 2px; height: 70%;
+        background: #E2E8F0;
+        transform-origin: top center;
+      }
+      #s4-right {
+        position: absolute; right: 0; top: 0;
+        width: 960px; height: 1080px;
+        display: flex; flex-direction: column;
+        justify-content: center;
+        padding: 0 240px 0 80px;
+      }
+      #s4-right-eyebrow {
+        font-family: "Space Grotesk", sans-serif; font-weight: 700;
+        font-size: 16px; letter-spacing: 0.30em; text-transform: uppercase;
+        color: #E91E8C; margin-bottom: 32px;
+      }
+      #s4-right-title {
+        font-family: "Anton", sans-serif;
+        font-size: 100px; line-height: 0.9;
+        letter-spacing: -0.02em; color: #0F172A;
+        margin-bottom: 32px;
+      }
+      #s4-right-body {
+        font-family: "DM Sans", sans-serif; font-weight: 300;
+        font-size: 30px; letter-spacing: 0.01em; color: #64748B;
+        line-height: 1.55; max-width: 520px;
+      }
+      #s4-bar-wrap {
+        width: 480px; height: 5px;
+        background: #E2E8F0;
+        margin-top: 40px; overflow: hidden;
+        border-radius: 4px;
+      }
+      #s4-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #E91E8C, #06B6D4);
+        transform-origin: left center;
+        border-radius: 4px;
+      }
+
+      /* ─── SCENE 5 — Benefits ─── */
+      #s5-bg-word {
+        position: absolute; left: -20px; bottom: -100px;
+        font-family: "Anton", sans-serif;
+        font-size: 540px; line-height: 1;
+        color: rgba(233,30,140,0.03);
+        pointer-events: none; user-select: none;
+      }
+      #s5-left-panel {
+        position: absolute; left: 0; top: 0;
+        width: 640px; height: 1080px;
+        background: linear-gradient(180deg, #E91E8C 0%, #06B6D4 100%);
+        display: flex; flex-direction: column;
+        justify-content: center;
+        padding: 0 72px 0 100px;
+      }
+      #s5-left-label {
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 700; font-size: 14px;
+        letter-spacing: 0.30em; text-transform: uppercase;
+        color: rgba(255,255,255,0.6); margin-bottom: 28px;
+      }
+      #s5-big {
+        font-family: "Anton", sans-serif;
+        font-size: 136px; line-height: 0.84;
+        letter-spacing: -0.03em; color: #fff;
+      }
+      #s5-big-sub {
+        font-family: "DM Sans", sans-serif; font-weight: 200;
+        font-size: 34px; color: rgba(255,255,255,0.7);
+        margin-top: 24px; line-height: 1.3;
+      }
+      #s5-vdivider {
+        position: absolute; left: 640px; top: 0;
+        width: 3px; height: 1080px;
+        background: #0F172A; opacity: 0.06;
+        transform-origin: top center;
+      }
+      #s5-right {
+        position: absolute; right: 0; top: 0;
+        width: 1280px; height: 1080px;
+        display: flex; flex-direction: column;
+        justify-content: center;
+        padding: 0 200px 0 100px;
+      }
+      #s5-right-eyebrow {
+        font-family: "Space Grotesk", sans-serif; font-weight: 700;
+        font-size: 17px; letter-spacing: 0.32em; text-transform: uppercase;
+        color: #E91E8C; margin-bottom: 44px;
+      }
+      .s5-benefit {
+        display: flex; align-items: flex-start;
+        gap: 24px; margin-bottom: 40px;
+      }
+      .s5-benefit-num {
+        font-family: "Anton", sans-serif;
+        font-size: 64px; line-height: 1;
+        letter-spacing: -0.03em;
+        background: linear-gradient(135deg, #E91E8C, #06B6D4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        min-width: 80px;
+      }
+      .s5-benefit-text {
+        font-family: "DM Sans", sans-serif; font-weight: 300;
+        font-size: 34px; letter-spacing: -0.01em; color: #1E293B;
+        line-height: 1.25; padding-top: 8px;
+      }
+      .s5-benefit-text strong { font-weight: 700; }
+
+      /* ─── SCENE 6 — CTA ─── */
+      #s6-bg-word {
+        position: absolute; bottom: -80px; right: -20px;
+        font-family: "Anton", sans-serif;
+        font-size: 480px; line-height: 1;
+        color: rgba(233,30,140,0.05);
+        user-select: none; pointer-events: none;
+      }
+      #s6-pad {
+        display: flex; flex-direction: column;
+        justify-content: center;
+        width: 100%; height: 100%;
+        padding: 0 240px;
+      }
+      #s6-brand {
+        font-family: "DM Sans", sans-serif; font-weight: 700;
+        font-size: 28px; letter-spacing: 0.02em;
+        margin-bottom: 32px;
+      }
+      #s6-eyebrow {
+        font-family: "Space Grotesk", sans-serif; font-weight: 700;
+        font-size: 17px; letter-spacing: 0.32em; text-transform: uppercase;
+        color: #E91E8C; margin-bottom: 36px;
+      }
+      #s6-cta {
+        font-family: "Anton", sans-serif;
+        font-size: 180px; line-height: 0.86;
+        letter-spacing: -0.03em; color: #0F172A;
+        margin-bottom: 8px;
+      }
+      #s6-cta span {
+        background: linear-gradient(135deg, #E91E8C, #06B6D4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      #s6-rule {
+        width: 600px; height: 3px;
+        background: linear-gradient(90deg, #E91E8C, #06B6D4);
+        transform-origin: left center; margin-top: 32px; margin-bottom: 36px;
+        border-radius: 2px;
+      }
+      #s6-url {
+        font-family: "Space Grotesk", sans-serif; font-weight: 500;
+        font-size: 40px; letter-spacing: 0.08em; color: #0F172A;
+      }
+      #s6-note {
+        font-family: "DM Sans", sans-serif; font-weight: 300;
+        font-size: 22px; color: #94A3B8; margin-top: 14px;
+        letter-spacing: 0.02em;
+      }
+      #s6-badges {
+        display: flex; gap: 24px; margin-top: 28px;
+      }
+      .s6-badge {
+        display: flex; align-items: center; gap: 8px;
+        font-family: "DM Sans", sans-serif; font-weight: 400;
+        font-size: 20px; color: #475569;
+      }
+      .s6-badge-check {
+        width: 24px; height: 24px; border-radius: 50%;
+        background: #22C55E;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 12px; color: #fff; font-weight: 700;
+      }
+      #s6-dot1 {
+        position: absolute; right: 240px; top: 30%;
+        width: 120px; height: 120px; border-radius: 50%;
+        background: linear-gradient(135deg, #E91E8C, #06B6D4);
+      }
+      #s6-dot2 {
+        position: absolute; right: 320px; bottom: 20%;
+        width: 60px; height: 60px; border-radius: 50%;
+        background: #06B6D4; opacity: 0.4;
+      }
+
+      /* ── Resolve cover ── */
+      #resolve-cover {
+        position: absolute; inset: 0;
+        background: #F8FAFC; opacity: 0;
+        z-index: 70; pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="45"
+      data-width="1920"
+      data-height="1080"
+    >
+      <!-- ═══ SCENE 1 · Hook (0–6s) ═══ -->
+      <div id="scene1" class="scene">
+        <div id="s1-panel" data-layout-ignore></div>
+        <div id="s1-vdivider" data-layout-ignore></div>
+        <div id="s1-label">CléAvenir · 2025</div>
+        <div id="s1-icon" data-layout-ignore>✦</div>
+        <div id="s1-word1">TON</div>
+        <div id="s1-word2" style="background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AVENIR</div>
+        <div id="s1-tagline">Le test de carrière intelligent.</div>
+        <div id="s1-badge">✦ Propulsé par l'IA · 100% Gratuit</div>
+        <div id="s1-dot" data-layout-ignore></div>
+      </div>
+
+      <!-- ═══ SCENE 2 · Problem (6–13.2s) ═══ -->
+      <div id="scene2" class="scene">
+        <div id="s2-bg-qmark" data-layout-ignore>?</div>
+        <div id="s2-accent-bar" data-layout-ignore></div>
+        <div id="s2-pad">
+          <div id="s2-eyebrow">✦ La réalité d'aujourd'hui</div>
+          <div id="s2-line1">TU NE SAIS PAS</div>
+          <div id="s2-line2" class="grad-text">QUEL MÉTIER</div>
+          <div id="s2-line3">CHOISIR ?</div>
+          <div id="s2-divider"></div>
+          <div id="s2-sub">Tu n'es pas seul. 3 millions de jeunes font face à la même question.</div>
+        </div>
+      </div>
+
+      <!-- ═══ SCENE 3 · Features (13.2–20.2s) ═══ -->
+      <div id="scene3" class="scene">
+        <div id="s3-bg-stamp" data-layout-ignore>IA</div>
+        <div id="s3-scene-pad">
+          <div id="s3-eyebrow">✦ Tout ce dont tu as besoin</div>
+          <div id="s3-headline">TEST<br><em>GRATUIT.</em></div>
+          <div id="s3-hline"></div>
+          <div class="s3-feat" id="s3-f1">
+            <div class="s3-feat-check">✓</div>
+            <div class="s3-feat-text">Analyse <strong>IA</strong> de tes compétences</div>
+          </div>
+          <div class="s3-feat" id="s3-f2">
+            <div class="s3-feat-check">✓</div>
+            <div class="s3-feat-text"><strong>10 000+</strong> métiers explorés</div>
+          </div>
+          <div class="s3-feat" id="s3-f3">
+            <div class="s3-feat-check">✓</div>
+            <div class="s3-feat-text">Plan de carrière <strong>personnalisé</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SCENE 4 · Stats (20.2–28s) ═══ -->
+      <div id="scene4" class="scene">
+        <div id="s4-left">
+          <div id="s4-stat">10K+</div>
+          <div id="s4-stat-label">offres d'emploi analysées</div>
+          <div id="s4-stat-sub">Chaque semaine · Mis à jour en temps réel</div>
+          <div id="s4-bar-wrap"><div id="s4-bar"></div></div>
+        </div>
+        <div id="s4-divider" data-layout-ignore></div>
+        <div id="s4-right">
+          <div id="s4-right-eyebrow">Ton futur t'attend</div>
+          <div id="s4-right-title">DÉCOUVRE<br>TON VRAI<br>POTENTIEL</div>
+          <div id="s4-right-body">En 10 minutes, CléAvenir identifie tes forces et te connecte aux métiers qui te correspondent vraiment.</div>
+        </div>
+      </div>
+
+      <!-- ═══ SCENE 5 · Benefits (28–36.5s) ═══ -->
+      <div id="scene5" class="scene">
+        <div id="s5-bg-word" data-layout-ignore>SIMPLE</div>
+        <div id="s5-left-panel" data-layout-ignore>
+          <div id="s5-left-label">Pourquoi CléAvenir</div>
+          <div id="s5-big">EN<br>10<br>MIN.</div>
+          <div id="s5-big-sub">Résultats<br>immédiats</div>
+        </div>
+        <div id="s5-vdivider" data-layout-ignore></div>
+        <div id="s5-right">
+          <div id="s5-right-eyebrow">Ce que tu obtiens</div>
+          <div class="s5-benefit" id="s5-b1">
+            <div class="s5-benefit-num">01</div>
+            <div class="s5-benefit-text">Ton profil de compétences <strong>complet</strong></div>
+          </div>
+          <div class="s5-benefit" id="s5-b2">
+            <div class="s5-benefit-num">02</div>
+            <div class="s5-benefit-text">Les métiers qui te correspondent <strong>vraiment</strong></div>
+          </div>
+          <div class="s5-benefit" id="s5-b3">
+            <div class="s5-benefit-num">03</div>
+            <div class="s5-benefit-text">Un plan de carrière <strong>personnalisé par l'IA</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ SCENE 6 · CTA (36.5–45s) ═══ -->
+      <div id="scene6" class="scene">
+        <div id="s6-bg-word" data-layout-ignore>AVENIR</div>
+        <div id="s6-dot1" data-layout-ignore></div>
+        <div id="s6-dot2" data-layout-ignore></div>
+        <div id="s6-pad">
+          <div id="s6-brand" class="grad-text">CléAvenir</div>
+          <div id="s6-eyebrow">Commence maintenant</div>
+          <div id="s6-cta">COMMENCE<span>.</span></div>
+          <div id="s6-rule"></div>
+          <div id="s6-url">cleavenir.com</div>
+          <div id="s6-badges">
+            <div class="s6-badge"><div class="s6-badge-check">✓</div>Sans inscription</div>
+            <div class="s6-badge"><div class="s6-badge-check">✓</div>Résultat immédiat</div>
+            <div class="s6-badge"><div class="s6-badge-check">✓</div>100% Gratuit</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="resolve-cover" data-layout-ignore></div>
+
+      <audio id="el-music" data-start="0" data-duration="45"
+        data-track-index="3" data-volume="0.3" src="music.mp3"></audio>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      /* ── Initial states ── */
+      gsap.set("#scene2, #scene3, #scene4, #scene5, #scene6", { opacity: 0 });
+
+      // S1
+      gsap.set("#s1-panel",    { scaleX: 0, transformOrigin: "left center" });
+      gsap.set("#s1-vdivider", { scaleY: 0 });
+      gsap.set("#s1-word1",    { opacity: 0, x: -80 });
+      gsap.set("#s1-word2",    { opacity: 0, x:  60 });
+      gsap.set("#s1-tagline",  { opacity: 0, y: 20 });
+      gsap.set("#s1-badge",    { opacity: 0, y: 12 });
+      gsap.set("#s1-label",    { opacity: 0 });
+      gsap.set("#s1-icon",     { opacity: 0 });
+      gsap.set("#s1-dot",      { scale: 0, transformOrigin: "50% 50%" });
+
+      // S2
+      gsap.set("#s2-accent-bar", { scaleY: 0 });
+      gsap.set("#s2-eyebrow",    { opacity: 0 });
+      gsap.set("#s2-line1, #s2-line2, #s2-line3", { opacity: 0, x: -60 });
+      gsap.set("#s2-divider",    { scaleX: 0 });
+      gsap.set("#s2-sub",        { opacity: 0, y: 16 });
+
+      // S3
+      gsap.set("#s3-eyebrow",    { opacity: 0 });
+      gsap.set("#s3-headline",   { opacity: 0, y: 30 });
+      gsap.set("#s3-f1, #s3-f2, #s3-f3", { opacity: 0, x: -40 });
+      gsap.set("#s3-hline",      { scaleX: 0 });
+
+      // S4
+      gsap.set("#s4-stat, #s4-stat-label, #s4-stat-sub, #s4-right-eyebrow, #s4-right-title, #s4-right-body", { opacity: 0 });
+      gsap.set("#s4-stat",        { y: 40 });
+      gsap.set("#s4-right-title", { x: 30 });
+      gsap.set("#s4-right-body",  { y: 16 });
+      gsap.set("#s4-bar",         { scaleX: 0 });
+      gsap.set("#s4-divider",     { scaleY: 0 });
+
+      // S5
+      gsap.set("#s5-left-panel",     { x: -640 });
+      gsap.set("#s5-vdivider",       { scaleY: 0 });
+      gsap.set("#s5-right-eyebrow",  { opacity: 0 });
+      gsap.set("#s5-b1, #s5-b2, #s5-b3", { opacity: 0, x: 40 });
+
+      // S6
+      gsap.set("#s6-brand, #s6-eyebrow, #s6-cta, #s6-rule, #s6-url, #s6-badges", { opacity: 0 });
+      gsap.set("#s6-cta",    { y: 40 });
+      gsap.set("#s6-url",    { y: 16 });
+      gsap.set("#s6-rule",   { scaleX: 0 });
+      gsap.set("#s6-badges", { y: 12 });
+      gsap.set("#s6-dot1",   { scale: 0, transformOrigin: "50% 50%" });
+      gsap.set("#s6-dot2",   { scale: 0, transformOrigin: "50% 50%" });
+
+      gsap.set("#resolve-cover", { opacity: 0 });
+
+      /* ══════════════════════════════
+         SCENE 1 · Build (0 – 2.8s)
+         ══════════════════════════════ */
+      tl.fromTo("#s1-panel",    { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power4.out" }, 0.1);
+      tl.fromTo("#s1-vdivider", { scaleY: 0 }, { scaleY: 1, duration: 0.4,  ease: "power3.out" }, 0.12);
+      tl.fromTo("#s1-label",    { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 0.3);
+      tl.fromTo("#s1-icon",     { opacity: 0 }, { opacity: 0.5, duration: 0.4, ease: "power2.out" }, 0.35);
+      tl.fromTo("#s1-word1",    { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.3, ease: "power4.out" }, 0.22);
+      tl.fromTo("#s1-word2",    { opacity: 0, x:  60 }, { opacity: 1, x: 0, duration: 0.3, ease: "power4.out" }, 0.32);
+      tl.fromTo("#s1-tagline",  { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 0.75);
+      tl.fromTo("#s1-badge",    { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 1.0);
+      tl.fromTo("#s1-dot",      { scale: 0 }, { scale: 1, duration: 0.35, ease: "back.out(1.7)" }, 1.15);
+
+      /* SCENE 1 · Breathe (2.8 – 5.8s) */
+      tl.to("#s1-dot",   { scale: 1.2, yoyo: true, repeat: 1, duration: 0.9, ease: "sine.inOut", transformOrigin: "50% 50%" }, 2.8);
+      tl.to("#s1-panel", { scaleX: 1.02, yoyo: true, repeat: 1, duration: 1.0, ease: "sine.inOut", transformOrigin: "left center" }, 3.0);
+
+      /* ══════════════════════════════
+         TRANSITION 1→2 · Zoom @ t=6.0
+         ══════════════════════════════ */
+      tl.to("#scene1", { scale: 1.12, filter: "blur(18px)", opacity: 0, duration: 0.35, ease: "power3.in" }, 6.0);
+      tl.to("#scene2", { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.4, ease: "expo.out" }, 6.0);
+      tl.set("#scene1", { visibility: "hidden" }, 6.4);
+
+      /* ══════════════════════════════
+         SCENE 2 · Build (6.4 – 9.5s)
+         ══════════════════════════════ */
+      tl.fromTo("#s2-accent-bar", { scaleY: 0 }, { scaleY: 1, duration: 0.5,  ease: "power3.out" }, 6.45);
+      tl.fromTo("#s2-eyebrow",    { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.38, ease: "expo.out" }, 6.6);
+      tl.fromTo("#s2-line1",      { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.32, ease: "power4.out" }, 6.8);
+      tl.fromTo("#s2-line2",      { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.32, ease: "power4.out" }, 6.96);
+      tl.fromTo("#s2-line3",      { opacity: 0, x: -60 }, { opacity: 1, x: 0, duration: 0.32, ease: "power4.out" }, 7.12);
+      tl.fromTo("#s2-divider",    { scaleX: 0 }, { scaleX: 1, duration: 0.55, ease: "power2.out" }, 7.5);
+      tl.fromTo("#s2-sub",        { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "sine.out" }, 7.75);
+
+      /* SCENE 2 · Breathe (9.5 – 12.8s) */
+      tl.to("#s2-accent-bar", { opacity: 0.4, yoyo: true, repeat: 2, duration: 0.8, ease: "sine.inOut" }, 9.5);
+      tl.to("#s2-bg-qmark",   { y: 48, duration: 7, ease: "none" }, 6.45);
+
+      /* ══════════════════════════════
+         TRANSITION 2→3 · Zoom @ t=13.2
+         ══════════════════════════════ */
+      tl.to("#scene2", { scale: 1.12, filter: "blur(18px)", opacity: 0, duration: 0.35, ease: "power3.in" }, 13.2);
+      tl.to("#scene3", { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.4, ease: "expo.out" }, 13.2);
+      tl.set("#scene2", { visibility: "hidden" }, 13.6);
+
+      /* ══════════════════════════════
+         SCENE 3 · Build (13.6 – 16.8s)
+         ══════════════════════════════ */
+      tl.fromTo("#s3-eyebrow",  { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.38, ease: "expo.out" }, 13.65);
+      tl.fromTo("#s3-headline", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.42, ease: "power4.out" }, 13.85);
+      tl.fromTo("#s3-hline",    { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 14.2);
+      [["#s3-f1", 14.5], ["#s3-f2", 14.95], ["#s3-f3", 15.4]].forEach(function(r) {
+        tl.fromTo(r[0], { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "expo.out" }, r[1]);
+      });
+
+      /* SCENE 3 · Breathe (16.8 – 20.0s) */
+      tl.to("#s3-bg-stamp", { y: 24, duration: 7, ease: "none" }, 13.2);
+
+      /* ══════════════════════════════
+         TRANSITION 3→4 · Blur crossfade @ t=20.2
+         ══════════════════════════════ */
+      tl.to("#scene3", { opacity: 0, filter: "blur(12px)", duration: 0.4, ease: "power2.in"  }, 20.2);
+      tl.to("#scene4", { opacity: 1, filter: "blur(12px)", duration: 0.4, ease: "power2.out" }, 20.2);
+      tl.to("#scene4", { filter: "blur(0px)", duration: 0.35, ease: "power3.out", overwrite: "auto" }, 20.35);
+      tl.set("#scene3", { visibility: "hidden" }, 20.6);
+
+      /* ══════════════════════════════
+         SCENE 4 · Build (20.6 – 23.5s)
+         ══════════════════════════════ */
+      tl.fromTo("#s4-divider",       { scaleY: 0 }, { scaleY: 1, duration: 0.7, ease: "power2.out" }, 20.65);
+      tl.fromTo("#s4-stat",          { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.4, ease: "power4.out" }, 20.7);
+      tl.fromTo("#s4-stat-label",    { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power2.out" }, 21.0);
+      tl.fromTo("#s4-stat-sub",      { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" }, 21.25);
+      tl.fromTo("#s4-bar",           { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: "power2.out" }, 21.4);
+      tl.fromTo("#s4-right-eyebrow", { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.38, ease: "expo.out" }, 20.9);
+      tl.fromTo("#s4-right-title",   { opacity: 0, x: 30 }, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out" }, 21.15);
+      tl.fromTo("#s4-right-body",    { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "sine.out" }, 21.6);
+
+      /* SCENE 4 · Breathe (23.5 – 27.8s) */
+      tl.to("#s4-stat", { scale: 1.03, yoyo: true, repeat: 1, duration: 1.0, ease: "sine.inOut", transformOrigin: "left center" }, 23.5);
+
+      /* ══════════════════════════════
+         TRANSITION 4→5 · Zoom @ t=28.0
+         ══════════════════════════════ */
+      tl.to("#scene4", { scale: 1.12, filter: "blur(18px)", opacity: 0, duration: 0.35, ease: "power3.in" }, 28.0);
+      tl.to("#scene5", { scale: 1, filter: "blur(0px)", opacity: 1, duration: 0.4, ease: "expo.out" }, 28.0);
+      tl.set("#scene4", { visibility: "hidden" }, 28.4);
+
+      /* ══════════════════════════════
+         SCENE 5 · Build (28.4 – 31.5s)
+         ══════════════════════════════ */
+      tl.fromTo("#s5-left-panel",    { x: -640 }, { x: 0, duration: 0.45, ease: "power4.out" }, 28.45);
+      tl.fromTo("#s5-vdivider",      { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: "power3.out" }, 28.5);
+      tl.fromTo("#s5-right-eyebrow", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.38, ease: "expo.out" }, 28.75);
+      [["#s5-b1", 29.05], ["#s5-b2", 29.5], ["#s5-b3", 29.95]].forEach(function(r) {
+        tl.fromTo(r[0], { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out" }, r[1]);
+      });
+
+      /* SCENE 5 · Breathe (31.5 – 36.2s) */
+      tl.to("#s5-left-panel", { x: -6, yoyo: true, repeat: 1, duration: 1.2, ease: "sine.inOut" }, 31.5);
+
+      /* ══════════════════════════════
+         TRANSITION 5→6 · Blur crossfade @ t=36.5
+         ══════════════════════════════ */
+      tl.to("#scene5", { opacity: 0, filter: "blur(12px)", duration: 0.4, ease: "power2.in"  }, 36.5);
+      tl.to("#scene6", { opacity: 1, filter: "blur(12px)", duration: 0.4, ease: "power2.out" }, 36.5);
+      tl.to("#scene6", { filter: "blur(0px)", duration: 0.35, ease: "power3.out", overwrite: "auto" }, 36.65);
+      tl.set("#scene5", { visibility: "hidden" }, 36.9);
+
+      /* ══════════════════════════════
+         SCENE 6 · Build (36.9 – 39.5s)
+         ══════════════════════════════ */
+      tl.fromTo("#s6-dot1",    { scale: 0 }, { scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 36.95);
+      tl.fromTo("#s6-dot2",    { scale: 0 }, { scale: 1, duration: 0.3, ease: "back.out(1.8)" }, 37.1);
+      tl.fromTo("#s6-brand",   { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out" }, 36.95);
+      tl.fromTo("#s6-eyebrow", { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.38, ease: "expo.out" }, 37.15);
+      tl.fromTo("#s6-cta",     { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "power4.out" }, 37.4);
+      tl.fromTo("#s6-rule",    { scaleX: 0 }, { scaleX: 1, duration: 0.65, ease: "power2.out" }, 37.75);
+      tl.fromTo("#s6-url",     { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 38.05);
+      tl.fromTo("#s6-badges",  { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4, ease: "sine.out" }, 38.35);
+
+      /* SCENE 6 · Breathe (39.5 – 43.0s) */
+      tl.to("#s6-dot1", { scale: 1.12, yoyo: true, repeat: 1, duration: 1.1, ease: "sine.inOut", transformOrigin: "50% 50%" }, 39.5);
+
+      /* ══════════════════════════════
+         RESOLVE (43.0 – 45.0s)
+         ══════════════════════════════ */
+      tl.to("#s6-cta, #s6-url, #s6-badges", {
+        opacity: 0, y: -24, duration: 0.55, stagger: 0.08, ease: "power2.in"
+      }, 43.0);
+      tl.fromTo("#resolve-cover",
+        { opacity: 0 },
+        { opacity: 1, duration: 2.0, ease: "power2.inOut" },
+        43.0
+      );
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
