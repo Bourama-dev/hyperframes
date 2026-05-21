@@ -1,0 +1,80 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:1920px;height:1080px;overflow:hidden}
+#s16{position:relative;width:1920px;height:1080px;background:#0A0F1E;overflow:hidden}
+#s16-grad-tl{position:absolute;top:-180px;left:-180px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(233,30,140,.2) 0%,transparent 70%);pointer-events:none}
+#s16-grad-br{position:absolute;bottom:-200px;right:-200px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(6,182,212,.15) 0%,transparent 70%);pointer-events:none}
+#s16-ghost{position:absolute;right:-30px;bottom:-80px;font-family:"Syne",sans-serif;font-size:460px;line-height:1;color:rgba(233,30,140,.05);pointer-events:none;user-select:none;font-weight:800}
+#s16-pad{display:flex;flex-direction:column;justify-content:center;width:100%;height:100%;padding:0 220px}
+#s16-logo-row{display:flex;align-items:center;gap:14px;margin-bottom:28px;opacity:0}
+#s16-logo-svg{width:52px;height:56px}
+#s16-brand{font-family:"Syne",sans-serif;font-weight:800;font-size:38px;background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#s16-eyebrow{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:#E91E8C;margin-bottom:22px;opacity:0}
+#s16-cta{font-family:"Syne",sans-serif;font-size:150px;line-height:.86;letter-spacing:-.03em;color:#F8FAFC;margin-bottom:6px;opacity:0;position:relative}
+#s16-cta span{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+/* shimmer */
+#s16-shimmer{position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);transform:skewX(-15deg);pointer-events:none}
+#s16-rule{width:560px;height:3px;background:linear-gradient(90deg,#E91E8C,#06B6D4);transform-origin:left;margin-top:24px;margin-bottom:26px;border-radius:2px;opacity:0}
+#s16-url{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:38px;letter-spacing:.08em;color:#F8FAFC;margin-bottom:22px;opacity:0}
+#s16-trust{display:flex;gap:22px;opacity:0}
+.s16-t{display:flex;align-items:center;gap:6px;font-family:"Inter",sans-serif;font-size:16px;color:#94A3B8}
+.s16-chk{width:20px;height:20px;border-radius:50%;background:#22C55E;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;flex-shrink:0}
+#vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 38%,rgba(0,0,0,.4) 100%)}
+</style></head><body>
+<div id="s16" data-composition-id="s16-cta" data-width="1920" data-height="1080" data-start="0" data-duration="6.0">
+  <div id="s16-grad-tl"></div><div id="s16-grad-br"></div>
+  <div id="s16-ghost">AVENIR</div>
+  <div id="s16-pad">
+    <div id="s16-logo-row">
+      <svg id="s16-logo-svg" viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="gTc" x1="240" y1="430" x2="240" y2="175" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FF5060"/><stop offset="55%" stop-color="#C040C8"/><stop offset="100%" stop-color="#20C0D0"/></linearGradient></defs>
+        <line x1="240" y1="430" x2="240" y2="175" stroke="url(#gTc)" stroke-width="38" stroke-linecap="round"/>
+        <line x1="240" y1="295" x2="110" y2="210" stroke="#20C0D0" stroke-width="34" stroke-linecap="round"/>
+        <line x1="240" y1="295" x2="375" y2="225" stroke="#C040C8" stroke-width="34" stroke-linecap="round"/>
+        <line x1="240" y1="175" x2="140" y2="88" stroke="#20C0D0" stroke-width="30" stroke-linecap="round"/>
+        <line x1="240" y1="175" x2="355" y2="83" stroke="#50D070" stroke-width="30" stroke-linecap="round"/>
+        <circle cx="240" cy="430" r="46" fill="#FF5060"/>
+        <circle cx="110" cy="210" r="40" fill="#20C0D0"/>
+        <circle cx="375" cy="225" r="38" fill="#C040C8"/>
+        <circle cx="140" cy="88" r="40" fill="#50D070"/>
+        <circle cx="355" cy="83" r="40" fill="#50D070"/>
+      </svg>
+      <div id="s16-brand">CléAvenir</div>
+    </div>
+    <div id="s16-eyebrow">Commence maintenant · C'est gratuit 🎁</div>
+    <div id="s16-cta">COMMENCE<span>.</span><div id="s16-shimmer"></div></div>
+    <div id="s16-rule"></div>
+    <div id="s16-url">cleavenir.com</div>
+    <div id="s16-trust">
+      <div class="s16-t"><div class="s16-chk">✓</div>Sans inscription</div>
+      <div class="s16-t"><div class="s16-chk">✓</div>Résultat immédiat</div>
+      <div class="s16-t"><div class="s16-chk">✓</div>100% Gratuit</div>
+      <div class="s16-t"><div class="s16-chk">✓</div>Propulsé par l'IA</div>
+    </div>
+  </div>
+  <div id="vignette"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+
+tl.fromTo("#s16-logo-row", { opacity:0, y:10 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, 0);
+tl.fromTo("#s16-eyebrow", { opacity:0, y:8 }, { opacity:1, y:0, duration:.28, ease:"expo.out" }, .18);
+tl.fromTo("#s16-cta", { opacity:0, y:36 }, { opacity:1, y:0, duration:.38, ease:"power4.out" }, .3);
+tl.fromTo("#s16-rule", { opacity:0, scaleX:0 }, { opacity:1, scaleX:1, duration:.52, ease:"power2.out" }, .6);
+tl.fromTo("#s16-url", { opacity:0, y:10 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, .84);
+tl.fromTo("#s16-trust", { opacity:0, y:8 }, { opacity:1, y:0, duration:.3, ease:"sine.out" }, 1.04);
+/* shimmer loop (3 passes) */
+tl.fromTo("#s16-shimmer", { left:"-120%" }, { left:"160%", duration:1.1, ease:"power1.inOut" }, 1.2);
+tl.fromTo("#s16-shimmer", { left:"-120%" }, { left:"160%", duration:1.1, ease:"power1.inOut" }, 2.8);
+tl.fromTo("#s16-shimmer", { left:"-120%" }, { left:"160%", duration:1.1, ease:"power1.inOut" }, 4.4);
+/* Resolve: fade to white starting at 4.0s */
+tl.to("#s16", { background:"#F8FAFC", duration:2.0, ease:"power2.inOut" }, 4.0);
+tl.to("#s16-ghost,#s16-grad-tl,#s16-grad-br,#vignette", { opacity:0, duration:1.5, ease:"power2.inOut" }, 4.2);
+tl.fromTo("#s16", { opacity:1 }, { opacity:0, duration:0, ease:"none" }, 6.0);
+
+window.__timelines["s16-cta"] = tl;
+</script></body></html>

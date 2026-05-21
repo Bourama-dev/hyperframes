@@ -1,0 +1,68 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:1920px;height:1080px;overflow:hidden}
+#s09{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.app-left{position:absolute;left:0;top:0;width:540px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 100px}
+.app-emoji{font-size:60px;margin-bottom:14px}
+.app-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.18);border-radius:100px;padding:6px 14px;width:fit-content;margin-bottom:18px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E91E8C}
+.app-heading{font-family:"Syne",sans-serif;font-size:54px;line-height:.92;letter-spacing:-.02em;color:#0F172A;margin-bottom:16px;font-weight:800}
+.app-body{font-family:"Inter",sans-serif;font-size:17px;line-height:1.6;color:#64748B;max-width:340px}
+.browser{position:absolute;left:560px;top:130px;width:1320px;height:810px;border-radius:14px;box-shadow:0 48px 140px rgba(15,23,42,.2);overflow:hidden;background:#fff}
+.b-chrome{height:46px;background:#F1F3F4;display:flex;align-items:center;padding:0 14px;gap:10px;border-bottom:1px solid #E2E8F0}
+.b-lights{display:flex;gap:6px}.b-tc{width:12px;height:12px;border-radius:50%}
+.b-red{background:#FF5F57}.b-yellow{background:#FFBD2E}.b-green{background:#28C840}
+.b-url{flex:1;height:26px;max-width:360px;margin:0 auto;background:#fff;border:1px solid #E2E8F0;border-radius:5px;display:flex;align-items:center;padding:0 10px;gap:5px;font-family:"Inter",sans-serif;font-size:12px;color:#475569}
+.b-content{height:764px;overflow:hidden;position:relative;background:#fff;padding:20px 26px;display:flex;flex-direction:column;gap:14px}
+#s9-head{display:flex;justify-content:space-between;align-items:center}
+#s9-title{font-family:"Syne",sans-serif;font-weight:700;font-size:20px;color:#0F172A}
+.ltabs{display:flex;gap:7px}
+.ltab{padding:6px 14px;border-radius:100px;font-family:"Space Grotesk",sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;border:1.5px solid #E2E8F0;color:#64748B;background:#fff}
+.ltab.a{background:#E91E8C;color:#fff;border-color:#E91E8C}
+.f-card{background:#F8FAFC;border-radius:11px;padding:14px 18px;border:1.5px solid #F1F5F9;display:flex;gap:12px;align-items:flex-start}
+.f-badge{background:linear-gradient(135deg,#E91E8C,#06B6D4);color:#fff;font-family:"Space Grotesk",sans-serif;font-size:10px;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.05em;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.f-info{flex:1}
+.f-name{font-family:"Syne",sans-serif;font-weight:700;font-size:15px;color:#0F172A;margin-bottom:3px}
+.f-school{font-family:"Inter",sans-serif;font-size:13px;color:#64748B;margin-bottom:4px}
+.f-meta{display:flex;gap:12px}
+.f-loc{font-family:"Inter",sans-serif;font-size:12px;color:#94A3B8}
+.f-match-btn{background:#22C55E;color:#fff;border:none;padding:7px 14px;border-radius:100px;font-family:"Inter",sans-serif;font-size:12px;font-weight:600;flex-shrink:0;align-self:center}
+#vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
+</style></head><body>
+<div id="s09" data-composition-id="s09-formations" data-width="1920" data-height="1080" data-start="0" data-duration="7.2">
+  <div class="app-left" id="s9-left">
+    <div class="app-emoji">🎓</div>
+    <div class="app-eyebrow">✦ Se former</div>
+    <div class="app-heading">TA FORMATION<br><span class="grad">IDÉALE.</span></div>
+    <div class="app-body">BTS, Licence, Master — filtrés par ton profil et ta ville. Alternance incluse. 📚</div>
+  </div>
+  <div id="s9-browser" class="browser">
+    <div class="b-chrome"><div class="b-lights"><div class="b-tc b-red"></div><div class="b-tc b-yellow"></div><div class="b-tc b-green"></div></div><div class="b-url">🔒 cleavenir.com/formations</div></div>
+    <div class="b-content">
+      <div id="s9-head"><div id="s9-title">🎓 Formations recommandées pour toi</div><div class="ltabs"><span class="ltab a">Bac+2</span><span class="ltab">Bac+3</span><span class="ltab">Master</span></div></div>
+      <div class="f-card" id="s9-f1"><div class="f-badge">BTS · 2 ans</div><div class="f-info"><div class="f-name">BTS SIO — Services Informatiques aux Organisations</div><div class="f-school">📍 Paris, Lyon, Bordeaux, Marseille</div><div class="f-meta"><span class="f-loc">🏫 120 établissements</span><span class="f-loc">💰 Alternance disponible</span></div></div><button class="f-match-btn">✓ Recommandé</button></div>
+      <div class="f-card" id="s9-f2"><div class="f-badge">Licence · 3 ans</div><div class="f-info"><div class="f-name">Licence Informatique — Développement Logiciel</div><div class="f-school">📍 Universités publiques · France entière</div><div class="f-meta"><span class="f-loc">🏫 Toutes grandes villes</span><span class="f-loc">🆓 Gratuit (Université)</span></div></div><button class="f-match-btn" style="background:#06B6D4">Explorer</button></div>
+      <div class="f-card" id="s9-f3"><div class="f-badge">Bachelor · 3 ans</div><div class="f-info"><div class="f-name">Bachelor Développeur Full Stack — Epitech / École 42</div><div class="f-school">📍 Paris · Lyon · Bordeaux · Rennes</div><div class="f-meta"><span class="f-loc">🏫 Écoles privées</span><span class="f-loc">💰 Financement CPF</span></div></div><button class="f-match-btn" style="background:#06B6D4">Explorer</button></div>
+      <div class="f-card" id="s9-f4"><div class="f-badge">Master · 5 ans</div><div class="f-info"><div class="f-name">Master Intelligence Artificielle & Data Science</div><div class="f-school">📍 Paris-Saclay, Sorbonne, CentraleSupélec</div><div class="f-meta"><span class="f-loc">🏫 Grandes Écoles</span><span class="f-loc">🎯 Bac+3 requis</span></div></div><button class="f-match-btn" style="background:#06B6D4">Explorer</button></div>
+    </div>
+  </div>
+  <div id="vignette"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+gsap.set("#s9-left", { opacity:0, y:22 });
+gsap.set("#s9-browser", { x:100, opacity:0 });
+gsap.set("#s9-f1,#s9-f2,#s9-f3,#s9-f4", { opacity:0, x:-28 });
+
+tl.fromTo("#s9-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
+tl.fromTo("#s9-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
+[["#s9-f1",.8],["#s9-f2",1.0],["#s9-f3",1.2],["#s9-f4",1.4]].forEach(function(r){ tl.fromTo(r[0],{opacity:0,x:-28},{opacity:1,x:0,duration:.34,ease:"expo.out"},r[1]); });
+tl.to("#s9-browser", { y:-7, yoyo:true, repeat:2, duration:1.4, ease:"sine.inOut" }, 2.5);
+tl.to("#s09", { opacity:0, duration:.2, ease:"power2.in" }, 7.0);
+
+window.__timelines["s09-formations"] = tl;
+</script></body></html>

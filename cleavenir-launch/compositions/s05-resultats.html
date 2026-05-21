@@ -1,0 +1,104 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden}
+#s05{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.app-left{position:absolute;left:0;top:0;width:540px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 100px}
+.app-emoji{font-size:60px;margin-bottom:14px}
+.app-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.18);border-radius:100px;padding:6px 14px;width:fit-content;margin-bottom:18px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E91E8C}
+.app-heading{font-family:"Syne",sans-serif;font-size:54px;line-height:.92;letter-spacing:-.02em;color:#0F172A;margin-bottom:16px;font-weight:800}
+.app-body{font-family:"Inter",sans-serif;font-size:17px;line-height:1.6;color:#64748B;max-width:340px}
+.browser{position:absolute;left:560px;top:130px;width:1320px;height:810px;border-radius:14px;box-shadow:0 48px 140px rgba(15,23,42,.2);overflow:hidden;background:#fff}
+.b-chrome{height:46px;background:#F1F3F4;display:flex;align-items:center;padding:0 14px;gap:10px;border-bottom:1px solid #E2E8F0}
+.b-lights{display:flex;gap:6px}.b-tc{width:12px;height:12px;border-radius:50%}
+.b-red{background:#FF5F57}.b-yellow{background:#FFBD2E}.b-green{background:#28C840}
+.b-url{flex:1;height:26px;max-width:360px;margin:0 auto;background:#fff;border:1px solid #E2E8F0;border-radius:5px;display:flex;align-items:center;padding:0 10px;gap:5px;font-family:"Inter",sans-serif;font-size:12px;color:#475569}
+.b-content{height:764px;overflow:hidden;position:relative;background:#F8FAFC;padding:28px 32px}
+/* Results page */
+#s5-done{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);border-radius:100px;padding:6px 16px;margin-bottom:22px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:13px;color:#16A34A}
+#s5-title{font-family:"Syne",sans-serif;font-weight:800;font-size:26px;color:#0F172A;margin-bottom:20px}
+#s5-layout{display:flex;gap:24px}
+#s5-score-wrap{display:flex;flex-direction:column;align-items:center;width:220px;flex-shrink:0}
+#s5-score-ring{position:relative;width:180px;height:180px}
+#s5-score-ring svg{transform:rotate(-90deg)}
+#s5-score-text{position:absolute;top:50%;left:50%;translate:-50% -50%;text-align:center}
+#s5-score-num{font-family:"Syne",sans-serif;font-weight:800;font-size:48px;line-height:1;background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#s5-score-label{font-family:"Inter",sans-serif;font-size:12px;color:#64748B;margin-top:2px}
+#s5-score-sub{font-family:"Inter",sans-serif;font-size:13px;color:#64748B;margin-top:12px;text-align:center}
+#s5-jobs{flex:1;display:flex;flex-direction:column;gap:10px}
+#s5-jobs-title{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:#E91E8C;margin-bottom:4px}
+.r-card{background:#fff;border-radius:12px;padding:14px 16px;border:1.5px solid #F1F5F9;display:flex;align-items:center;gap:14px}
+.r-ico{font-size:28px;width:44px;height:44px;background:#F8FAFC;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.r-info{flex:1}
+.r-title{font-family:"Syne",sans-serif;font-weight:700;font-size:16px;color:#0F172A;margin-bottom:4px}
+.r-meta{display:flex;align-items:center;gap:10px}
+.r-bar-wrap{flex:1;height:6px;background:#E2E8F0;border-radius:3px}
+.r-bar{height:100%;background:linear-gradient(90deg,#E91E8C,#06B6D4);border-radius:3px;width:0}
+.r-pct{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:13px;color:#E91E8C;white-space:nowrap}
+#s5-cta-btn{background:linear-gradient(135deg,#E91E8C,#06B6D4);color:#fff;border:none;padding:12px 24px;border-radius:100px;font-family:"Inter",sans-serif;font-size:14px;font-weight:600;margin-top:10px;display:inline-flex;align-items:center;gap:7px}
+#vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
+</style></head><body>
+<div id="s05" data-composition-id="s05-resultats" data-width="1920" data-height="1080" data-start="0" data-duration="6.2">
+  <div class="app-left" id="s5-left">
+    <div class="app-emoji">🏆</div>
+    <div class="app-eyebrow">✦ Résultats IA</div>
+    <div class="app-heading">TES RÉSULTATS.<br><span class="grad">L'IA A PARLÉ.</span></div>
+    <div class="app-body">Analyse instantanée. 94% de correspondance avec tes métiers de rêve. ✨</div>
+  </div>
+  <div id="s5-browser" class="browser">
+    <div class="b-chrome"><div class="b-lights"><div class="b-tc b-red"></div><div class="b-tc b-yellow"></div><div class="b-tc b-green"></div></div><div class="b-url">🔒 cleavenir.com/resultats</div></div>
+    <div class="b-content">
+      <div id="s5-done">✅ Analyse terminée · 12/12 questions</div>
+      <div id="s5-title">🎉 Voici tes métiers idéaux, Alexandre</div>
+      <div id="s5-layout">
+        <div id="s5-score-wrap">
+          <div id="s5-score-ring">
+            <svg width="180" height="180" viewBox="0 0 180 180">
+              <circle cx="90" cy="90" r="76" fill="none" stroke="#F1F5F9" stroke-width="14"/>
+              <circle id="s5-ring-fill" cx="90" cy="90" r="76" fill="none" stroke="url(#rg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="477.5" stroke-dashoffset="477.5"/>
+              <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#E91E8C"/><stop offset="100%" stop-color="#06B6D4"/></linearGradient></defs>
+            </svg>
+            <div id="s5-score-text"><div id="s5-score-num">94%</div><div id="s5-score-label">match global</div></div>
+          </div>
+          <div id="s5-score-sub">Basé sur tes<br>12 réponses</div>
+        </div>
+        <div id="s5-jobs">
+          <div id="s5-jobs-title">🎯 Tes 3 métiers recommandés</div>
+          <div class="r-card" id="s5-r1"><div class="r-ico">💻</div><div class="r-info"><div class="r-title">Développeur Full Stack</div><div class="r-meta"><div class="r-bar-wrap"><div class="r-bar" id="s5-b1" style="width:0"></div></div><div class="r-pct">94%</div></div></div></div>
+          <div class="r-card" id="s5-r2"><div class="r-ico">📊</div><div class="r-info"><div class="r-title">Data Analyst</div><div class="r-meta"><div class="r-bar-wrap"><div class="r-bar" id="s5-b2" style="width:0"></div></div><div class="r-pct">87%</div></div></div></div>
+          <div class="r-card" id="s5-r3"><div class="r-ico">🎨</div><div class="r-info"><div class="r-title">UX/UI Designer</div><div class="r-meta"><div class="r-bar-wrap"><div class="r-bar" id="s5-b3" style="width:0"></div></div><div class="r-pct">81%</div></div></div></div>
+          <button id="s5-cta-btn">📚 Voir mes formations recommandées →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="vignette"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+gsap.set("#s5-left", { opacity:0, y:22 });
+gsap.set("#s5-browser", { x:100, opacity:0 });
+gsap.set("#s5-r1,#s5-r2,#s5-r3,#s5-cta-btn", { opacity:0, y:16 });
+gsap.set("#s5-score-num", { opacity:0, scale:.7 });
+
+tl.fromTo("#s5-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
+tl.fromTo("#s5-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
+tl.fromTo("#s5-ring-fill", { strokeDashoffset:477.5 }, { strokeDashoffset:477.5*(1-.94), duration:1.0, ease:"power2.out" }, .6);
+tl.fromTo("#s5-score-num", { opacity:0, scale:.7 }, { opacity:1, scale:1, duration:.4, ease:"back.out(1.8)" }, 1.4);
+tl.fromTo("#s5-r1", { opacity:0, y:16 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, 1.0);
+tl.fromTo("#s5-r2", { opacity:0, y:16 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, 1.15);
+tl.fromTo("#s5-r3", { opacity:0, y:16 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, 1.3);
+tl.to("#s5-b1", { width:"94%", duration:.7, ease:"power2.out" }, 1.1);
+tl.to("#s5-b2", { width:"87%", duration:.65, ease:"power2.out" }, 1.26);
+tl.to("#s5-b3", { width:"81%", duration:.6, ease:"power2.out" }, 1.42);
+tl.fromTo("#s5-cta-btn", { opacity:0, y:16 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, 1.55);
+tl.to("#s5-browser", { y:-7, yoyo:true, repeat:1, duration:1.5, ease:"sine.inOut" }, 3.0);
+tl.to("#s05", { opacity:0, duration:.2, ease:"power2.in" }, 6.0);
+
+window.__timelines["s05-resultats"] = tl;
+</script></body></html>

@@ -1,0 +1,84 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:1920px;height:1080px;overflow:hidden}
+#s12{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.app-left{position:absolute;left:0;top:0;width:540px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 100px}
+.app-emoji{font-size:60px;margin-bottom:14px}
+.app-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.18);border-radius:100px;padding:6px 14px;width:fit-content;margin-bottom:18px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E91E8C}
+.app-heading{font-family:"Syne",sans-serif;font-size:54px;line-height:.92;letter-spacing:-.02em;color:#0F172A;margin-bottom:16px;font-weight:800}
+.app-body{font-family:"Inter",sans-serif;font-size:17px;line-height:1.6;color:#64748B;max-width:340px}
+.browser{position:absolute;left:560px;top:130px;width:1320px;height:810px;border-radius:14px;box-shadow:0 48px 140px rgba(15,23,42,.2);overflow:hidden;background:#fff}
+.b-chrome{height:46px;background:#F1F3F4;display:flex;align-items:center;padding:0 14px;gap:10px;border-bottom:1px solid #E2E8F0}
+.b-lights{display:flex;gap:6px}.b-tc{width:12px;height:12px;border-radius:50%}
+.b-red{background:#FF5F57}.b-yellow{background:#FFBD2E}.b-green{background:#28C840}
+.b-url{flex:1;height:26px;max-width:360px;margin:0 auto;background:#fff;border:1px solid #E2E8F0;border-radius:5px;display:flex;align-items:center;padding:0 10px;gap:5px;font-family:"Inter",sans-serif;font-size:12px;color:#475569}
+.b-content{height:764px;overflow:hidden;position:relative;background:#fff;display:flex}
+#s12-left-panel{width:42%;background:#F8FAFC;padding:18px 20px;border-right:1px solid #E2E8F0;display:flex;flex-direction:column;gap:10px}
+#s12-lm-title{font-family:"Syne",sans-serif;font-weight:700;font-size:16px;color:#0F172A}
+.lm-group{background:#fff;border-radius:9px;padding:12px 14px;border:1.5px solid #F1F5F9}
+.lm-lbl{font-family:"Space Grotesk",sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#94A3B8;margin-bottom:5px}
+.lm-inp{height:31px;width:100%;background:#F8FAFC;border:1px solid #E2E8F0;border-radius:5px;padding:0 9px;font-family:"Inter",sans-serif;font-size:12px;color:#0F172A;display:flex;align-items:center}
+#s12-cleo-hint{display:flex;align-items:center;gap:8px;padding:9px 12px;background:rgba(233,30,140,.05);border:1px solid rgba(233,30,140,.14);border-radius:9px}
+#s12-cleo-ico{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#06B6D4);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+#s12-cleo-txt{font-family:"Inter",sans-serif;font-size:12px;color:#E91E8C;font-weight:500}
+#s12-gen-btn{background:linear-gradient(135deg,#E91E8C,#06B6D4);color:#fff;border:none;padding:11px 18px;border-radius:100px;font-family:"Inter",sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;width:100%}
+#s12-right-panel{flex:1;padding:22px;background:#fff;display:flex;flex-direction:column}
+#s12-lm-preview{flex:1;background:#fff;border:1.5px solid #E2E8F0;border-radius:7px;padding:20px;font-family:"Inter",sans-serif;overflow:hidden;position:relative}
+#s12-cleo-badge{position:absolute;top:11px;right:11px;display:flex;align-items:center;gap:5px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.16);border-radius:100px;padding:3px 9px;font-family:"Space Grotesk",sans-serif;font-size:10px;font-weight:700;color:#E91E8C}
+#s12-lm-head{display:flex;justify-content:space-between;margin-bottom:14px}
+.lm-sender{font-size:12px;color:#0F172A;font-weight:600}
+.lm-date{font-size:12px;color:#94A3B8}
+#s12-objet{font-size:12px;font-weight:700;color:#E91E8C;margin-bottom:10px}
+#s12-body{font-size:12px;color:#334155;line-height:1.7}
+#vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
+</style></head><body>
+<div id="s12" data-composition-id="s12-lettre" data-width="1920" data-height="1080" data-start="0" data-duration="6.2">
+  <div class="app-left" id="s12-left">
+    <div class="app-emoji">✍️</div>
+    <div class="app-eyebrow">✦ Lettre IA</div>
+    <div class="app-heading">TA LETTRE<br><span class="grad">RÉDIGÉE<br>PAR CLEO.</span></div>
+    <div class="app-body">Personnalisée pour chaque offre. Percutante, en quelques secondes. ⚡</div>
+  </div>
+  <div id="s12-browser" class="browser">
+    <div class="b-chrome"><div class="b-lights"><div class="b-tc b-red"></div><div class="b-tc b-yellow"></div><div class="b-tc b-green"></div></div><div class="b-url">🔒 cleavenir.com/lettre-motivation</div></div>
+    <div class="b-content">
+      <div id="s12-left-panel">
+        <div id="s12-lm-title">✍️ Générer ma lettre</div>
+        <div class="lm-group"><div class="lm-lbl">Poste visé</div><div class="lm-inp">Développeur React — TechVentures</div></div>
+        <div class="lm-group"><div class="lm-lbl">Ton profil</div><div class="lm-inp">Alexandre M. · React, Node.js</div></div>
+        <div class="lm-group"><div class="lm-lbl">Ton point fort</div><div class="lm-inp">Passionné par l'UX et les perfs</div></div>
+        <div id="s12-cleo-hint"><div id="s12-cleo-ico">🌱</div><div id="s12-cleo-txt">Cleo adapte le ton pour maximiser tes chances ✨</div></div>
+        <button id="s12-gen-btn">✨ Rédiger avec Cleo</button>
+      </div>
+      <div id="s12-right-panel">
+        <div id="s12-lm-preview">
+          <div id="s12-cleo-badge">🌱 Rédigée par Cleo</div>
+          <div id="s12-lm-head"><div class="lm-sender">Alexandre Martin<br><span style="font-weight:400;color:#64748B">dev@email.com</span></div><div class="lm-date">Paris, 21 mai 2025</div></div>
+          <div id="s12-objet">Objet : Candidature — Développeur React Junior</div>
+          <div id="s12-body">Madame, Monsieur,<br><br>Passionné par le développement web, je souhaite rejoindre <strong>TechVentures</strong> en tant que Développeur React Junior. Grâce à ma maîtrise de React et Node.js, je suis convaincu de pouvoir contribuer à vos projets.<br><br>Mon expérience en stage m'a permis de travailler en équipe Agile tout en développant des applications performantes. Mon attrait pour l'UX me pousse à créer des interfaces intuitives.<br><br>Je serais ravi d'échanger avec vous.<br><br>Cordialement,<br><strong>Alexandre Martin</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="vignette"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+gsap.set("#s12-left", { opacity:0, y:22 });
+gsap.set("#s12-browser", { x:100, opacity:0 });
+gsap.set("#s12-lm-head,#s12-objet,#s12-body", { opacity:0 });
+
+tl.fromTo("#s12-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
+tl.fromTo("#s12-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
+tl.to("#s12-browser", { y:-6, yoyo:true, repeat:1, duration:1.4, ease:"sine.inOut" }, 1.0);
+tl.fromTo("#s12-lm-head,#s12-objet", { opacity:0 }, { opacity:1, duration:.36, stagger:.13 }, 1.5);
+tl.fromTo("#s12-body", { opacity:0, y:7 }, { opacity:1, y:0, duration:.5, ease:"sine.out" }, 1.9);
+tl.to("#s12", { opacity:0, duration:.2, ease:"power2.in" }, 6.0);
+
+window.__timelines["s12-lettre"] = tl;
+</script></body></html>

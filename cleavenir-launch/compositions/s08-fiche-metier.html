@@ -1,0 +1,99 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:1920px;height:1080px;overflow:hidden}
+#s08{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.app-left{position:absolute;left:0;top:0;width:540px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 100px}
+.app-emoji{font-size:60px;margin-bottom:14px}
+.app-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.18);border-radius:100px;padding:6px 14px;width:fit-content;margin-bottom:18px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E91E8C}
+.app-heading{font-family:"Syne",sans-serif;font-size:54px;line-height:.92;letter-spacing:-.02em;color:#0F172A;margin-bottom:16px;font-weight:800}
+.app-body{font-family:"Inter",sans-serif;font-size:17px;line-height:1.6;color:#64748B;max-width:340px}
+.browser{position:absolute;left:560px;top:130px;width:1320px;height:810px;border-radius:14px;box-shadow:0 48px 140px rgba(15,23,42,.2);overflow:hidden;background:#fff}
+.b-chrome{height:46px;background:#F1F3F4;display:flex;align-items:center;padding:0 14px;gap:10px;border-bottom:1px solid #E2E8F0}
+.b-lights{display:flex;gap:6px}.b-tc{width:12px;height:12px;border-radius:50%}
+.b-red{background:#FF5F57}.b-yellow{background:#FFBD2E}.b-green{background:#28C840}
+.b-url{flex:1;height:26px;max-width:360px;margin:0 auto;background:#fff;border:1px solid #E2E8F0;border-radius:5px;display:flex;align-items:center;padding:0 10px;gap:5px;font-family:"Inter",sans-serif;font-size:12px;color:#475569}
+.b-content{height:764px;overflow:hidden;position:relative;background:#fff;padding:22px 28px;display:flex;flex-direction:column;gap:16px}
+#s8-header{display:flex;align-items:flex-start;justify-content:space-between}
+#s8-meta-left{flex:1}
+#s8-breadcrumb{font-family:"Inter",sans-serif;font-size:12px;color:#94A3B8;margin-bottom:7px}
+#s8-title-row{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+#s8-ico{font-size:36px}
+#s8-title{font-family:"Syne",sans-serif;font-weight:800;font-size:26px;color:#0F172A}
+#s8-tags{display:flex;gap:7px;flex-wrap:wrap}
+.s8-tag{display:inline-flex;align-items:center;gap:4px;font-family:"Inter",sans-serif;font-size:12px;color:#475569;background:#F1F5F9;padding:3px 9px;border-radius:6px}
+#s8-match-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(233,30,140,.08);border:1px solid rgba(233,30,140,.18);border-radius:100px;padding:6px 14px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:13px;color:#E91E8C;flex-shrink:0}
+#s8-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1}
+.s8-panel{background:#F8FAFC;border-radius:11px;padding:14px 16px}
+.s8-p-title{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#E91E8C;margin-bottom:10px}
+.sal-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.sal-label{font-family:"Inter",sans-serif;font-size:12px;color:#64748B}
+.sal-val{font-family:"Syne",sans-serif;font-size:18px;font-weight:700;color:#0F172A}
+.sal-bar-wrap{height:8px;background:#E2E8F0;border-radius:4px;margin-top:6px}
+.sal-bar{height:100%;background:linear-gradient(90deg,#E91E8C,#06B6D4);border-radius:4px;width:0}
+.skills-wrap{display:flex;flex-wrap:wrap;gap:6px}
+.skill{display:inline-flex;align-items:center;gap:4px;background:rgba(233,30,140,.07);color:#E91E8C;font-family:"Inter",sans-serif;font-size:12px;font-weight:600;padding:4px 10px;border-radius:100px}
+.outlook-row{display:flex;align-items:center;gap:8px}
+.outlook-ico{font-size:24px}
+.outlook-txt{font-family:"Inter",sans-serif;font-size:14px;color:#22C55E;font-weight:600}
+#s8-cleo-strip{display:flex;align-items:center;gap:10px;background:rgba(233,30,140,.05);border:1px solid rgba(233,30,140,.14);border-radius:10px;padding:10px 14px;margin-top:auto}
+#s8-cleo-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#06B6D4);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+#s8-cleo-txt{font-family:"Inter",sans-serif;font-size:13px;color:#E91E8C;font-weight:500}
+#s8-cleo-btn{background:#E91E8C;color:#fff;border:none;padding:7px 16px;border-radius:100px;font-family:"Inter",sans-serif;font-size:12px;font-weight:600;margin-left:auto;white-space:nowrap}
+#vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
+</style></head><body>
+<div id="s08" data-composition-id="s08-fiche-metier" data-width="1920" data-height="1080" data-start="0" data-duration="6.2">
+  <div class="app-left" id="s8-left">
+    <div class="app-emoji">🔍</div>
+    <div class="app-eyebrow">✦ Fiche Métier</div>
+    <div class="app-heading">TOUT SUR<br><span class="grad">UN SEUL<br>MÉTIER.</span></div>
+    <div class="app-body">Salaire, compétences, débouchés — chaque fiche est complète et à jour. 📈</div>
+  </div>
+  <div id="s8-browser" class="browser">
+    <div class="b-chrome"><div class="b-lights"><div class="b-tc b-red"></div><div class="b-tc b-yellow"></div><div class="b-tc b-green"></div></div><div class="b-url">🔒 cleavenir.com/metiers/developpeur-full-stack</div></div>
+    <div class="b-content">
+      <div id="s8-header">
+        <div id="s8-meta-left">
+          <div id="s8-breadcrumb">← Métiers / Tech &amp; Digital</div>
+          <div id="s8-title-row"><div id="s8-ico">💻</div><div id="s8-title">Développeur Full Stack</div></div>
+          <div id="s8-tags"><span class="s8-tag">💼 CDI</span><span class="s8-tag">🏠 Télétravail</span><span class="s8-tag">📈 En croissance</span><span class="s8-tag">🎓 Bac+2 min.</span></div>
+        </div>
+        <div id="s8-match-badge">🎯 94% match</div>
+      </div>
+      <div id="s8-grid">
+        <div class="s8-panel" id="s8-p1"><div class="s8-p-title">💰 Salaire</div><div class="sal-row"><span class="sal-label">Junior</span><span class="sal-val">32 k€</span></div><div class="sal-bar-wrap"><div class="sal-bar" id="s8-bar1"></div></div><div class="sal-row" style="margin-top:8px"><span class="sal-label">Sénior</span><span class="sal-val">70 k€</span></div><div class="sal-bar-wrap"><div class="sal-bar" id="s8-bar2"></div></div></div>
+        <div class="s8-panel" id="s8-p2"><div class="s8-p-title">⚡ Compétences clés</div><div class="skills-wrap"><span class="skill">React</span><span class="skill">Node.js</span><span class="skill">Python</span><span class="skill">SQL</span><span class="skill">Docker</span><span class="skill">Git</span><span class="skill">API REST</span></div></div>
+        <div class="s8-panel" id="s8-p3"><div class="s8-p-title">📊 Perspectives</div><div class="outlook-row"><span class="outlook-ico">🚀</span><span class="outlook-txt">Marché en forte croissance</span></div><div style="font-family:'Inter',sans-serif;font-size:13px;color:#64748B;margin-top:8px;line-height:1.5">+35% d'offres en 2024.<br>Pénurie de profils qualifiés.</div></div>
+        <div class="s8-panel" id="s8-p4"><div class="s8-p-title">🎓 Formations recommandées</div><div style="font-family:'Inter',sans-serif;font-size:13px;color:#475569;line-height:1.6">• BTS SIO (2 ans)<br>• Licence Informatique (3 ans)<br>• Bachelor Dev (École 42/Epitech)</div></div>
+      </div>
+      <div id="s8-cleo-strip"><div id="s8-cleo-av">🌱</div><div id="s8-cleo-txt">Cleo peut créer un plan d'action personnalisé pour ce métier ✨</div><button id="s8-cleo-btn">Demander à Cleo →</button></div>
+    </div>
+  </div>
+  <div id="vignette"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+gsap.set("#s8-left", { opacity:0, y:22 });
+gsap.set("#s8-browser", { x:100, opacity:0 });
+gsap.set("#s8-p1,#s8-p2,#s8-p3,#s8-p4,#s8-cleo-strip", { opacity:0, y:14 });
+gsap.set("#s8-match-badge", { opacity:0, scale:.88 });
+
+tl.fromTo("#s8-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
+tl.fromTo("#s8-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
+tl.fromTo("#s8-match-badge", { opacity:0, scale:.88 }, { opacity:1, scale:1, duration:.32, ease:"back.out(1.8)" }, .6);
+tl.fromTo("#s8-p1", { opacity:0, y:14 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, .75);
+tl.fromTo("#s8-p2", { opacity:0, y:14 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, .88);
+tl.fromTo("#s8-p3", { opacity:0, y:14 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, 1.0);
+tl.fromTo("#s8-p4", { opacity:0, y:14 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, 1.12);
+tl.to("#s8-bar1", { width:"46%", duration:.65, ease:"power2.out" }, .9);
+tl.to("#s8-bar2", { width:"100%", duration:.75, ease:"power2.out" }, 1.05);
+tl.fromTo("#s8-cleo-strip", { opacity:0, y:14 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, 1.4);
+tl.to("#s8-browser", { y:-7, yoyo:true, repeat:1, duration:1.4, ease:"sine.inOut" }, 3.0);
+tl.to("#s08", { opacity:0, duration:.2, ease:"power2.in" }, 6.0);
+
+window.__timelines["s08-fiche-metier"] = tl;
+</script></body></html>
