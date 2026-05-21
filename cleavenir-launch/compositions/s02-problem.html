@@ -16,7 +16,7 @@ html,body{width:1920px;height:1080px;overflow:hidden}
 #s2-sub{font-family:"Inter",sans-serif;font-weight:300;font-size:22px;color:#64748B;max-width:720px;line-height:1.6}
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 42%,rgba(0,0,0,.35) 100%)}
 </style></head><body>
-<div id="s02" data-composition-id="s02-problem" data-width="1920" data-height="1080" data-start="0" data-duration="5.2">
+<div id="s02" data-composition-id="s02-problem" data-width="1920" data-height="1080" data-start="0" data-duration="3">
   <div id="s2-ghost">?</div>
   <div id="s2-bar"></div>
   <div id="s2-pad">
@@ -38,16 +38,16 @@ gsap.set("#s2-l1,#s2-l2,#s2-l3", { opacity:0, x:-60 });
 gsap.set("#s2-rule", { scaleX:0 });
 gsap.set("#s2-sub", { y:12 });
 
-tl.fromTo("#s2-bar", { scaleY:0 }, { scaleY:1, duration:.42, ease:"power3.out" }, 0);
-tl.fromTo("#s2-eyebrow", { opacity:0, y:10 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, .18);
-tl.fromTo("#s2-l1", { opacity:0, x:-60 }, { opacity:1, x:0, duration:.26, ease:"power4.out" }, .32);
-tl.fromTo("#s2-l2", { opacity:0, x:-60 }, { opacity:1, x:0, duration:.26, ease:"power4.out" }, .46);
-tl.fromTo("#s2-l3", { opacity:0, x:-60 }, { opacity:1, x:0, duration:.26, ease:"power4.out" }, .6);
-tl.fromTo("#s2-rule", { scaleX:0 }, { scaleX:1, duration:.42, ease:"power2.out" }, .88);
-tl.fromTo("#s2-sub", { opacity:0, y:12 }, { opacity:1, y:0, duration:.38, ease:"sine.out" }, 1.08);
-tl.to("#s2-ghost", { y:50, duration:4.5, ease:"none" }, 0);
+tl.fromTo("#s2-bar", { scaleY:0 }, { scaleY:1, duration:.28, ease:"power3.out" }, 0);
+tl.fromTo("#s2-eyebrow", { opacity:0, y:10 }, { opacity:1, y:0, duration:.2, ease:"expo.out" }, .12);
+tl.fromTo("#s2-l1", { opacity:0, x:-60 }, { opacity:1, x:0, duration:.18, ease:"power4.out" }, .22);
+tl.fromTo("#s2-l2", { opacity:0, x:-60 }, { opacity:1, x:0, duration:.18, ease:"power4.out" }, .32);
+tl.fromTo("#s2-l3", { opacity:0, x:-60 }, { opacity:1, x:0, duration:.18, ease:"power4.out" }, .42);
+tl.fromTo("#s2-rule", { scaleX:0 }, { scaleX:1, duration:.28, ease:"power2.out" }, .56);
+tl.fromTo("#s2-sub", { opacity:0, y:12 }, { opacity:1, y:0, duration:.24, ease:"sine.out" }, .72);
+tl.to("#s2-ghost", { y:50, duration:2.5, ease:"none" }, 0);
 /* exit */
-tl.to("#s02", { opacity:0, duration:.2, ease:"power2.in" }, 5.0);
+tl.to("#s02", { opacity:0, duration:.18, ease:"power2.in" }, 2.8);
 
 window.__timelines["s02-problem"] = tl;
 </script></body></html>

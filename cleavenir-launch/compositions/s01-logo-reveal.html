@@ -14,7 +14,6 @@ html,body{width:1920px;height:1080px;overflow:hidden}
 #s1-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.2);border-radius:100px;padding:9px 22px;margin-top:24px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:14px;color:#E91E8C;letter-spacing:.05em}
 .sparkle{position:absolute;font-size:36px;pointer-events:none;user-select:none}
 #sp1{top:22%;left:20%}#sp2{top:18%;right:18%}#sp3{bottom:26%;left:16%}#sp4{bottom:22%;right:20%}#sp5{top:48%;left:9%}#sp6{top:42%;right:9%}
-/* particles */
 .pt{position:absolute;border-radius:50%;pointer-events:none}
 #pt1{width:8px;height:8px;background:#E91E8C;top:30%;left:35%;opacity:.4}
 #pt2{width:5px;height:5px;background:#06B6D4;top:65%;left:60%;opacity:.35}
@@ -22,10 +21,9 @@ html,body{width:1920px;height:1080px;overflow:hidden}
 #pt4{width:4px;height:4px;background:#E91E8C;top:70%;left:28%;opacity:.3}
 #pt5{width:7px;height:7px;background:#06B6D4;top:40%;left:80%;opacity:.35}
 #pt6{width:5px;height:5px;background:#22C55E;top:75%;left:72%;opacity:.3}
-/* vignette */
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 48%,rgba(0,0,0,.12) 100%)}
 </style></head><body>
-<div id="s01" data-composition-id="s01-logo-reveal" data-width="1920" data-height="1080" data-start="0" data-duration="6.2">
+<div id="s01" data-composition-id="s01-logo-reveal" data-width="1920" data-height="1080" data-start="0" data-duration="4">
   <div id="s1-glow"></div>
   <div class="sparkle" id="sp1">✨</div><div class="sparkle" id="sp2">⭐</div>
   <div class="sparkle" id="sp3">✦</div><div class="sparkle" id="sp4">🌟</div>
@@ -68,24 +66,21 @@ gsap.set("#s1-pill", { y:8, scale:.96 });
 gsap.set(".sparkle,.pt", { opacity:0, scale:0 });
 gsap.set("#lg-d1,#lg-d2,#lg-d3,#lg-d4", { scale:0, transformOrigin:"50% 50%" });
 
-tl.to("#s1-glow", { scale:1, opacity:1, duration:.8, ease:"power2.out" }, 0);
-tl.fromTo("#lg-trunk", { strokeDashoffset:255 }, { strokeDashoffset:0, duration:.52, ease:"power2.out" }, .15);
-tl.fromTo("#lg-ll", { strokeDashoffset:153 }, { strokeDashoffset:0, duration:.36, ease:"power2.out" }, .55);
-tl.fromTo("#lg-lr", { strokeDashoffset:152 }, { strokeDashoffset:0, duration:.36, ease:"power2.out" }, .55);
-tl.to("#lg-d1,#lg-d2", { scale:1, duration:.26, ease:"back.out(2)" }, .86);
-tl.fromTo("#lg-ul", { strokeDashoffset:132 }, { strokeDashoffset:0, duration:.3, ease:"power2.out" }, .76);
-tl.fromTo("#lg-ur", { strokeDashoffset:149 }, { strokeDashoffset:0, duration:.3, ease:"power2.out" }, .76);
-tl.to("#lg-d3,#lg-d4", { scale:1, duration:.26, ease:"back.out(2.2)" }, 1.02);
-tl.fromTo("#s1-brand", { opacity:0, y:10 }, { opacity:1, y:0, duration:.42, ease:"expo.out" }, 1.18);
-tl.fromTo("#s1-tagline", { opacity:0, y:12 }, { opacity:1, y:0, duration:.38, ease:"sine.out" }, 1.52);
-tl.fromTo("#s1-pill", { opacity:0, y:8, scale:.96 }, { opacity:1, y:0, scale:1, duration:.35, ease:"back.out(1.6)" }, 1.76);
-tl.fromTo(".sparkle", { opacity:0, scale:0 }, { opacity:1, scale:1, duration:.28, stagger:.07, ease:"back.out(2)" }, 1.96);
-tl.fromTo(".pt", { opacity:0, scale:0 }, { opacity:1, scale:1, duration:.4, stagger:.06, ease:"back.out(1.8)" }, 2.1);
-tl.to("#s1-logo-svg", { y:-10, yoyo:true, repeat:1, duration:1.1, ease:"sine.inOut" }, 2.9);
-tl.to("#s1-glow", { scale:1.1, yoyo:true, repeat:1, duration:1.3, ease:"sine.inOut" }, 3.1);
-tl.to(".pt", { y:-18, stagger:.08, yoyo:true, repeat:1, duration:1.4, ease:"sine.inOut" }, 3.2);
+tl.to("#s1-glow", { scale:1, opacity:1, duration:.5, ease:"power2.out" }, 0);
+tl.fromTo("#lg-trunk", { strokeDashoffset:255 }, { strokeDashoffset:0, duration:.35, ease:"power2.out" }, .1);
+tl.fromTo("#lg-ll", { strokeDashoffset:153 }, { strokeDashoffset:0, duration:.22, ease:"power2.out" }, .38);
+tl.fromTo("#lg-lr", { strokeDashoffset:152 }, { strokeDashoffset:0, duration:.22, ease:"power2.out" }, .38);
+tl.to("#lg-d1,#lg-d2", { scale:1, duration:.18, ease:"back.out(2)" }, .55);
+tl.fromTo("#lg-ul", { strokeDashoffset:132 }, { strokeDashoffset:0, duration:.2, ease:"power2.out" }, .48);
+tl.fromTo("#lg-ur", { strokeDashoffset:149 }, { strokeDashoffset:0, duration:.2, ease:"power2.out" }, .48);
+tl.to("#lg-d3,#lg-d4", { scale:1, duration:.18, ease:"back.out(2.2)" }, .62);
+tl.fromTo("#s1-brand", { opacity:0, y:10 }, { opacity:1, y:0, duration:.28, ease:"expo.out" }, .7);
+tl.fromTo("#s1-tagline", { opacity:0, y:12 }, { opacity:1, y:0, duration:.24, ease:"sine.out" }, .92);
+tl.fromTo("#s1-pill", { opacity:0, y:8, scale:.96 }, { opacity:1, y:0, scale:1, duration:.22, ease:"back.out(1.6)" }, 1.1);
+tl.fromTo(".sparkle", { opacity:0, scale:0 }, { opacity:1, scale:1, duration:.2, stagger:.05, ease:"back.out(2)" }, 1.25);
+tl.fromTo(".pt", { opacity:0, scale:0 }, { opacity:1, scale:1, duration:.25, stagger:.04, ease:"back.out(1.8)" }, 1.35);
 /* exit fade */
-tl.to("#s01", { opacity:0, duration:.2, ease:"power2.in" }, 6.0);
+tl.to("#s01", { opacity:0, duration:.18, ease:"power2.in" }, 3.8);
 
 window.__timelines["s01-logo-reveal"] = tl;
 </script></body></html>

@@ -36,7 +36,7 @@
 #s12-body{font-size:12px;color:#334155;line-height:1.7}
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
 </style></head><body>
-<div id="s12" data-composition-id="s12-lettre" data-width="1920" data-height="1080" data-start="0" data-duration="6.2">
+<div id="s12" data-composition-id="s12-lettre" data-width="1920" data-height="1080" data-start="0" data-duration="3">
   <div class="app-left" id="s12-left">
     <div class="app-emoji">✍️</div>
     <div class="app-eyebrow">✦ Lettre IA</div>
@@ -73,12 +73,11 @@ gsap.set("#s12-left", { opacity:0, y:22 });
 gsap.set("#s12-browser", { x:100, opacity:0 });
 gsap.set("#s12-lm-head,#s12-objet,#s12-body", { opacity:0 });
 
-tl.fromTo("#s12-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
-tl.fromTo("#s12-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
-tl.to("#s12-browser", { y:-6, yoyo:true, repeat:1, duration:1.4, ease:"sine.inOut" }, 1.0);
-tl.fromTo("#s12-lm-head,#s12-objet", { opacity:0 }, { opacity:1, duration:.36, stagger:.13 }, 1.5);
-tl.fromTo("#s12-body", { opacity:0, y:7 }, { opacity:1, y:0, duration:.5, ease:"sine.out" }, 1.9);
-tl.to("#s12", { opacity:0, duration:.2, ease:"power2.in" }, 6.0);
+tl.fromTo("#s12-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.26, ease:"power3.out" }, 0);
+tl.fromTo("#s12-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.3, ease:"power3.out" }, .04);
+tl.fromTo("#s12-lm-head,#s12-objet", { opacity:0 }, { opacity:1, duration:.24, stagger:.1 }, .7);
+tl.fromTo("#s12-body", { opacity:0, y:7 }, { opacity:1, y:0, duration:.35, ease:"sine.out" }, 1.1);
+tl.to("#s12", { opacity:0, duration:.18, ease:"power2.in" }, 2.8);
 
 window.__timelines["s12-lettre"] = tl;
 </script></body></html>

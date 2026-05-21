@@ -31,7 +31,7 @@
 .o-btn{background:#E91E8C;color:#fff;border:none;padding:8px 16px;border-radius:100px;font-family:"Inter",sans-serif;font-size:12px;font-weight:600;flex-shrink:0}
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
 </style></head><body>
-<div id="s10" data-composition-id="s10-offres" data-width="1920" data-height="1080" data-start="0" data-duration="7.2">
+<div id="s10" data-composition-id="s10-offres" data-width="1920" data-height="1080" data-start="0" data-duration="3">
   <div class="app-left" id="s10-left">
     <div class="app-emoji">🏢</div>
     <div class="app-eyebrow">✦ Emploi</div>
@@ -57,11 +57,10 @@ gsap.set("#s10-left", { opacity:0, y:22 });
 gsap.set("#s10-browser", { x:100, opacity:0 });
 gsap.set("#s10-o1,#s10-o2,#s10-o3,#s10-o4", { opacity:0, y:18 });
 
-tl.fromTo("#s10-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
-tl.fromTo("#s10-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
-[["#s10-o1",.8],["#s10-o2",1.0],["#s10-o3",1.2],["#s10-o4",1.4]].forEach(function(r){ tl.fromTo(r[0],{opacity:0,y:18},{opacity:1,y:0,duration:.34,ease:"expo.out"},r[1]); });
-tl.to("#s10-browser", { y:-7, yoyo:true, repeat:2, duration:1.4, ease:"sine.inOut" }, 2.5);
-tl.to("#s10", { opacity:0, duration:.2, ease:"power2.in" }, 7.0);
+tl.fromTo("#s10-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.26, ease:"power3.out" }, 0);
+tl.fromTo("#s10-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.3, ease:"power3.out" }, .04);
+[["#s10-o1",.45],["#s10-o2",.58],["#s10-o3",.7],["#s10-o4",.82]].forEach(function(r){ tl.fromTo(r[0],{opacity:0,y:18},{opacity:1,y:0,duration:.22,ease:"expo.out"},r[1]); });
+tl.to("#s10", { opacity:0, duration:.18, ease:"power2.in" }, 2.8);
 
 window.__timelines["s10-offres"] = tl;
 </script></body></html>

@@ -42,7 +42,7 @@ html,body{width:1920px;height:1080px;overflow:hidden}
 #s5-cta-btn{background:linear-gradient(135deg,#E91E8C,#06B6D4);color:#fff;border:none;padding:12px 24px;border-radius:100px;font-family:"Inter",sans-serif;font-size:14px;font-weight:600;margin-top:10px;display:inline-flex;align-items:center;gap:7px}
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
 </style></head><body>
-<div id="s05" data-composition-id="s05-resultats" data-width="1920" data-height="1080" data-start="0" data-duration="6.2">
+<div id="s05" data-composition-id="s05-resultats" data-width="1920" data-height="1080" data-start="0" data-duration="3.5">
   <div class="app-left" id="s5-left">
     <div class="app-emoji">🏆</div>
     <div class="app-eyebrow">✦ Résultats IA</div>
@@ -86,19 +86,18 @@ gsap.set("#s5-browser", { x:100, opacity:0 });
 gsap.set("#s5-r1,#s5-r2,#s5-r3,#s5-cta-btn", { opacity:0, y:16 });
 gsap.set("#s5-score-num", { opacity:0, scale:.7 });
 
-tl.fromTo("#s5-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
-tl.fromTo("#s5-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
-tl.fromTo("#s5-ring-fill", { strokeDashoffset:477.5 }, { strokeDashoffset:477.5*(1-.94), duration:1.0, ease:"power2.out" }, .6);
-tl.fromTo("#s5-score-num", { opacity:0, scale:.7 }, { opacity:1, scale:1, duration:.4, ease:"back.out(1.8)" }, 1.4);
-tl.fromTo("#s5-r1", { opacity:0, y:16 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, 1.0);
-tl.fromTo("#s5-r2", { opacity:0, y:16 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, 1.15);
-tl.fromTo("#s5-r3", { opacity:0, y:16 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, 1.3);
-tl.to("#s5-b1", { width:"94%", duration:.7, ease:"power2.out" }, 1.1);
-tl.to("#s5-b2", { width:"87%", duration:.65, ease:"power2.out" }, 1.26);
-tl.to("#s5-b3", { width:"81%", duration:.6, ease:"power2.out" }, 1.42);
-tl.fromTo("#s5-cta-btn", { opacity:0, y:16 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, 1.55);
-tl.to("#s5-browser", { y:-7, yoyo:true, repeat:1, duration:1.5, ease:"sine.inOut" }, 3.0);
-tl.to("#s05", { opacity:0, duration:.2, ease:"power2.in" }, 6.0);
+tl.fromTo("#s5-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.26, ease:"power3.out" }, 0);
+tl.fromTo("#s5-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.3, ease:"power3.out" }, .04);
+tl.fromTo("#s5-ring-fill", { strokeDashoffset:477.5 }, { strokeDashoffset:477.5*(1-.94), duration:.8, ease:"power2.out" }, .4);
+tl.fromTo("#s5-score-num", { opacity:0, scale:.7 }, { opacity:1, scale:1, duration:.26, ease:"back.out(1.8)" }, .9);
+tl.fromTo("#s5-r1", { opacity:0, y:16 }, { opacity:1, y:0, duration:.22, ease:"expo.out" }, .55);
+tl.fromTo("#s5-r2", { opacity:0, y:16 }, { opacity:1, y:0, duration:.22, ease:"expo.out" }, .68);
+tl.fromTo("#s5-r3", { opacity:0, y:16 }, { opacity:1, y:0, duration:.22, ease:"expo.out" }, .8);
+tl.to("#s5-b1", { width:"94%", duration:.5, ease:"power2.out" }, .62);
+tl.to("#s5-b2", { width:"87%", duration:.45, ease:"power2.out" }, .75);
+tl.to("#s5-b3", { width:"81%", duration:.4, ease:"power2.out" }, .88);
+tl.fromTo("#s5-cta-btn", { opacity:0, y:16 }, { opacity:1, y:0, duration:.22, ease:"expo.out" }, 1.0);
+tl.to("#s05", { opacity:0, duration:.18, ease:"power2.in" }, 3.3);
 
 window.__timelines["s05-resultats"] = tl;
 </script></body></html>

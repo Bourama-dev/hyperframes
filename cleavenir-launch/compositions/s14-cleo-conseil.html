@@ -37,7 +37,7 @@
 #s14-tip-txt{font-family:"Inter",sans-serif;font-size:13px;color:#475569;line-height:1.5}
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
 </style></head><body>
-<div id="s14" data-composition-id="s14-cleo-conseil" data-width="1920" data-height="1080" data-start="0" data-duration="5.2">
+<div id="s14" data-composition-id="s14-cleo-conseil" data-width="1920" data-height="1080" data-start="0" data-duration="3">
   <div class="app-left" id="s14-left">
     <div class="app-emoji">🌱</div>
     <div class="app-eyebrow">✦ Cleo · Plan d'action</div>
@@ -69,11 +69,10 @@ gsap.set("#s14-left", { opacity:0, y:22 });
 gsap.set("#s14-browser", { x:100, opacity:0 });
 gsap.set("#s14-s1,#s14-s2,#s14-s3,#s14-cleo-tip", { opacity:0, x:-24 });
 
-tl.fromTo("#s14-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
-tl.fromTo("#s14-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
-[["#s14-s1",.8],["#s14-s2",1.0],["#s14-s3",1.2],["#s14-cleo-tip",1.45]].forEach(function(r){ tl.fromTo(r[0],{opacity:0,x:-24},{opacity:1,x:0,duration:.32,ease:"expo.out"},r[1]); });
-tl.to("#s14-browser", { y:-6, yoyo:true, repeat:1, duration:1.3, ease:"sine.inOut" }, 2.8);
-tl.to("#s14", { opacity:0, duration:.2, ease:"power2.in" }, 5.0);
+tl.fromTo("#s14-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.26, ease:"power3.out" }, 0);
+tl.fromTo("#s14-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.3, ease:"power3.out" }, .04);
+[["#s14-s1",.45],["#s14-s2",.58],["#s14-s3",.7],["#s14-cleo-tip",.85]].forEach(function(r){ tl.fromTo(r[0],{opacity:0,x:-24},{opacity:1,x:0,duration:.2,ease:"expo.out"},r[1]); });
+tl.to("#s14", { opacity:0, duration:.18, ease:"power2.in" }, 2.8);
 
 window.__timelines["s14-cleo-conseil"] = tl;
 </script></body></html>

@@ -24,7 +24,7 @@
 .s16-chk{width:20px;height:20px;border-radius:50%;background:#22C55E;display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;font-weight:700;flex-shrink:0}
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 38%,rgba(0,0,0,.4) 100%)}
 </style></head><body>
-<div id="s16" data-composition-id="s16-cta" data-width="1920" data-height="1080" data-start="0" data-duration="6.0">
+<div id="s16" data-composition-id="s16-cta" data-width="1920" data-height="1080" data-start="0" data-duration="4">
   <div id="s16-grad-tl"></div><div id="s16-grad-br"></div>
   <div id="s16-ghost">AVENIR</div>
   <div id="s16-pad">
@@ -61,20 +61,18 @@
 window.__timelines = window.__timelines || {};
 var tl = gsap.timeline({ paused: true });
 
-tl.fromTo("#s16-logo-row", { opacity:0, y:10 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, 0);
-tl.fromTo("#s16-eyebrow", { opacity:0, y:8 }, { opacity:1, y:0, duration:.28, ease:"expo.out" }, .18);
-tl.fromTo("#s16-cta", { opacity:0, y:36 }, { opacity:1, y:0, duration:.38, ease:"power4.out" }, .3);
-tl.fromTo("#s16-rule", { opacity:0, scaleX:0 }, { opacity:1, scaleX:1, duration:.52, ease:"power2.out" }, .6);
-tl.fromTo("#s16-url", { opacity:0, y:10 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, .84);
-tl.fromTo("#s16-trust", { opacity:0, y:8 }, { opacity:1, y:0, duration:.3, ease:"sine.out" }, 1.04);
-/* shimmer loop (3 passes) */
-tl.fromTo("#s16-shimmer", { left:"-120%" }, { left:"160%", duration:1.1, ease:"power1.inOut" }, 1.2);
-tl.fromTo("#s16-shimmer", { left:"-120%" }, { left:"160%", duration:1.1, ease:"power1.inOut" }, 2.8);
-tl.fromTo("#s16-shimmer", { left:"-120%" }, { left:"160%", duration:1.1, ease:"power1.inOut" }, 4.4);
-/* Resolve: fade to white starting at 4.0s */
-tl.to("#s16", { background:"#F8FAFC", duration:2.0, ease:"power2.inOut" }, 4.0);
-tl.to("#s16-ghost,#s16-grad-tl,#s16-grad-br,#vignette", { opacity:0, duration:1.5, ease:"power2.inOut" }, 4.2);
-tl.fromTo("#s16", { opacity:1 }, { opacity:0, duration:0, ease:"none" }, 6.0);
+tl.fromTo("#s16-logo-row", { opacity:0, y:10 }, { opacity:1, y:0, duration:.22, ease:"expo.out" }, 0);
+tl.fromTo("#s16-eyebrow", { opacity:0, y:8 }, { opacity:1, y:0, duration:.18, ease:"expo.out" }, .14);
+tl.fromTo("#s16-cta", { opacity:0, y:36 }, { opacity:1, y:0, duration:.26, ease:"power4.out" }, .24);
+tl.fromTo("#s16-rule", { opacity:0, scaleX:0 }, { opacity:1, scaleX:1, duration:.38, ease:"power2.out" }, .44);
+tl.fromTo("#s16-url", { opacity:0, y:10 }, { opacity:1, y:0, duration:.2, ease:"expo.out" }, .6);
+tl.fromTo("#s16-trust", { opacity:0, y:8 }, { opacity:1, y:0, duration:.2, ease:"sine.out" }, .76);
+/* shimmer passes */
+tl.fromTo("#s16-shimmer", { left:"-120%" }, { left:"160%", duration:.9, ease:"power1.inOut" }, .85);
+tl.fromTo("#s16-shimmer", { left:"-120%" }, { left:"160%", duration:.9, ease:"power1.inOut" }, 2.1);
+/* Resolve: root resolve-cover handles final fade — just lighten background */
+tl.to("#s16", { background:"#F8FAFC", duration:1.5, ease:"power2.inOut" }, 2.5);
+tl.to("#s16-ghost,#s16-grad-tl,#s16-grad-br,#vignette", { opacity:0, duration:1.2, ease:"power2.inOut" }, 2.7);
 
 window.__timelines["s16-cta"] = tl;
 </script></body></html>

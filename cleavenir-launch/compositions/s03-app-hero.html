@@ -38,7 +38,7 @@ html,body{width:1920px;height:1080px;overflow:hidden}
 .cur{position:absolute;width:18px;height:18px;border-radius:50%;background:rgba(15,23,42,.75);pointer-events:none;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.28)}
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
 </style></head><body>
-<div id="s03" data-composition-id="s03-app-hero" data-width="1920" data-height="1080" data-start="0" data-duration="7.2">
+<div id="s03" data-composition-id="s03-app-hero" data-width="1920" data-height="1080" data-start="0" data-duration="3.5">
   <div class="app-left" id="s3-left">
     <div class="app-emoji">🎯</div>
     <div class="app-eyebrow">✦ La solution</div>
@@ -83,15 +83,14 @@ gsap.set("#s3-left", { opacity:0, y:22 });
 gsap.set("#s3-browser", { x:100, opacity:0 });
 gsap.set("#s3-cur", { opacity:0 });
 
-tl.fromTo("#s3-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
-tl.fromTo("#s3-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
-tl.to("#s3-browser", { y:-8, yoyo:true, repeat:2, duration:1.5, ease:"sine.inOut" }, 1.6);
-tl.to("#s3-cur", { opacity:1, duration:.15 }, 4.2);
-tl.to("#s3-cur", { x:1080, y:546, duration:.5, ease:"power2.inOut" }, 4.38);
-tl.to("#s3-btn-p", { scale:.96, duration:.07 }, 4.92);
-tl.to("#s3-btn-p", { scale:1, duration:.14, ease:"back.out(2.5)" }, 4.99);
-tl.to("#s3-cur", { opacity:0, duration:.18 }, 5.4);
-tl.to("#s03", { opacity:0, duration:.2, ease:"power2.in" }, 7.0);
+tl.fromTo("#s3-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.26, ease:"power3.out" }, 0);
+tl.fromTo("#s3-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.3, ease:"power3.out" }, .04);
+tl.to("#s3-cur", { opacity:1, duration:.12 }, 2.0);
+tl.to("#s3-cur", { x:1080, y:546, duration:.3, ease:"power2.inOut" }, 2.15);
+tl.to("#s3-btn-p", { scale:.96, duration:.07 }, 2.55);
+tl.to("#s3-btn-p", { scale:1, duration:.12, ease:"back.out(2.5)" }, 2.62);
+tl.to("#s3-cur", { opacity:0, duration:.15 }, 2.9);
+tl.to("#s03", { opacity:0, duration:.18, ease:"power2.in" }, 3.3);
 
 window.__timelines["s03-app-hero"] = tl;
 </script></body></html>

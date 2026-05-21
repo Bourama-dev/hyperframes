@@ -19,7 +19,7 @@
 #s15-tagline{font-family:"Inter",sans-serif;font-weight:300;font-size:26px;color:#64748B;text-align:center}
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 48%,rgba(0,0,0,.12) 100%)}
 </style></head><body>
-<div id="s15" data-composition-id="s15-stats" data-width="1920" data-height="1080" data-start="0" data-duration="6.2">
+<div id="s15" data-composition-id="s15-stats" data-width="1920" data-height="1080" data-start="0" data-duration="3.5">
   <div id="s15-ghost">STATS</div>
   <div id="s15-content">
     <div id="s15-eyebrow">📊 CléAvenir en chiffres</div>
@@ -41,14 +41,13 @@ gsap.set("#s15-eyebrow,#s15-tagline", { opacity:0, y:16 });
 gsap.set("#s15-s1,#s15-s2,#s15-s3", { opacity:0, y:28 });
 gsap.set("#s15-sep,#s15-sep2", { opacity:0 });
 
-tl.fromTo("#s15-eyebrow", { opacity:0, y:16 }, { opacity:1, y:0, duration:.36, ease:"expo.out" }, 0);
-tl.fromTo("#s15-sep,#s15-sep2", { opacity:0 }, { opacity:1, duration:.38 }, .3);
-tl.fromTo("#s15-s1", { opacity:0, y:28 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, .3);
-tl.fromTo("#s15-s2", { opacity:0, y:28 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, .46);
-tl.fromTo("#s15-s3", { opacity:0, y:28 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, .62);
-tl.fromTo("#s15-tagline", { opacity:0, y:16 }, { opacity:1, y:0, duration:.38, ease:"sine.out" }, .9);
-tl.to(".stat-card .stat-ico", { y:-8, yoyo:true, repeat:1, duration:1.1, ease:"sine.inOut" }, 2.0);
-tl.to("#s15", { opacity:0, duration:.2, ease:"power2.in" }, 6.0);
+tl.fromTo("#s15-eyebrow", { opacity:0, y:16 }, { opacity:1, y:0, duration:.22, ease:"expo.out" }, 0);
+tl.fromTo("#s15-sep,#s15-sep2", { opacity:0 }, { opacity:1, duration:.24 }, .18);
+tl.fromTo("#s15-s1", { opacity:0, y:28 }, { opacity:1, y:0, duration:.28, ease:"power3.out" }, .18);
+tl.fromTo("#s15-s2", { opacity:0, y:28 }, { opacity:1, y:0, duration:.28, ease:"power3.out" }, .3);
+tl.fromTo("#s15-s3", { opacity:0, y:28 }, { opacity:1, y:0, duration:.28, ease:"power3.out" }, .42);
+tl.fromTo("#s15-tagline", { opacity:0, y:16 }, { opacity:1, y:0, duration:.24, ease:"sine.out" }, .62);
+tl.to("#s15", { opacity:0, duration:.18, ease:"power2.in" }, 3.3);
 
 window.__timelines["s15-stats"] = tl;
 </script></body></html>

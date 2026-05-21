@@ -36,7 +36,7 @@ html,body{width:1920px;height:1080px;overflow:hidden}
 .cur{position:absolute;width:18px;height:18px;border-radius:50%;background:rgba(15,23,42,.75);pointer-events:none;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.28)}
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
 </style></head><body>
-<div id="s04" data-composition-id="s04-quiz" data-width="1920" data-height="1080" data-start="0" data-duration="6.2">
+<div id="s04" data-composition-id="s04-quiz" data-width="1920" data-height="1080" data-start="0" data-duration="3">
   <div class="app-left" id="s4-left">
     <div class="app-emoji">🧠</div>
     <div class="app-eyebrow">✦ Le test IA</div>
@@ -71,16 +71,15 @@ gsap.set("#s4-left", { opacity:0, y:22 });
 gsap.set("#s4-browser", { x:100, opacity:0 });
 gsap.set("#s4-cur", { opacity:0 });
 
-tl.fromTo("#s4-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
-tl.fromTo("#s4-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
-tl.to("#s4-prog", { width:"52%", duration:.9, ease:"power2.out" }, .8);
-tl.to("#s4-browser", { y:-7, yoyo:true, repeat:2, duration:1.4, ease:"sine.inOut" }, 1.5);
-tl.to("#s4-cur", { opacity:1, duration:.14 }, 3.5);
-tl.to("#s4-cur", { x:1180, y:530, duration:.46, ease:"power2.inOut" }, 3.66);
-tl.to("#s4-o2", { borderColor:"#E91E8C", background:"rgba(233,30,140,0.04)", duration:.14 }, 4.16);
-tl.to("#s4-o1", { borderColor:"#E2E8F0", background:"#fff", duration:.14 }, 4.16);
-tl.to("#s4-cur", { opacity:0, duration:.18 }, 4.7);
-tl.to("#s04", { opacity:0, duration:.2, ease:"power2.in" }, 6.0);
+tl.fromTo("#s4-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.26, ease:"power3.out" }, 0);
+tl.fromTo("#s4-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.3, ease:"power3.out" }, .04);
+tl.to("#s4-prog", { width:"52%", duration:.7, ease:"power2.out" }, .5);
+tl.to("#s4-cur", { opacity:1, duration:.12 }, 1.6);
+tl.to("#s4-cur", { x:1180, y:530, duration:.28, ease:"power2.inOut" }, 1.75);
+tl.to("#s4-o2", { borderColor:"#E91E8C", background:"rgba(233,30,140,0.04)", duration:.12 }, 2.1);
+tl.to("#s4-o1", { borderColor:"#E2E8F0", background:"#fff", duration:.12 }, 2.1);
+tl.to("#s4-cur", { opacity:0, duration:.15 }, 2.4);
+tl.to("#s04", { opacity:0, duration:.18, ease:"power2.in" }, 2.8);
 
 window.__timelines["s04-quiz"] = tl;
 </script></body></html>
