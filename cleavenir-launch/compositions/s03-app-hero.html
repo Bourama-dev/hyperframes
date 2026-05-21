@@ -1,16 +1,17 @@
 <!doctype html><html lang="fr"><head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,800,900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
 <script src="../node_modules/gsap/dist/gsap.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1920px;height:1080px;overflow:hidden}
-#s03{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#fff}
+#s03{position:relative;width:1920px;height:1080px;background:#fff;overflow:hidden}
 .grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .app-left{position:absolute;left:0;top:0;width:540px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 100px}
 .app-emoji{font-size:60px;margin-bottom:14px;line-height:1}
 .app-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.18);border-radius:100px;padding:6px 14px;width:fit-content;margin-bottom:18px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E91E8C}
-.app-heading{font-family:"Syne",sans-serif;font-size:54px;line-height:.92;letter-spacing:-.02em;color:#0F172A;margin-bottom:16px;font-weight:800}
+.app-heading{font-family:"Satoshi",sans-serif;font-size:54px;line-height:.92;letter-spacing:-.02em;color:#0F172A;margin-bottom:16px;font-weight:800}
 .app-body{font-family:"Inter",sans-serif;font-weight:400;font-size:17px;line-height:1.6;color:#64748B;max-width:340px}
 .browser{position:absolute;left:560px;top:130px;width:1320px;height:810px;border-radius:14px;box-shadow:0 48px 140px rgba(15,23,42,.2),0 12px 36px rgba(15,23,42,.08);overflow:hidden;background:#fff}
 .b-chrome{height:46px;background:#F1F3F4;display:flex;align-items:center;padding:0 14px;gap:10px;border-bottom:1px solid #E2E8F0;flex-shrink:0}
@@ -21,13 +22,13 @@ html,body{width:1920px;height:1080px;overflow:hidden}
 .b-content{height:764px;overflow:hidden;position:relative;background:#fff}
 #s3-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 36px;background:#fff;border-bottom:1px solid #F1F5F9}
 #s3-logo-row{display:flex;align-items:center;gap:7px}
-#s3-logo-text{font-family:"Syne",sans-serif;font-weight:800;font-size:18px;background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#s3-logo-text{font-family:"Satoshi",sans-serif;font-weight:800;font-size:18px;background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .nav-l{font-family:"Inter",sans-serif;font-size:14px;color:#64748B}
 #s3-cta-btn{background:#E91E8C;color:#fff;border:none;padding:8px 18px;border-radius:100px;font-family:"Inter",sans-serif;font-size:13px;font-weight:600}
 #s3-hero{padding:40px 40px 0}
 #s3-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.18);border-radius:100px;padding:6px 14px;margin-bottom:20px;font-family:"Inter",sans-serif;font-size:13px;font-weight:600;color:#E91E8C}
-#s3-h1a{font-family:"Syne",sans-serif;font-weight:800;font-size:50px;line-height:1.08;color:#0F172A;margin-bottom:4px}
-#s3-h1b{font-family:"Syne",sans-serif;font-weight:800;font-size:50px;line-height:1.08;margin-bottom:18px;background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#s3-h1a{font-family:"Satoshi",sans-serif;font-weight:800;font-size:50px;line-height:1.08;color:#0F172A;margin-bottom:4px}
+#s3-h1b{font-family:"Satoshi",sans-serif;font-weight:800;font-size:50px;line-height:1.08;margin-bottom:18px;background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 #s3-body{font-family:"Inter",sans-serif;font-size:16px;color:#64748B;line-height:1.6;max-width:500px;margin-bottom:24px}
 #s3-btns{display:flex;gap:10px;margin-bottom:22px}
 #s3-btn-p{background:#E91E8C;color:#fff;border:none;padding:13px 26px;border-radius:100px;font-family:"Inter",sans-serif;font-size:15px;font-weight:600;display:flex;align-items:center;gap:7px}
