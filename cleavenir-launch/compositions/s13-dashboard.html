@@ -1,0 +1,120 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:1920px;height:1080px;overflow:hidden}
+#s13{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.app-left{position:absolute;left:0;top:0;width:540px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 100px}
+.app-emoji{font-size:60px;margin-bottom:14px}
+.app-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.18);border-radius:100px;padding:6px 14px;width:fit-content;margin-bottom:18px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E91E8C}
+.app-heading{font-family:"Syne",sans-serif;font-size:54px;line-height:.92;letter-spacing:-.02em;color:#0F172A;margin-bottom:16px;font-weight:800}
+.app-body{font-family:"Inter",sans-serif;font-size:17px;line-height:1.6;color:#64748B;max-width:340px}
+.browser{position:absolute;left:560px;top:130px;width:1320px;height:810px;border-radius:14px;box-shadow:0 48px 140px rgba(15,23,42,.2);overflow:hidden;background:#fff}
+.b-chrome{height:46px;background:#F1F3F4;display:flex;align-items:center;padding:0 14px;gap:10px;border-bottom:1px solid #E2E8F0}
+.b-lights{display:flex;gap:6px}.b-tc{width:12px;height:12px;border-radius:50%}
+.b-red{background:#FF5F57}.b-yellow{background:#FFBD2E}.b-green{background:#28C840}
+.b-url{flex:1;height:26px;max-width:360px;margin:0 auto;background:#fff;border:1px solid #E2E8F0;border-radius:5px;display:flex;align-items:center;padding:0 10px;gap:5px;font-family:"Inter",sans-serif;font-size:12px;color:#475569}
+.b-content{height:764px;overflow:hidden;position:relative;background:#F8FAFC;padding:22px 28px;display:flex;flex-direction:column;gap:18px}
+#s13-welcome{display:flex;align-items:center;justify-content:space-between}
+#s13-greeting{font-family:"Syne",sans-serif;font-weight:700;font-size:22px;color:#0F172A}
+#s13-date{font-family:"Inter",sans-serif;font-size:13px;color:#94A3B8}
+/* Steps */
+#s13-steps{display:flex;align-items:center;gap:0;background:#fff;border-radius:12px;padding:18px 24px;border:1.5px solid #F1F5F9}
+.step{display:flex;flex-direction:column;align-items:center;gap:5px;flex:1}
+.step-circle{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;font-family:"Space Grotesk",sans-serif}
+.step-circle.done{background:#22C55E;color:#fff}
+.step-circle.active{background:linear-gradient(135deg,#E91E8C,#06B6D4);color:#fff}
+.step-circle.todo{background:#F1F5F9;color:#94A3B8}
+.step-label{font-family:"Inter",sans-serif;font-size:11px;color:#64748B;text-align:center}
+.step-connector{flex:1;height:2px;background:#E2E8F0;margin-top:-18px}
+.step-connector.done{background:linear-gradient(90deg,#22C55E,#22C55E)}
+/* Grid */
+#s13-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;flex:1}
+.db-card{background:#fff;border-radius:11px;padding:16px 18px;border:1.5px solid #F1F5F9}
+.db-title{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#64748B;margin-bottom:12px}
+.score-row{display:flex;align-items:baseline;gap:6px}
+.score-big{font-family:"Syne",sans-serif;font-weight:800;font-size:40px;background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.score-unit{font-family:"Inter",sans-serif;font-size:14px;color:#64748B}
+.next-step{display:flex;align-items:center;gap:10px;background:rgba(233,30,140,.05);border:1px solid rgba(233,30,140,.14);border-radius:9px;padding:10px 13px}
+.next-ico{font-size:22px}
+.next-txt{font-family:"Inter",sans-serif;font-size:13px;color:#0F172A;font-weight:500}
+.next-badge{background:#E91E8C;color:#fff;font-family:"Space Grotesk",sans-serif;font-size:10px;font-weight:700;padding:3px 8px;border-radius:100px;margin-left:auto;white-space:nowrap}
+.activity-item{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid #F1F5F9}
+.a-ico{font-size:16px;width:28px;height:28px;background:#F8FAFC;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.a-txt{font-family:"Inter",sans-serif;font-size:12px;color:#475569;flex:1}
+.a-time{font-family:"Inter",sans-serif;font-size:11px;color:#94A3B8}
+#vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
+</style></head><body>
+<div id="s13" data-composition-id="s13-dashboard" data-width="1920" data-height="1080" data-start="0" data-duration="6.2">
+  <div class="app-left" id="s13-left">
+    <div class="app-emoji">📊</div>
+    <div class="app-eyebrow">✦ Mon Parcours</div>
+    <div class="app-heading">TON PARCOURS.<br><span class="grad">TRACÉ.</span></div>
+    <div class="app-body">Un tableau de bord complet suit chaque étape. Tu n'es jamais seul dans ta démarche. 🗺️</div>
+  </div>
+  <div id="s13-browser" class="browser">
+    <div class="b-chrome"><div class="b-lights"><div class="b-tc b-red"></div><div class="b-tc b-yellow"></div><div class="b-tc b-green"></div></div><div class="b-url">🔒 cleavenir.com/parcours</div></div>
+    <div class="b-content">
+      <div id="s13-welcome"><div id="s13-greeting">👋 Bonjour, Alexandre</div><div id="s13-date">Mercredi 21 mai 2025</div></div>
+      <div id="s13-steps">
+        <div class="step"><div class="step-circle done">✓</div><div class="step-label">Test<br>complété</div></div>
+        <div class="step-connector done"></div>
+        <div class="step"><div class="step-circle done">✓</div><div class="step-label">Résultats<br>obtenus</div></div>
+        <div class="step-connector done"></div>
+        <div class="step"><div class="step-circle done">✓</div><div class="step-label">Métiers<br>explorés</div></div>
+        <div class="step-connector"></div>
+        <div class="step"><div class="step-circle active">→</div><div class="step-label">Formations<br>en cours</div></div>
+        <div class="step-connector"></div>
+        <div class="step"><div class="step-circle todo">5</div><div class="step-label">Candidature<br>en attente</div></div>
+      </div>
+      <div id="s13-grid">
+        <div class="db-card" id="s13-c1">
+          <div class="db-title">📊 Score de profil</div>
+          <div class="score-row"><span class="score-big">78</span><span class="score-unit">/ 100</span></div>
+          <div style="height:6px;background:#E2E8F0;border-radius:3px;margin-top:10px"><div id="s13-prog-bar" style="width:0;height:100%;background:linear-gradient(90deg,#E91E8C,#06B6D4);border-radius:3px"></div></div>
+          <div style="font-family:'Inter',sans-serif;font-size:12px;color:#64748B;margin-top:7px">Complète ton profil pour augmenter ton score</div>
+        </div>
+        <div class="db-card" id="s13-c2">
+          <div class="db-title">⚡ Prochaine étape</div>
+          <div class="next-step"><span class="next-ico">🎓</span><span class="next-txt">Candidater au BTS SIO à Paris</span><span class="next-badge">Action</span></div>
+          <div class="next-step" style="margin-top:8px"><span class="next-ico">✍️</span><span class="next-txt">Finaliser ta lettre de motivation</span><span class="next-badge">En cours</span></div>
+        </div>
+        <div class="db-card" id="s13-c3">
+          <div class="db-title">📅 Activité récente</div>
+          <div class="activity-item"><div class="a-ico">💻</div><div class="a-txt">Métier consulté : Développeur Full Stack</div><div class="a-time">Il y a 2h</div></div>
+          <div class="activity-item"><div class="a-ico">📄</div><div class="a-txt">CV généré avec Cleo</div><div class="a-time">Hier</div></div>
+          <div class="activity-item" style="border:none"><div class="a-ico">🎯</div><div class="a-txt">Test de carrière complété — 94% match</div><div class="a-time">Hier</div></div>
+        </div>
+        <div class="db-card" id="s13-c4">
+          <div class="db-title">🌱 Cleo suggère</div>
+          <div style="display:flex;align-items:center;gap:8px;padding:10px 0"><div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#06B6D4);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0">🌱</div><div style="font-family:'Inter',sans-serif;font-size:13px;color:#0F172A;line-height:1.4">Ton profil correspond à 3 nouvelles offres publiées aujourd'hui ! 🎉</div></div>
+          <button style="background:#E91E8C;color:#fff;border:none;padding:8px 16px;border-radius:100px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600">Voir les offres →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="vignette"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+gsap.set("#s13-left", { opacity:0, y:22 });
+gsap.set("#s13-browser", { x:100, opacity:0 });
+gsap.set("#s13-c1,#s13-c2,#s13-c3,#s13-c4", { opacity:0, y:14 });
+gsap.set("#s13-steps", { opacity:0, y:12 });
+
+tl.fromTo("#s13-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
+tl.fromTo("#s13-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
+tl.fromTo("#s13-steps", { opacity:0, y:12 }, { opacity:1, y:0, duration:.35, ease:"expo.out" }, .7);
+tl.fromTo("#s13-c1", { opacity:0, y:14 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, 1.0);
+tl.fromTo("#s13-c2", { opacity:0, y:14 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, 1.12);
+tl.fromTo("#s13-c3", { opacity:0, y:14 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, 1.24);
+tl.fromTo("#s13-c4", { opacity:0, y:14 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, 1.36);
+tl.to("#s13-prog-bar", { width:"78%", duration:.8, ease:"power2.out" }, 1.1);
+tl.to("#s13-browser", { y:-6, yoyo:true, repeat:1, duration:1.3, ease:"sine.inOut" }, 3.0);
+tl.to("#s13", { opacity:0, duration:.2, ease:"power2.in" }, 6.0);
+
+window.__timelines["s13-dashboard"] = tl;
+</script></body></html>

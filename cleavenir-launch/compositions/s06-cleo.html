@@ -1,0 +1,86 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden}
+#s06{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.app-left{position:absolute;left:0;top:0;width:540px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 100px}
+.app-emoji{font-size:60px;margin-bottom:14px}
+.app-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.18);border-radius:100px;padding:6px 14px;width:fit-content;margin-bottom:18px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E91E8C}
+.app-heading{font-family:"Syne",sans-serif;font-size:54px;line-height:.92;letter-spacing:-.02em;color:#0F172A;margin-bottom:16px;font-weight:800}
+.app-body{font-family:"Inter",sans-serif;font-size:17px;line-height:1.6;color:#64748B;max-width:340px}
+.browser{position:absolute;left:560px;top:130px;width:1320px;height:810px;border-radius:14px;box-shadow:0 48px 140px rgba(15,23,42,.2);overflow:hidden;background:#fff}
+.b-chrome{height:46px;background:#F1F3F4;display:flex;align-items:center;padding:0 14px;gap:10px;border-bottom:1px solid #E2E8F0}
+.b-lights{display:flex;gap:6px}.b-tc{width:12px;height:12px;border-radius:50%}
+.b-red{background:#FF5F57}.b-yellow{background:#FFBD2E}.b-green{background:#28C840}
+.b-url{flex:1;height:26px;max-width:360px;margin:0 auto;background:#fff;border:1px solid #E2E8F0;border-radius:5px;display:flex;align-items:center;padding:0 10px;gap:5px;font-family:"Inter",sans-serif;font-size:12px;color:#475569}
+.b-content{height:764px;overflow:hidden;position:relative;background:#F8FAFC;display:flex;flex-direction:column}
+#s6-header{display:flex;align-items:center;gap:12px;padding:14px 22px;background:#fff;border-bottom:1px solid #F1F5F9;flex-shrink:0}
+#s6-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#06B6D4);display:flex;align-items:center;justify-content:center;font-size:20px}
+#s6-name{font-family:"Syne",sans-serif;font-weight:700;font-size:16px;color:#0F172A}
+#s6-status{font-family:"Inter",sans-serif;font-size:12px;color:#22C55E;display:flex;align-items:center;gap:4px}
+#s6-chip{background:rgba(233,30,140,.08);color:#E91E8C;font-family:"Space Grotesk",sans-serif;font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px;letter-spacing:.05em;margin-left:auto}
+#s6-msgs{flex:1;padding:18px 22px;display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.msg-row{display:flex;gap:9px;align-items:flex-end}
+.msg-row.usr{flex-direction:row-reverse}
+.m-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#06B6D4);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.m-bub{max-width:460px;padding:11px 14px;border-radius:14px;font-family:"Inter",sans-serif;font-size:14px;line-height:1.5}
+.m-bub.cl{background:#fff;border:1px solid #E2E8F0;color:#0F172A;border-bottom-left-radius:4px}
+.m-bub.us{background:#E91E8C;color:#fff;border-bottom-right-radius:4px}
+#s6-typing{display:flex;gap:4px;padding:12px 14px;background:#fff;border:1px solid #E2E8F0;border-radius:14px;border-bottom-left-radius:4px;width:fit-content}
+.td{width:7px;height:7px;border-radius:50%;background:#CBD5E1}
+#s6-input{display:flex;gap:9px;padding:12px 18px;background:#fff;border-top:1px solid #F1F5F9;flex-shrink:0}
+#s6-field{flex:1;height:38px;border:1.5px solid #E2E8F0;border-radius:100px;padding:0 14px;font-family:"Inter",sans-serif;font-size:13px;color:#475569}
+#s6-send{width:38px;height:38px;border-radius:50%;background:#E91E8C;border:none;color:#fff;font-size:15px}
+#vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
+</style></head><body>
+<div id="s06" data-composition-id="s06-cleo" data-width="1920" data-height="1080" data-start="0" data-duration="7.2">
+  <div class="app-left" id="s6-left">
+    <div class="app-emoji">🤖</div>
+    <div class="app-eyebrow">✦ Cleo · IA CléAvenir</div>
+    <div class="app-heading">RENCONTRE<br><span class="grad">CLEO.</span></div>
+    <div class="app-body">Ton assistante IA personnelle disponible 24h/24. Elle répond à toutes tes questions d'orientation. ✨</div>
+  </div>
+  <div id="s6-browser" class="browser">
+    <div class="b-chrome"><div class="b-lights"><div class="b-tc b-red"></div><div class="b-tc b-yellow"></div><div class="b-tc b-green"></div></div><div class="b-url">🔒 cleavenir.com/cleo</div></div>
+    <div class="b-content">
+      <div id="s6-header">
+        <div id="s6-avatar">🌱</div>
+        <div><div id="s6-name">Cleo <span style="font-family:'Space Grotesk';font-weight:700;font-size:11px;background:rgba(233,30,140,.08);color:#E91E8C;padding:2px 8px;border-radius:100px;margin-left:6px">IA CléAvenir</span></div><div id="s6-status"><span>●</span> En ligne · prête à t'aider</div></div>
+      </div>
+      <div id="s6-msgs">
+        <div class="msg-row" id="s6-m1"><div class="m-av">🌱</div><div class="m-bub cl">Bonjour ! Je suis <strong>Cleo</strong> 👋<br>Je suis là pour t'aider à trouver ta voie professionnelle. Comment puis-je t'aider ?</div></div>
+        <div class="msg-row usr" id="s6-m2"><div class="m-bub us">Quels métiers correspondent à mon profil ? 🤔</div></div>
+        <div class="msg-row" id="s6-typing"><div class="m-av">🌱</div><div id="s6-dots"><div style="display:flex;gap:4px;padding:12px 14px;background:#fff;border:1px solid #E2E8F0;border-radius:14px;border-bottom-left-radius:4px"><div class="td" id="td1"></div><div class="td" id="td2"></div><div class="td" id="td3"></div></div></div></div>
+        <div class="msg-row" id="s6-m3"><div class="m-av">🌱</div><div class="m-bub cl">Basé sur ton test, voici mes recommandations ✨<br><br>💻 <strong>Développeur Full Stack</strong> — 94% match<br>📊 <strong>Data Analyst</strong> — 87% match<br>🎨 <strong>UX/UI Designer</strong> — 81% match<br><br>Tu veux que j'explore ces pistes avec toi ? 🚀</div></div>
+      </div>
+      <div id="s6-input"><div id="s6-field">Pose ta question à Cleo...</div><div id="s6-send">→</div></div>
+    </div>
+  </div>
+  <div id="vignette"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+gsap.set("#s6-left", { opacity:0, y:22 });
+gsap.set("#s6-browser", { x:100, opacity:0 });
+gsap.set("#s6-m1,#s6-m2,#s6-typing,#s6-m3", { opacity:0, y:10 });
+
+tl.fromTo("#s6-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
+tl.fromTo("#s6-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
+tl.fromTo("#s6-m1", { opacity:0, y:10 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, .7);
+tl.fromTo("#s6-m2", { opacity:0, y:10 }, { opacity:1, y:0, duration:.28, ease:"expo.out" }, 1.6);
+tl.fromTo("#s6-typing", { opacity:0, y:10 }, { opacity:1, y:0, duration:.26, ease:"expo.out" }, 2.3);
+tl.to("#td1", { background:"#E91E8C", yoyo:true, repeat:3, duration:.28, ease:"none" }, 2.5);
+tl.to("#td2", { background:"#E91E8C", yoyo:true, repeat:3, duration:.28, ease:"none" }, 2.64);
+tl.to("#td3", { background:"#E91E8C", yoyo:true, repeat:3, duration:.28, ease:"none" }, 2.78);
+tl.to("#s6-typing", { opacity:0, duration:.18 }, 3.8);
+tl.fromTo("#s6-m3", { opacity:0, y:10 }, { opacity:1, y:0, duration:.38, ease:"expo.out" }, 4.0);
+tl.to("#s6-browser", { y:-7, yoyo:true, repeat:1, duration:1.5, ease:"sine.inOut" }, 5.0);
+tl.to("#s06", { opacity:0, duration:.2, ease:"power2.in" }, 7.0);
+
+window.__timelines["s06-cleo"] = tl;
+</script></body></html>

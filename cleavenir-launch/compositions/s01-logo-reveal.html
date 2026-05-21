@@ -1,0 +1,91 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Inter:wght@300;400;500&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden}
+#s01{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
+#s1-glow{position:absolute;width:860px;height:860px;top:50%;left:50%;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle,rgba(233,30,140,.09) 0%,rgba(6,182,212,.06) 55%,transparent 72%);pointer-events:none}
+#s1-center{position:absolute;top:50%;left:50%;translate:-50% -50%;display:flex;flex-direction:column;align-items:center;gap:0}
+#s1-logo-svg{width:200px;height:216px;display:block}
+#s1-brand{font-family:"Syne",sans-serif;font-weight:800;font-size:88px;letter-spacing:-.025em;margin-top:14px;line-height:1;background:linear-gradient(135deg,#E91E8C 0%,#06B6D4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#s1-tagline{font-family:"Inter",sans-serif;font-weight:300;font-size:26px;letter-spacing:.05em;color:#64748B;margin-top:14px;text-align:center}
+#s1-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.2);border-radius:100px;padding:9px 22px;margin-top:24px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:14px;color:#E91E8C;letter-spacing:.05em}
+.sparkle{position:absolute;font-size:36px;pointer-events:none;user-select:none}
+#sp1{top:22%;left:20%}#sp2{top:18%;right:18%}#sp3{bottom:26%;left:16%}#sp4{bottom:22%;right:20%}#sp5{top:48%;left:9%}#sp6{top:42%;right:9%}
+/* particles */
+.pt{position:absolute;border-radius:50%;pointer-events:none}
+#pt1{width:8px;height:8px;background:#E91E8C;top:30%;left:35%;opacity:.4}
+#pt2{width:5px;height:5px;background:#06B6D4;top:65%;left:60%;opacity:.35}
+#pt3{width:6px;height:6px;background:#22C55E;top:20%;left:65%;opacity:.3}
+#pt4{width:4px;height:4px;background:#E91E8C;top:70%;left:28%;opacity:.3}
+#pt5{width:7px;height:7px;background:#06B6D4;top:40%;left:80%;opacity:.35}
+#pt6{width:5px;height:5px;background:#22C55E;top:75%;left:72%;opacity:.3}
+/* vignette */
+#vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 48%,rgba(0,0,0,.12) 100%)}
+</style></head><body>
+<div id="s01" data-composition-id="s01-logo-reveal" data-width="1920" data-height="1080" data-start="0" data-duration="6.2">
+  <div id="s1-glow"></div>
+  <div class="sparkle" id="sp1">✨</div><div class="sparkle" id="sp2">⭐</div>
+  <div class="sparkle" id="sp3">✦</div><div class="sparkle" id="sp4">🌟</div>
+  <div class="sparkle" id="sp5">✨</div><div class="sparkle" id="sp6">⭐</div>
+  <div class="pt" id="pt1"></div><div class="pt" id="pt2"></div><div class="pt" id="pt3"></div>
+  <div class="pt" id="pt4"></div><div class="pt" id="pt5"></div><div class="pt" id="pt6"></div>
+  <div id="s1-center">
+    <svg id="s1-logo-svg" viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="gT" x1="240" y1="430" x2="240" y2="175" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FF5060"/><stop offset="55%" stop-color="#C040C8"/><stop offset="100%" stop-color="#20C0D0"/></linearGradient>
+        <linearGradient id="gLL" x1="240" y1="295" x2="110" y2="210" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#B030C8"/><stop offset="100%" stop-color="#20C0D0"/></linearGradient>
+        <linearGradient id="gLR" x1="240" y1="295" x2="375" y2="225" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#D030A8"/><stop offset="100%" stop-color="#20C0D0"/></linearGradient>
+        <linearGradient id="gUL" x1="240" y1="175" x2="140" y2="88" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#20C0D0"/><stop offset="100%" stop-color="#50D070"/></linearGradient>
+        <linearGradient id="gUR" x1="240" y1="175" x2="355" y2="83" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#20C0D0"/><stop offset="100%" stop-color="#50D070"/></linearGradient>
+      </defs>
+      <circle cx="240" cy="430" r="34" fill="#FF5060"/>
+      <line id="lg-trunk" x1="240" y1="430" x2="240" y2="175" stroke="url(#gT)" stroke-width="24" stroke-linecap="round" style="stroke-dasharray:255;stroke-dashoffset:255"/>
+      <line id="lg-ll" x1="240" y1="295" x2="110" y2="210" stroke="url(#gLL)" stroke-width="22" stroke-linecap="round" style="stroke-dasharray:153;stroke-dashoffset:153"/>
+      <line id="lg-lr" x1="240" y1="295" x2="375" y2="225" stroke="url(#gLR)" stroke-width="22" stroke-linecap="round" style="stroke-dasharray:152;stroke-dashoffset:152"/>
+      <line id="lg-ul" x1="240" y1="175" x2="140" y2="88" stroke="url(#gUL)" stroke-width="20" stroke-linecap="round" style="stroke-dasharray:132;stroke-dashoffset:132"/>
+      <line id="lg-ur" x1="240" y1="175" x2="355" y2="83" stroke="url(#gUR)" stroke-width="20" stroke-linecap="round" style="stroke-dasharray:149;stroke-dashoffset:149"/>
+      <circle id="lg-d1" cx="110" cy="210" r="28" fill="#20C0D0"/>
+      <circle id="lg-d2" cx="375" cy="225" r="26" fill="#20C0D0"/>
+      <circle id="lg-d3" cx="140" cy="88" r="28" fill="#50D070"/>
+      <circle id="lg-d4" cx="355" cy="83" r="28" fill="#50D070"/>
+    </svg>
+    <div id="s1-brand">CléAvenir</div>
+    <div id="s1-tagline">Trouve ta voie professionnelle 🌱</div>
+    <div id="s1-pill">✦ L'IA au service de ton avenir</div>
+  </div>
+  <div id="vignette"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+gsap.set("#s1-glow", { scale:.6, opacity:0 });
+gsap.set("#s1-brand,#s1-tagline,#s1-pill", { opacity:0 });
+gsap.set("#s1-tagline", { y:12 });
+gsap.set("#s1-pill", { y:8, scale:.96 });
+gsap.set(".sparkle,.pt", { opacity:0, scale:0 });
+gsap.set("#lg-d1,#lg-d2,#lg-d3,#lg-d4", { scale:0, transformOrigin:"50% 50%" });
+
+tl.to("#s1-glow", { scale:1, opacity:1, duration:.8, ease:"power2.out" }, 0);
+tl.fromTo("#lg-trunk", { strokeDashoffset:255 }, { strokeDashoffset:0, duration:.52, ease:"power2.out" }, .15);
+tl.fromTo("#lg-ll", { strokeDashoffset:153 }, { strokeDashoffset:0, duration:.36, ease:"power2.out" }, .55);
+tl.fromTo("#lg-lr", { strokeDashoffset:152 }, { strokeDashoffset:0, duration:.36, ease:"power2.out" }, .55);
+tl.to("#lg-d1,#lg-d2", { scale:1, duration:.26, ease:"back.out(2)" }, .86);
+tl.fromTo("#lg-ul", { strokeDashoffset:132 }, { strokeDashoffset:0, duration:.3, ease:"power2.out" }, .76);
+tl.fromTo("#lg-ur", { strokeDashoffset:149 }, { strokeDashoffset:0, duration:.3, ease:"power2.out" }, .76);
+tl.to("#lg-d3,#lg-d4", { scale:1, duration:.26, ease:"back.out(2.2)" }, 1.02);
+tl.fromTo("#s1-brand", { opacity:0, y:10 }, { opacity:1, y:0, duration:.42, ease:"expo.out" }, 1.18);
+tl.fromTo("#s1-tagline", { opacity:0, y:12 }, { opacity:1, y:0, duration:.38, ease:"sine.out" }, 1.52);
+tl.fromTo("#s1-pill", { opacity:0, y:8, scale:.96 }, { opacity:1, y:0, scale:1, duration:.35, ease:"back.out(1.6)" }, 1.76);
+tl.fromTo(".sparkle", { opacity:0, scale:0 }, { opacity:1, scale:1, duration:.28, stagger:.07, ease:"back.out(2)" }, 1.96);
+tl.fromTo(".pt", { opacity:0, scale:0 }, { opacity:1, scale:1, duration:.4, stagger:.06, ease:"back.out(1.8)" }, 2.1);
+tl.to("#s1-logo-svg", { y:-10, yoyo:true, repeat:1, duration:1.1, ease:"sine.inOut" }, 2.9);
+tl.to("#s1-glow", { scale:1.1, yoyo:true, repeat:1, duration:1.3, ease:"sine.inOut" }, 3.1);
+tl.to(".pt", { y:-18, stagger:.08, yoyo:true, repeat:1, duration:1.4, ease:"sine.inOut" }, 3.2);
+/* exit fade */
+tl.to("#s01", { opacity:0, duration:.2, ease:"power2.in" }, 6.0);
+
+window.__timelines["s01-logo-reveal"] = tl;
+</script></body></html>

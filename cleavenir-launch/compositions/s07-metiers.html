@@ -1,0 +1,71 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html,body{width:1920px;height:1080px;overflow:hidden}
+#s07{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.app-left{position:absolute;left:0;top:0;width:540px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 100px}
+.app-emoji{font-size:60px;margin-bottom:14px}
+.app-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.18);border-radius:100px;padding:6px 14px;width:fit-content;margin-bottom:18px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E91E8C}
+.app-heading{font-family:"Syne",sans-serif;font-size:54px;line-height:.92;letter-spacing:-.02em;color:#0F172A;margin-bottom:16px;font-weight:800}
+.app-body{font-family:"Inter",sans-serif;font-size:17px;line-height:1.6;color:#64748B;max-width:340px}
+.browser{position:absolute;left:560px;top:130px;width:1320px;height:810px;border-radius:14px;box-shadow:0 48px 140px rgba(15,23,42,.2);overflow:hidden;background:#fff}
+.b-chrome{height:46px;background:#F1F3F4;display:flex;align-items:center;padding:0 14px;gap:10px;border-bottom:1px solid #E2E8F0}
+.b-lights{display:flex;gap:6px}.b-tc{width:12px;height:12px;border-radius:50%}
+.b-red{background:#FF5F57}.b-yellow{background:#FFBD2E}.b-green{background:#28C840}
+.b-url{flex:1;height:26px;max-width:360px;margin:0 auto;background:#fff;border:1px solid #E2E8F0;border-radius:5px;display:flex;align-items:center;padding:0 10px;gap:5px;font-family:"Inter",sans-serif;font-size:12px;color:#475569}
+.b-content{height:764px;overflow:hidden;position:relative;background:#fff;padding:20px 24px;display:flex;flex-direction:column;gap:14px}
+#s7-search{height:38px;background:#F1F5F9;border-radius:100px;display:flex;align-items:center;padding:0 16px;font-family:"Inter",sans-serif;font-size:13px;color:#94A3B8;gap:7px}
+.chips{display:flex;gap:7px}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:100px;font-family:"Inter",sans-serif;font-size:12px;font-weight:500;border:1.5px solid #E2E8F0;color:#64748B;background:#fff}
+.chip.a{border-color:#E91E8C;color:#E91E8C;background:rgba(233,30,140,.06)}
+#s7-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;flex:1}
+.m-card{background:#fff;border-radius:11px;padding:14px;border:1.5px solid #F1F5F9}
+.mc-ico{font-size:26px;margin-bottom:7px}
+.mc-t{font-family:"Syne",sans-serif;font-weight:700;font-size:14px;color:#0F172A;margin-bottom:3px}
+.mc-sal{font-family:"Inter",sans-serif;font-size:12px;color:#64748B;margin-bottom:6px}
+.mc-match{display:inline-flex;align-items:center;gap:4px;background:rgba(233,30,140,.08);color:#E91E8C;font-family:"Space Grotesk",sans-serif;font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px}
+#vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
+</style></head><body>
+<div id="s07" data-composition-id="s07-metiers" data-width="1920" data-height="1080" data-start="0" data-duration="7.2">
+  <div class="app-left" id="s7-left">
+    <div class="app-emoji">💼</div>
+    <div class="app-eyebrow">✦ Explorer</div>
+    <div class="app-heading"><span class="grad">10 000+</span><br>MÉTIERS<br>EXPLORÉS.</div>
+    <div class="app-body">Salaires, formations, débouchés — tout y est pour chaque métier. 🔍</div>
+  </div>
+  <div id="s7-browser" class="browser">
+    <div class="b-chrome"><div class="b-lights"><div class="b-tc b-red"></div><div class="b-tc b-yellow"></div><div class="b-tc b-green"></div></div><div class="b-url">🔒 cleavenir.com/metiers</div></div>
+    <div class="b-content">
+      <div id="s7-search">🔍 Rechercher un métier, un secteur...</div>
+      <div class="chips"><span class="chip a">🌐 Tous</span><span class="chip">💻 Tech</span><span class="chip">🏥 Santé</span><span class="chip">📊 Finance</span><span class="chip">🎨 Créatif</span><span class="chip">⚖️ Juridique</span></div>
+      <div id="s7-grid">
+        <div class="m-card" id="s7-c1"><div class="mc-ico">💻</div><div class="mc-t">Développeur Full Stack</div><div class="mc-sal">💰 38 – 65 k€/an</div><div class="mc-match">🎯 94% match</div></div>
+        <div class="m-card" id="s7-c2"><div class="mc-ico">📊</div><div class="mc-t">Data Analyst</div><div class="mc-sal">💰 35 – 58 k€/an</div><div class="mc-match">🎯 87% match</div></div>
+        <div class="m-card" id="s7-c3"><div class="mc-ico">🎨</div><div class="mc-t">UX/UI Designer</div><div class="mc-sal">💰 33 – 55 k€/an</div><div class="mc-match">🎯 81% match</div></div>
+        <div class="m-card" id="s7-c4"><div class="mc-ico">📱</div><div class="mc-t">Chef de Projet Digital</div><div class="mc-sal">💰 40 – 62 k€/an</div><div class="mc-match">🎯 78% match</div></div>
+        <div class="m-card" id="s7-c5"><div class="mc-ico">🔐</div><div class="mc-t">Expert Cybersécurité</div><div class="mc-sal">💰 45 – 75 k€/an</div><div class="mc-match">🎯 74% match</div></div>
+        <div class="m-card" id="s7-c6"><div class="mc-ico">🤖</div><div class="mc-t">Ingénieur IA / ML</div><div class="mc-sal">💰 50 – 85 k€/an</div><div class="mc-match">🎯 71% match</div></div>
+      </div>
+    </div>
+  </div>
+  <div id="vignette"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+gsap.set("#s7-left", { opacity:0, y:22 });
+gsap.set("#s7-browser", { x:100, opacity:0 });
+gsap.set("#s7-c1,#s7-c2,#s7-c3,#s7-c4,#s7-c5,#s7-c6", { opacity:0, y:18 });
+
+tl.fromTo("#s7-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
+tl.fromTo("#s7-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
+var cards=["#s7-c1","#s7-c2","#s7-c3","#s7-c4","#s7-c5","#s7-c6"];
+cards.forEach(function(c,i){ tl.fromTo(c,{opacity:0,y:18},{opacity:1,y:0,duration:.3,ease:"expo.out"},.8+i*.12); });
+tl.to("#s7-browser", { y:-7, yoyo:true, repeat:2, duration:1.4, ease:"sine.inOut" }, 2.2);
+tl.to("#s07", { opacity:0, duration:.2, ease:"power2.in" }, 7.0);
+
+window.__timelines["s07-metiers"] = tl;
+</script></body></html>

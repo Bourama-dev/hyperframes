@@ -1,0 +1,86 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<script src="../node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden}
+#s04{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.app-left{position:absolute;left:0;top:0;width:540px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 100px}
+.app-emoji{font-size:60px;margin-bottom:14px}
+.app-eyebrow{display:inline-flex;align-items:center;gap:7px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.18);border-radius:100px;padding:6px 14px;width:fit-content;margin-bottom:18px;font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#E91E8C}
+.app-heading{font-family:"Syne",sans-serif;font-size:54px;line-height:.92;letter-spacing:-.02em;color:#0F172A;margin-bottom:16px;font-weight:800}
+.app-body{font-family:"Inter",sans-serif;font-size:17px;line-height:1.6;color:#64748B;max-width:340px}
+.browser{position:absolute;left:560px;top:130px;width:1320px;height:810px;border-radius:14px;box-shadow:0 48px 140px rgba(15,23,42,.2);overflow:hidden;background:#fff}
+.b-chrome{height:46px;background:#F1F3F4;display:flex;align-items:center;padding:0 14px;gap:10px;border-bottom:1px solid #E2E8F0}
+.b-lights{display:flex;gap:6px}.b-tc{width:12px;height:12px;border-radius:50%}
+.b-red{background:#FF5F57}.b-yellow{background:#FFBD2E}.b-green{background:#28C840}
+.b-url{flex:1;height:26px;max-width:360px;margin:0 auto;background:#fff;border:1px solid #E2E8F0;border-radius:5px;display:flex;align-items:center;padding:0 10px;gap:5px;font-family:"Inter",sans-serif;font-size:12px;color:#475569}
+.b-content{height:764px;overflow:hidden;position:relative;background:#fff}
+#s4-prog-bar{height:5px;background:#E2E8F0}
+#s4-prog{height:100%;background:linear-gradient(90deg,#E91E8C,#06B6D4);border-radius:2px;width:42%}
+#s4-body{padding:26px 34px}
+#s4-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+#s4-num{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#E91E8C}
+#s4-timer{font-family:"Inter",sans-serif;font-size:13px;color:#94A3B8}
+#s4-q{font-family:"Syne",sans-serif;font-weight:700;font-size:28px;color:#0F172A;line-height:1.3;margin-bottom:7px}
+#s4-qsub{font-family:"Inter",sans-serif;font-size:15px;color:#64748B;margin-bottom:24px}
+#s4-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.q-o{padding:16px 18px;background:#fff;border:2px solid #E2E8F0;border-radius:12px;cursor:pointer}
+.q-o.sel{border-color:#E91E8C;background:rgba(233,30,140,.04)}
+.q-ico{font-size:24px;margin-bottom:7px;display:block}
+.q-t{font-family:"Inter",sans-serif;font-weight:600;font-size:14px;color:#0F172A;margin-bottom:2px}
+.q-s{font-family:"Inter",sans-serif;font-size:12px;color:#64748B}
+#s4-next{margin-top:18px;background:#E91E8C;color:#fff;border:none;padding:11px 26px;border-radius:100px;font-family:"Inter",sans-serif;font-size:14px;font-weight:600}
+.cur{position:absolute;width:18px;height:18px;border-radius:50%;background:rgba(15,23,42,.75);pointer-events:none;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.28)}
+#vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
+</style></head><body>
+<div id="s04" data-composition-id="s04-quiz" data-width="1920" data-height="1080" data-start="0" data-duration="6.2">
+  <div class="app-left" id="s4-left">
+    <div class="app-emoji">🧠</div>
+    <div class="app-eyebrow">✦ Le test IA</div>
+    <div class="app-heading">12 QUESTIONS.<br><span class="grad">TON PROFIL<br>RÉVÉLÉ.</span></div>
+    <div class="app-body">Notre IA analyse tes réponses en temps réel pour te proposer les métiers parfaits. 🎯</div>
+  </div>
+  <div id="s4-browser" class="browser">
+    <div class="b-chrome"><div class="b-lights"><div class="b-tc b-red"></div><div class="b-tc b-yellow"></div><div class="b-tc b-green"></div></div><div class="b-url">🔒 cleavenir.com/test</div></div>
+    <div class="b-content">
+      <div id="s4-prog-bar"><div id="s4-prog"></div></div>
+      <div id="s4-body">
+        <div id="s4-meta"><span id="s4-num">⚡ Question 5 / 12</span><span id="s4-timer">⏱ 2 min restantes</span></div>
+        <div id="s4-q">Quel type d'environnement de travail préfères-tu ?</div>
+        <div id="s4-qsub">Choisis la réponse qui te correspond le mieux.</div>
+        <div id="s4-opts">
+          <div class="q-o sel" id="s4-o1"><span class="q-ico">🏢</span><div class="q-t">Bureau dynamique</div><div class="q-s">Open space, échanges fréquents</div></div>
+          <div class="q-o" id="s4-o2"><span class="q-ico">🏠</span><div class="q-t">Télétravail</div><div class="q-s">Autonomie et flexibilité</div></div>
+          <div class="q-o" id="s4-o3"><span class="q-ico">🌿</span><div class="q-t">Nature et terrain</div><div class="q-s">Travail en extérieur</div></div>
+          <div class="q-o" id="s4-o4"><span class="q-ico">🔬</span><div class="q-t">Labo / Atelier</div><div class="q-s">Environnement technique</div></div>
+        </div>
+        <button id="s4-next">Continuer →</button>
+      </div>
+      <div class="cur" id="s4-cur"></div>
+    </div>
+  </div>
+  <div id="vignette"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+gsap.set("#s4-left", { opacity:0, y:22 });
+gsap.set("#s4-browser", { x:100, opacity:0 });
+gsap.set("#s4-cur", { opacity:0 });
+
+tl.fromTo("#s4-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
+tl.fromTo("#s4-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
+tl.to("#s4-prog", { width:"52%", duration:.9, ease:"power2.out" }, .8);
+tl.to("#s4-browser", { y:-7, yoyo:true, repeat:2, duration:1.4, ease:"sine.inOut" }, 1.5);
+tl.to("#s4-cur", { opacity:1, duration:.14 }, 3.5);
+tl.to("#s4-cur", { x:1180, y:530, duration:.46, ease:"power2.inOut" }, 3.66);
+tl.to("#s4-o2", { borderColor:"#E91E8C", background:"rgba(233,30,140,0.04)", duration:.14 }, 4.16);
+tl.to("#s4-o1", { borderColor:"#E2E8F0", background:"#fff", duration:.14 }, 4.16);
+tl.to("#s4-cur", { opacity:0, duration:.18 }, 4.7);
+tl.to("#s04", { opacity:0, duration:.2, ease:"power2.in" }, 6.0);
+
+window.__timelines["s04-quiz"] = tl;
+</script></body></html>

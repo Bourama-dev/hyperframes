@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=1920, height=1080"/>
+  <script src="node_modules/gsap/dist/gsap.min.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{width:1920px;height:1080px;overflow:hidden;background:#F8FAFC}
+    #flash-cover{position:fixed;inset:0;background:#fff;opacity:0;z-index:9999;pointer-events:none}
+    #grid-overlay{position:fixed;inset:0;pointer-events:none;z-index:9998;display:grid}
+    #grid-overlay .cell{background:#0F172A;transform:scale(0);transform-origin:center center}
+    #resolve-cover{position:fixed;inset:0;background:#F8FAFC;opacity:0;z-index:10000;pointer-events:none}
+  </style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="100" data-width="1920" data-height="1080">
+
+  <div id="slot-s01" data-composition-id="s01-logo-reveal"   data-composition-src="compositions/s01-logo-reveal.html"    data-start="0"  data-duration="6.2"></div>
+  <div id="slot-s02" data-composition-id="s02-problem"       data-composition-src="compositions/s02-problem.html"         data-start="6"  data-duration="5.2"></div>
+  <div id="slot-s03" data-composition-id="s03-app-hero"      data-composition-src="compositions/s03-app-hero.html"        data-start="11" data-duration="7.2"></div>
+  <div id="slot-s04" data-composition-id="s04-quiz"          data-composition-src="compositions/s04-quiz.html"            data-start="18" data-duration="6.2"></div>
+  <div id="slot-s05" data-composition-id="s05-resultats"     data-composition-src="compositions/s05-resultats.html"       data-start="24" data-duration="6.2"></div>
+  <div id="slot-s06" data-composition-id="s06-cleo"          data-composition-src="compositions/s06-cleo.html"            data-start="30" data-duration="7.2"></div>
+  <div id="slot-s07" data-composition-id="s07-metiers"       data-composition-src="compositions/s07-metiers.html"         data-start="37" data-duration="7.2"></div>
+  <div id="slot-s08" data-composition-id="s08-fiche-metier"  data-composition-src="compositions/s08-fiche-metier.html"    data-start="44" data-duration="6.2"></div>
+  <div id="slot-s09" data-composition-id="s09-formations"    data-composition-src="compositions/s09-formations.html"      data-start="50" data-duration="7.2"></div>
+  <div id="slot-s10" data-composition-id="s10-offres"        data-composition-src="compositions/s10-offres.html"          data-start="57" data-duration="7.2"></div>
+  <div id="slot-s11" data-composition-id="s11-cv"            data-composition-src="compositions/s11-cv.html"              data-start="64" data-duration="7.2"></div>
+  <div id="slot-s12" data-composition-id="s12-lettre"        data-composition-src="compositions/s12-lettre.html"          data-start="71" data-duration="6.2"></div>
+  <div id="slot-s13" data-composition-id="s13-dashboard"     data-composition-src="compositions/s13-dashboard.html"       data-start="77" data-duration="6.2"></div>
+  <div id="slot-s14" data-composition-id="s14-cleo-conseil"  data-composition-src="compositions/s14-cleo-conseil.html"    data-start="83" data-duration="5.2"></div>
+  <div id="slot-s15" data-composition-id="s15-stats"         data-composition-src="compositions/s15-stats.html"           data-start="88" data-duration="6.2"></div>
+  <div id="slot-s16" data-composition-id="s16-cta"           data-composition-src="compositions/s16-cta.html"             data-start="94" data-duration="6.0"></div>
+
+  <div id="flash-cover"   data-layout-ignore></div>
+  <div id="grid-overlay"  data-layout-ignore></div>
+  <div id="resolve-cover" data-layout-ignore></div>
+
+  <audio id="el-music" data-start="0" data-duration="100" data-track-index="3" data-volume="0.35" src="assets/music.mp3"></audio>
+</div>
+
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+
+(function() {
+  var COLS = 16, ROWS = 9;
+  var grid = document.getElementById("grid-overlay");
+  grid.style.gridTemplateColumns = "repeat("+COLS+",1fr)";
+  grid.style.gridTemplateRows   = "repeat("+ROWS+",1fr)";
+  for (var i = 0; i < COLS * ROWS; i++) {
+    var cell = document.createElement("div");
+    cell.className = "cell";
+    grid.appendChild(cell);
+  }
+})();
+
+function flash(t) {
+  tl.to("#flash-cover", { opacity:1, duration:.05, ease:"none" }, t);
+  tl.to("#flash-cover", { opacity:0, duration:.22, ease:"power2.out" }, t + .05);
+}
+
+function gridCover(t, from) {
+  tl.to("#grid-overlay .cell", { scale:1, duration:.28, stagger:{ amount:.22, from:from||"center" }, ease:"power2.in" }, t);
+  tl.to("#grid-overlay .cell", { scale:0, duration:.28, stagger:{ amount:.22, from:"edges" }, ease:"power2.out" }, t + .32);
+}
+
+flash(5.92);
+flash(10.92);
+flash(17.92);
+gridCover(23.72, "center");
+flash(29.92);
+flash(36.92);
+flash(43.92);
+gridCover(49.72, "random");
+flash(56.92);
+flash(63.92);
+flash(70.92);
+gridCover(76.72, "edges");
+flash(82.92);
+flash(87.92);
+flash(93.92);
+
+tl.fromTo("#resolve-cover", { opacity:0 }, { opacity:1, duration:2.0, ease:"power2.inOut" }, 98);
+
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>
