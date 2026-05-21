@@ -45,7 +45,7 @@
 #s8-cleo-btn{background:#E91E8C;color:#fff;border:none;padding:7px 16px;border-radius:100px;font-family:"Inter",sans-serif;font-size:12px;font-weight:600;margin-left:auto;white-space:nowrap}
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
 </style></head><body>
-<div id="s08" data-composition-id="s08-fiche-metier" data-width="1920" data-height="1080" data-start="0" data-duration="6.2">
+<div id="s08" data-composition-id="s08-fiche-metier" data-width="1920" data-height="1080" data-start="0" data-duration="3">
   <div class="app-left" id="s8-left">
     <div class="app-emoji">🔍</div>
     <div class="app-eyebrow">✦ Fiche Métier</div>
@@ -82,18 +82,17 @@ gsap.set("#s8-browser", { x:100, opacity:0 });
 gsap.set("#s8-p1,#s8-p2,#s8-p3,#s8-p4,#s8-cleo-strip", { opacity:0, y:14 });
 gsap.set("#s8-match-badge", { opacity:0, scale:.88 });
 
-tl.fromTo("#s8-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
-tl.fromTo("#s8-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
-tl.fromTo("#s8-match-badge", { opacity:0, scale:.88 }, { opacity:1, scale:1, duration:.32, ease:"back.out(1.8)" }, .6);
-tl.fromTo("#s8-p1", { opacity:0, y:14 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, .75);
-tl.fromTo("#s8-p2", { opacity:0, y:14 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, .88);
-tl.fromTo("#s8-p3", { opacity:0, y:14 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, 1.0);
-tl.fromTo("#s8-p4", { opacity:0, y:14 }, { opacity:1, y:0, duration:.3, ease:"expo.out" }, 1.12);
-tl.to("#s8-bar1", { width:"46%", duration:.65, ease:"power2.out" }, .9);
-tl.to("#s8-bar2", { width:"100%", duration:.75, ease:"power2.out" }, 1.05);
-tl.fromTo("#s8-cleo-strip", { opacity:0, y:14 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, 1.4);
-tl.to("#s8-browser", { y:-7, yoyo:true, repeat:1, duration:1.4, ease:"sine.inOut" }, 3.0);
-tl.to("#s08", { opacity:0, duration:.2, ease:"power2.in" }, 6.0);
+tl.fromTo("#s8-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.26, ease:"power3.out" }, 0);
+tl.fromTo("#s8-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.3, ease:"power3.out" }, .04);
+tl.fromTo("#s8-match-badge", { opacity:0, scale:.88 }, { opacity:1, scale:1, duration:.22, ease:"back.out(1.8)" }, .4);
+tl.fromTo("#s8-p1", { opacity:0, y:14 }, { opacity:1, y:0, duration:.2, ease:"expo.out" }, .5);
+tl.fromTo("#s8-p2", { opacity:0, y:14 }, { opacity:1, y:0, duration:.2, ease:"expo.out" }, .6);
+tl.fromTo("#s8-p3", { opacity:0, y:14 }, { opacity:1, y:0, duration:.2, ease:"expo.out" }, .7);
+tl.fromTo("#s8-p4", { opacity:0, y:14 }, { opacity:1, y:0, duration:.2, ease:"expo.out" }, .8);
+tl.to("#s8-bar1", { width:"46%", duration:.45, ease:"power2.out" }, .55);
+tl.to("#s8-bar2", { width:"100%", duration:.5, ease:"power2.out" }, .65);
+tl.fromTo("#s8-cleo-strip", { opacity:0, y:14 }, { opacity:1, y:0, duration:.2, ease:"expo.out" }, .95);
+tl.to("#s08", { opacity:0, duration:.18, ease:"power2.in" }, 2.8);
 
 window.__timelines["s08-fiche-metier"] = tl;
 </script></body></html>

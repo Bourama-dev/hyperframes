@@ -1,7 +1,7 @@
 {
   "title": "CléAvenir — Vidéo de lancement",
-  "version": "3.0.0",
-  "duration": 100,
+  "version": "4.0.0",
+  "duration": 54,
   "fps": 30,
   "resolution": { "width": 1920, "height": 1080 },
   "scenes": 16,

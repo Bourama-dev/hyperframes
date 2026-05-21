@@ -37,7 +37,7 @@ html,body{width:1920px;height:1080px;overflow:hidden}
 #s6-send{width:38px;height:38px;border-radius:50%;background:#E91E8C;border:none;color:#fff;font-size:15px}
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
 </style></head><body>
-<div id="s06" data-composition-id="s06-cleo" data-width="1920" data-height="1080" data-start="0" data-duration="7.2">
+<div id="s06" data-composition-id="s06-cleo" data-width="1920" data-height="1080" data-start="0" data-duration="4">
   <div class="app-left" id="s6-left">
     <div class="app-emoji">🤖</div>
     <div class="app-eyebrow">✦ Cleo · IA CléAvenir</div>
@@ -69,18 +69,17 @@ gsap.set("#s6-left", { opacity:0, y:22 });
 gsap.set("#s6-browser", { x:100, opacity:0 });
 gsap.set("#s6-m1,#s6-m2,#s6-typing,#s6-m3", { opacity:0, y:10 });
 
-tl.fromTo("#s6-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
-tl.fromTo("#s6-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
-tl.fromTo("#s6-m1", { opacity:0, y:10 }, { opacity:1, y:0, duration:.32, ease:"expo.out" }, .7);
-tl.fromTo("#s6-m2", { opacity:0, y:10 }, { opacity:1, y:0, duration:.28, ease:"expo.out" }, 1.6);
-tl.fromTo("#s6-typing", { opacity:0, y:10 }, { opacity:1, y:0, duration:.26, ease:"expo.out" }, 2.3);
-tl.to("#td1", { background:"#E91E8C", yoyo:true, repeat:3, duration:.28, ease:"none" }, 2.5);
-tl.to("#td2", { background:"#E91E8C", yoyo:true, repeat:3, duration:.28, ease:"none" }, 2.64);
-tl.to("#td3", { background:"#E91E8C", yoyo:true, repeat:3, duration:.28, ease:"none" }, 2.78);
-tl.to("#s6-typing", { opacity:0, duration:.18 }, 3.8);
-tl.fromTo("#s6-m3", { opacity:0, y:10 }, { opacity:1, y:0, duration:.38, ease:"expo.out" }, 4.0);
-tl.to("#s6-browser", { y:-7, yoyo:true, repeat:1, duration:1.5, ease:"sine.inOut" }, 5.0);
-tl.to("#s06", { opacity:0, duration:.2, ease:"power2.in" }, 7.0);
+tl.fromTo("#s6-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.26, ease:"power3.out" }, 0);
+tl.fromTo("#s6-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.3, ease:"power3.out" }, .04);
+tl.fromTo("#s6-m1", { opacity:0, y:10 }, { opacity:1, y:0, duration:.22, ease:"expo.out" }, .5);
+tl.fromTo("#s6-m2", { opacity:0, y:10 }, { opacity:1, y:0, duration:.2, ease:"expo.out" }, 1.1);
+tl.fromTo("#s6-typing", { opacity:0, y:10 }, { opacity:1, y:0, duration:.18, ease:"expo.out" }, 1.6);
+tl.to("#td1", { background:"#E91E8C", yoyo:true, repeat:1, duration:.18, ease:"none" }, 1.75);
+tl.to("#td2", { background:"#E91E8C", yoyo:true, repeat:1, duration:.18, ease:"none" }, 1.88);
+tl.to("#td3", { background:"#E91E8C", yoyo:true, repeat:1, duration:.18, ease:"none" }, 2.0);
+tl.to("#s6-typing", { opacity:0, duration:.15 }, 2.4);
+tl.fromTo("#s6-m3", { opacity:0, y:10 }, { opacity:1, y:0, duration:.28, ease:"expo.out" }, 2.55);
+tl.to("#s06", { opacity:0, duration:.18, ease:"power2.in" }, 3.8);
 
 window.__timelines["s06-cleo"] = tl;
 </script></body></html>

@@ -29,7 +29,7 @@
 .mc-match{display:inline-flex;align-items:center;gap:4px;background:rgba(233,30,140,.08);color:#E91E8C;font-family:"Space Grotesk",sans-serif;font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px}
 #vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.1) 100%)}
 </style></head><body>
-<div id="s07" data-composition-id="s07-metiers" data-width="1920" data-height="1080" data-start="0" data-duration="7.2">
+<div id="s07" data-composition-id="s07-metiers" data-width="1920" data-height="1080" data-start="0" data-duration="3">
   <div class="app-left" id="s7-left">
     <div class="app-emoji">💼</div>
     <div class="app-eyebrow">✦ Explorer</div>
@@ -60,12 +60,11 @@ gsap.set("#s7-left", { opacity:0, y:22 });
 gsap.set("#s7-browser", { x:100, opacity:0 });
 gsap.set("#s7-c1,#s7-c2,#s7-c3,#s7-c4,#s7-c5,#s7-c6", { opacity:0, y:18 });
 
-tl.fromTo("#s7-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.42, ease:"power3.out" }, 0);
-tl.fromTo("#s7-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.48, ease:"power3.out" }, .06);
+tl.fromTo("#s7-left", { opacity:0, y:22 }, { opacity:1, y:0, duration:.26, ease:"power3.out" }, 0);
+tl.fromTo("#s7-browser", { x:100, opacity:0 }, { x:0, opacity:1, duration:.3, ease:"power3.out" }, .04);
 var cards=["#s7-c1","#s7-c2","#s7-c3","#s7-c4","#s7-c5","#s7-c6"];
-cards.forEach(function(c,i){ tl.fromTo(c,{opacity:0,y:18},{opacity:1,y:0,duration:.3,ease:"expo.out"},.8+i*.12); });
-tl.to("#s7-browser", { y:-7, yoyo:true, repeat:2, duration:1.4, ease:"sine.inOut" }, 2.2);
-tl.to("#s07", { opacity:0, duration:.2, ease:"power2.in" }, 7.0);
+cards.forEach(function(c,i){ tl.fromTo(c,{opacity:0,y:18},{opacity:1,y:0,duration:.2,ease:"expo.out"},.5+i*.08); });
+tl.to("#s07", { opacity:0, duration:.18, ease:"power2.in" }, 2.8);
 
 window.__timelines["s07-metiers"] = tl;
 </script></body></html>
