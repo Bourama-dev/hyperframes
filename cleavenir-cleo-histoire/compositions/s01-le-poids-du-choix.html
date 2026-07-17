@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="UTF-8"/></head>
+<body>
+<template>
+<style>
+@font-face{font-family:"Syne";font-weight:800;font-style:normal;font-display:swap;src:url(assets/fonts/Syne-800.ttf) format('truetype')}
+#root{position:relative;width:1920px;height:1080px;background:#0A0F1E;overflow:hidden;perspective:1400px}
+#s1-camera{position:absolute;inset:0;transform-origin:50% 55%}
+#s1-glow{position:absolute;width:1400px;height:1400px;top:50%;left:50%;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle,rgba(6,182,212,.10) 0%,rgba(233,30,140,.06) 45%,transparent 70%);pointer-events:none}
+.q{position:absolute;font-family:"Syne",sans-serif;font-weight:800;color:#1E293B;pointer-events:none;user-select:none}
+#q-huge{font-size:640px;top:50%;left:50%;translate:-50% -55%;color:rgb(96,101,114);letter-spacing:-.02em}
+.thought{position:absolute;font-family:"Inter",sans-serif;font-weight:400;font-size:34px;color:#94A3B8;letter-spacing:.01em;opacity:0;white-space:nowrap}
+#t1{top:24%;left:12%}
+#t2{top:64%;right:10%;text-align:right}
+#t3{top:44%;left:8%}
+#s1-figure{position:absolute;bottom:0;left:50%;translate:-50% 0;width:220px;height:340px}
+#s1-fig-glow{position:absolute;bottom:0;left:50%;translate:-50% 0;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(233,30,140,.28) 0%,transparent 70%);filter:blur(6px)}
+#s1-fig-shape{position:absolute;bottom:0;left:50%;translate:-50% 0;width:150px;height:280px;background:linear-gradient(180deg,#1E293B 0%,#0F172A 100%);border-radius:75px 75px 0 0;box-shadow:0 0 60px rgba(6,182,212,.15)}
+.dust{position:absolute;border-radius:50%;background:#06B6D4;pointer-events:none}
+#s1-vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at 50% 60%,transparent 38%,rgba(0,0,0,.55) 100%)}
+#s1-grain{position:absolute;inset:0;pointer-events:none;z-index:91;opacity:.04;background-image:radial-gradient(rgba(255,255,255,.8) 1px,transparent 1px);background-size:3px 3px}
+</style>
+
+<div id="root" data-composition-id="s01-le-poids-du-choix" data-width="1920" data-height="1080">
+  <div id="s1-camera" data-layout-allow-overflow>
+    <div id="s1-glow"></div>
+    <div class="q" id="q-huge">?</div>
+    <div class="thought" id="t1">« Quel métier je veux faire ? »</div>
+    <div class="thought" id="t2">« Et si je me trompais de voie ? »</div>
+    <div class="thought" id="t3">« Je ne sais même pas par où commencer. »</div>
+    <div class="dust" id="d1" style="width:5px;height:5px;top:30%;left:70%;opacity:.3"></div>
+    <div class="dust" id="d2" style="width:4px;height:4px;top:55%;left:22%;opacity:.25"></div>
+    <div class="dust" id="d3" style="width:6px;height:6px;top:70%;left:60%;opacity:.3"></div>
+    <div id="s1-figure">
+      <div id="s1-fig-glow"></div>
+      <div id="s1-fig-shape"></div>
+    </div>
+  </div>
+  <div id="s1-grain"></div>
+  <div id="s1-vignette"></div>
+</div>
+
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+
+gsap.set("#s1-camera", { scale: 1 });
+gsap.set("#s1-glow", { opacity: 0, scale: .85 });
+gsap.set("#q-huge", { opacity: 0, scale: 1.08 });
+gsap.set(".thought", { opacity: 0, y: 14 });
+gsap.set("#s1-figure", { opacity: 0, y: 20 });
+gsap.set(".dust", { opacity: 0 });
+
+/* slow cinematic push-in across the whole shot */
+tl.to("#s1-camera", { scale: 1.07, duration: 8, ease: "sine.inOut" }, 0);
+
+tl.to("#s1-glow", { opacity: 1, scale: 1, duration: 1.6, ease: "power2.out" }, .1);
+tl.to("#q-huge", { opacity: 1, scale: 1, duration: 1.8, ease: "power2.out" }, .2);
+tl.to("#s1-figure", { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, .5);
+
+tl.to("#t1", { opacity: 1, y: 0, duration: .7, ease: "power2.out" }, 1.6);
+tl.to("#t1", { opacity: 0, y: -10, duration: .6, ease: "power1.in" }, 3.6);
+
+tl.to("#t3", { opacity: 1, y: 0, duration: .7, ease: "power2.out" }, 3.1);
+tl.to("#t3", { opacity: 0, y: -10, duration: .6, ease: "power1.in" }, 5.1);
+
+tl.to("#t2", { opacity: 1, y: 0, duration: .7, ease: "power2.out" }, 4.6);
+tl.to("#t2", { opacity: 0, y: -10, duration: .6, ease: "power1.in" }, 6.8);
+
+tl.to(".dust", { opacity: 1, duration: 1.2, stagger: .15 }, 1);
+tl.to("#d1,#d2,#d3", { y: -40, duration: 6, ease: "sine.inOut" }, 1.2);
+
+/* exit: darken to black for the cut into S02 */
+tl.to("#root", { opacity: 0, duration: .4, ease: "power2.in" }, 7.6);
+
+window.__timelines["s01-le-poids-du-choix"] = tl;
+</script>
+</template>
+</body>
+</html>

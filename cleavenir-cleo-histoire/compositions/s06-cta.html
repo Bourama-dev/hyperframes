@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="UTF-8"/></head>
+<body>
+<template>
+<style>
+@font-face{font-family:"Syne";font-weight:800;font-style:normal;font-display:swap;src:url(assets/fonts/Syne-800.ttf) format('truetype')}
+@font-face{font-family:"Space Grotesk";font-weight:700;font-style:normal;font-display:swap;src:url(assets/fonts/SpaceGrotesk-700.ttf) format('truetype')}
+#root{position:relative;width:1920px;height:1080px;background:#0A0F1E;overflow:hidden}
+#s6-glow{position:absolute;width:1200px;height:1200px;top:50%;left:50%;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle,rgba(233,30,140,.16) 0%,rgba(6,182,212,.1) 50%,transparent 72%)}
+#s6-center{position:absolute;top:50%;left:50%;translate:-50% -50%;text-align:center}
+#s6-logo{width:110px;height:118px;margin:0 auto;display:block}
+#s6-brand{font-family:"Syne",sans-serif;font-weight:800;font-size:56px;letter-spacing:-.02em;margin-top:10px;color:#fff;background:linear-gradient(135deg,#E91E8C 0%,#06B6D4 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#s6-line{font-family:"Syne",sans-serif;font-weight:800;font-size:96px;color:#fff;margin-top:26px;letter-spacing:-.01em;opacity:0}
+#s6-url{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:26px;color:#06B6D4;letter-spacing:.04em;margin-top:26px;opacity:0}
+.shard{position:absolute;background:linear-gradient(135deg,#E91E8C,#06B6D4);opacity:0}
+#s6-vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.5) 100%)}
+</style>
+
+<div id="root" data-composition-id="s06-cta" data-width="1920" data-height="1080">
+  <div id="s6-glow" data-layout-allow-overflow></div>
+  <div class="shard" id="sh1" style="width:30px;height:30px;top:20%;left:22%"></div>
+  <div class="shard" id="sh2" style="width:18px;height:18px;top:70%;right:18%"></div>
+  <div class="shard" id="sh3" style="width:24px;height:24px;bottom:16%;left:30%"></div>
+  <div class="shard" id="sh4" style="width:16px;height:16px;top:30%;right:26%"></div>
+  <div id="s6-center">
+    <svg id="s6-logo" viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="g1" x1="240" y1="430" x2="240" y2="175" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FF5060"/><stop offset="55%" stop-color="#C040C8"/><stop offset="100%" stop-color="#20C0D0"/></linearGradient>
+      </defs>
+      <circle cx="240" cy="430" r="34" fill="#FF5060"/>
+      <line x1="240" y1="430" x2="240" y2="175" stroke="url(#g1)" stroke-width="24" stroke-linecap="round"/>
+      <line x1="240" y1="295" x2="110" y2="210" stroke="#B030C8" stroke-width="22" stroke-linecap="round"/>
+      <line x1="240" y1="295" x2="375" y2="225" stroke="#D030A8" stroke-width="22" stroke-linecap="round"/>
+      <line x1="240" y1="175" x2="140" y2="88" stroke="#20C0D0" stroke-width="20" stroke-linecap="round"/>
+      <line x1="240" y1="175" x2="355" y2="83" stroke="#20C0D0" stroke-width="20" stroke-linecap="round"/>
+      <circle cx="110" cy="210" r="28" fill="#20C0D0"/><circle cx="375" cy="225" r="26" fill="#20C0D0"/>
+      <circle cx="140" cy="88" r="28" fill="#50D070"/><circle cx="355" cy="83" r="28" fill="#50D070"/>
+    </svg>
+    <div id="s6-brand">CléAvenir</div>
+    <div id="s6-line">Ton avenir commence ici.</div>
+    <div id="s6-url">cleavenir.com</div>
+  </div>
+  <div id="s6-vignette"></div>
+</div>
+
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+
+gsap.set("#s6-glow", { opacity: 0, scale: .7 });
+gsap.set("#s6-logo,#s6-brand", { opacity: 0, scale: .8 });
+gsap.set("#s6-line", { y: 14 });
+gsap.set("#s6-url", { y: 10 });
+gsap.set(".shard", { scale: 0, rotate: 45 });
+
+tl.to("#s6-glow", { opacity: 1, scale: 1, duration: .8, ease: "power2.out" }, 0);
+tl.to(".shard", { opacity: 1, scale: 1, rotate: 0, duration: .5, stagger: .06, ease: "back.out(2)" }, .05);
+tl.to("#s6-logo,#s6-brand", { opacity: 1, scale: 1, duration: .5, ease: "back.out(1.6)" }, .3);
+tl.to("#s6-line", { opacity: 1, y: 0, duration: .6, ease: "power2.out" }, .9);
+tl.to("#s6-url", { opacity: 1, y: 0, duration: .5, ease: "power2.out" }, 1.5);
+tl.to(".shard", { rotate: 180, duration: 3.5, ease: "none" }, .6);
+
+window.__timelines["s06-cta"] = tl;
+</script>
+</template>
+</body>
+</html>

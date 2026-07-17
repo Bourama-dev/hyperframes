@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="UTF-8"/></head>
+<body>
+<template>
+<style>
+@font-face{font-family:"Syne";font-weight:800;font-style:normal;font-display:swap;src:url(assets/fonts/Syne-800.ttf) format('truetype')}
+#root{position:relative;width:1920px;height:1080px;background:#050810;overflow:hidden}
+.layer-q{position:absolute;font-family:"Syne",sans-serif;font-weight:800;color:rgb(92,93,96);pointer-events:none;user-select:none}
+#lq1{font-size:220px;top:8%;left:4%}
+#lq2{font-size:340px;top:38%;right:2%}
+#lq3{font-size:160px;bottom:4%;left:20%}
+#lq4{font-size:260px;bottom:-6%;right:24%}
+.card{position:absolute;width:340px;padding:26px 28px;background:rgba(30,41,59,.55);border:1px solid rgba(148,163,184,.15);border-radius:16px;font-family:"Inter",sans-serif;color:#CBD5E1;font-size:19px;line-height:1.4;opacity:0}
+#c1{top:16%;left:9%}
+#c2{top:20%;right:8%}
+#c3{bottom:16%;left:14%}
+#c4{bottom:14%;right:11%}
+#s2-pulse{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(233,30,140,.10) 0%,transparent 60%);pointer-events:none;opacity:0}
+#s2-vignette{position:absolute;inset:0;pointer-events:none;z-index:90;background:radial-gradient(ellipse at center,transparent 20%,rgba(0,0,0,.7) 100%)}
+</style>
+
+<div id="root" data-composition-id="s02-le-doute-grandit" data-width="1920" data-height="1080">
+  <div class="layer-q" id="lq1" data-layout-allow-occlusion>?</div>
+  <div class="layer-q" id="lq2" data-layout-allow-occlusion>?</div>
+  <div class="layer-q" id="lq3" data-layout-allow-occlusion>?</div>
+  <div class="layer-q" id="lq4" data-layout-allow-occlusion data-layout-allow-overflow>?</div>
+  <div class="card" id="c1">Commerce, ingénieur, médecine, art&nbsp;…</div>
+  <div class="card" id="c2">3 millions de jeunes se posent la même question.</div>
+  <div class="card" id="c3">Trop d'options. Aucune certitude.</div>
+  <div class="card" id="c4">Un avenir flou, difficile à imaginer.</div>
+  <div id="s2-pulse"></div>
+  <div id="s2-vignette"></div>
+</div>
+
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+
+gsap.set("#root", { opacity: 0 });
+gsap.set(".layer-q", { opacity: 0, scale: .9 });
+gsap.set(".card", { opacity: 0, y: 16, scale: .97 });
+
+tl.to("#root", { opacity: 1, duration: .3 }, 0);
+tl.to(".layer-q", { opacity: 1, scale: 1, duration: 1.4, stagger: .18, ease: "power2.out" }, .1);
+tl.to("#lq1,#lq2,#lq3,#lq4", { y: "-=18", duration: 6, ease: "sine.inOut" }, .1);
+
+tl.to("#c1", { opacity: 1, y: 0, scale: 1, duration: .5, ease: "back.out(1.6)" }, .6);
+tl.to("#c2", { opacity: 1, y: 0, scale: 1, duration: .5, ease: "back.out(1.6)" }, 1.5);
+tl.to("#c3", { opacity: 1, y: 0, scale: 1, duration: .5, ease: "back.out(1.6)" }, 2.4);
+tl.to("#c4", { opacity: 1, y: 0, scale: 1, duration: .5, ease: "back.out(1.6)" }, 3.2);
+
+/* tension builds: a slow dark-pink pulse, then the whole world tightens inward */
+tl.to("#s2-pulse", { opacity: 1, duration: 1.6, ease: "sine.inOut" }, 2.8);
+tl.to("#root", { scale: 1.05, duration: 1.8, ease: "power1.in" }, 4);
+
+/* hard cut to black for the portal reveal in S03 */
+tl.to(".card,.layer-q,#s2-pulse", { opacity: 0, duration: .35, ease: "power2.in" }, 5.25);
+tl.to("#root", { backgroundColor: "#000000", duration: .35 }, 5.25);
+
+window.__timelines["s02-le-doute-grandit"] = tl;
+</script>
+</template>
+</body>
+</html>

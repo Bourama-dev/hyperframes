@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head><meta charset="UTF-8"/></head>
+<body>
+<template>
+<style>
+@font-face{font-family:"Syne";font-weight:800;font-style:normal;font-display:swap;src:url(assets/fonts/Syne-800.ttf) format('truetype')}
+#root{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
+#s5-glow{position:absolute;width:1600px;height:1600px;top:-20%;right:-15%;border-radius:50%;background:radial-gradient(circle,rgba(233,30,140,.08) 0%,rgba(6,182,212,.06) 50%,transparent 72%);pointer-events:none}
+#s5-path{position:absolute;bottom:0;left:0;width:1920px;height:640px}
+#s5-figure{position:absolute;bottom:210px;left:14%;width:70px;height:150px}
+#s5-fig-body{position:absolute;bottom:0;width:70px;height:130px;background:linear-gradient(180deg,#E91E8C,#06B6D4);border-radius:35px 35px 0 0}
+.stop{position:absolute;display:flex;flex-direction:column;align-items:center;opacity:0;z-index:5}
+.stop .dot{width:16px;height:16px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 6px rgba(34,197,94,.15)}
+.stop .num{font-family:"Syne",sans-serif;font-weight:800;font-size:56px;background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-top:10px}
+.stop .lbl{font-family:"Inter",sans-serif;font-weight:500;font-size:18px;color:#475569;margin-top:2px;white-space:nowrap}
+#s5-headline{position:absolute;top:12%;left:50%;translate:-50% 0;text-align:center;opacity:0}
+#s5-headline .big{font-family:"Syne",sans-serif;font-weight:800;font-size:64px;color:#0F172A}
+#s5-headline .sub{font-family:"Inter",sans-serif;font-weight:300;font-size:24px;color:#64748B;margin-top:10px}
+</style>
+
+<div id="root" data-composition-id="s05-le-nouveau-chemin" data-width="1920" data-height="1080">
+  <div id="s5-glow" data-layout-allow-overflow></div>
+
+  <div id="s5-headline">
+    <div class="big">Un chemin clair.</div>
+    <div class="sub">Une confiance retrouvée, un avenir qui devient enfin le tien.</div>
+  </div>
+
+  <svg id="s5-path" viewBox="0 0 1920 640" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#E91E8C"/>
+        <stop offset="55%" stop-color="#06B6D4"/>
+        <stop offset="100%" stop-color="#22C55E"/>
+      </linearGradient>
+    </defs>
+    <path id="s5-line" d="M 40 560 C 400 560, 420 380, 700 380 S 1000 200, 1300 200 S 1650 90, 1900 90"
+      fill="none" stroke="url(#pathGrad)" stroke-width="6" stroke-linecap="round" style="stroke-dasharray:2400;stroke-dashoffset:2400"/>
+  </svg>
+
+  <div class="stop" id="st1" style="left:34%;bottom:255px"><div class="dot"></div><div class="num">10K</div><div class="lbl">utilisateurs actifs</div></div>
+  <div class="stop" id="st2" style="left:60%;bottom:435px"><div class="dot"></div><div class="num">50K</div><div class="lbl">métiers analysés</div></div>
+  <div class="stop" id="st3" style="left:86%;bottom:545px"><div class="dot"></div><div class="num">95%</div><div class="lbl">de satisfaction</div></div>
+
+  <div id="s5-figure"><div id="s5-fig-body"></div></div>
+</div>
+
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+
+gsap.set("#s5-glow", { opacity: 0, scale: .9 });
+gsap.set(".stop", { y: 14, scale: .9 });
+
+tl.to("#s5-glow", { opacity: 1, scale: 1, duration: 1.2, ease: "power2.out" }, 0);
+tl.to("#s5-headline", { opacity: 1, y: 0, duration: .7, ease: "power2.out" }, .2);
+
+/* the path draws itself and the figure climbs along it, camera following.
+   Waypoints are expressed as x/y transforms (not left/bottom) to stay sub-pixel
+   smooth under seek-by-frame capture; deltas computed from the figure's base
+   position (left:14% ≈ 268.8px, bottom:210px) to each stop's target position. */
+tl.to("#s5-line", { strokeDashoffset: 0, duration: 5.2, ease: "power1.inOut" }, .6);
+tl.to("#s5-figure", { x: 384,    y: -45,  duration: 1.7, ease: "power1.inOut" }, .6);
+tl.to("#s5-figure", { x: 883.2,  y: -225, duration: 1.7, ease: "power1.inOut" }, 2.3);
+tl.to("#s5-figure", { x: 1382.4, y: -335, duration: 1.8, ease: "power1.inOut" }, 4.0);
+
+tl.to("#st1", { opacity: 1, y: 0, scale: 1, duration: .5, ease: "back.out(1.8)" }, 1.6);
+tl.to("#st2", { opacity: 1, y: 0, scale: 1, duration: .5, ease: "back.out(1.8)" }, 3.1);
+tl.to("#st3", { opacity: 1, y: 0, scale: 1, duration: .5, ease: "back.out(1.8)" }, 4.6);
+
+tl.to("#root", { opacity: 0, duration: .4, ease: "power2.in" }, 8.6);
+
+window.__timelines["s05-le-nouveau-chemin"] = tl;
+</script>
+</template>
+</body>
+</html>
