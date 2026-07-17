@@ -12,19 +12,26 @@
     </style>
   </head>
   <body>
-    <div id="root" data-composition-id="main" data-start="0" data-duration="50" data-width="1920" data-height="1080">
+    <div id="root" data-composition-id="main" data-start="0" data-duration="51" data-width="1920" data-height="1080">
 
       <div id="slot-s01" class="clip" data-composition-id="s01-le-poids-du-choix" data-composition-src="compositions/s01-le-poids-du-choix.html" data-start="0"  data-duration="8"  data-track-index="1" data-width="1920" data-height="1080"></div>
       <div id="slot-s02" class="clip" data-composition-id="s02-le-doute-grandit"  data-composition-src="compositions/s02-le-doute-grandit.html"  data-start="8"  data-duration="6"  data-track-index="1" data-width="1920" data-height="1080"></div>
       <div id="slot-s03" class="clip" data-composition-id="s03-la-rencontre"      data-composition-src="compositions/s03-la-rencontre.html"      data-start="14" data-duration="8"  data-track-index="1" data-width="1920" data-height="1080"></div>
       <div id="slot-s04" class="clip" data-composition-id="s04-la-transformation" data-composition-src="compositions/s04-la-transformation.html" data-start="22" data-duration="14" data-track-index="1" data-width="1920" data-height="1080"></div>
       <div id="slot-s05" class="clip" data-composition-id="s05-le-nouveau-chemin" data-composition-src="compositions/s05-le-nouveau-chemin.html" data-start="36" data-duration="9"  data-track-index="1" data-width="1920" data-height="1080"></div>
-      <div id="slot-s06" class="clip" data-composition-id="s06-cta"               data-composition-src="compositions/s06-cta.html"               data-start="45" data-duration="5"  data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="slot-s06" class="clip" data-composition-id="s06-cta"               data-composition-src="compositions/s06-cta.html"               data-start="45" data-duration="6"  data-track-index="1" data-width="1920" data-height="1080"></div>
 
       <div id="flash-cover" data-layout-ignore></div>
       <div id="resolve-cover" data-layout-ignore></div>
 
-      <audio id="el-music" data-start="0" data-duration="50" data-track-index="10" data-volume="0.35" src="assets/music.wav"></audio>
+      <audio id="el-music" data-start="0"    data-duration="51"    data-track-index="10" data-volume="0.5" src="assets/music.mp3"></audio>
+
+      <audio id="vo-s01" data-start="1"    data-duration="5.739" data-track-index="11" data-volume="1" src="assets/voiceover/vo-s01.wav"></audio>
+      <audio id="vo-s02" data-start="9"    data-duration="2.325" data-track-index="11" data-volume="1" src="assets/voiceover/vo-s02.wav"></audio>
+      <audio id="vo-s03" data-start="15.3" data-duration="5.739" data-track-index="11" data-volume="1" src="assets/voiceover/vo-s03.wav"></audio>
+      <audio id="vo-s04" data-start="22.5" data-duration="7.488" data-track-index="11" data-volume="1" src="assets/voiceover/vo-s04.wav"></audio>
+      <audio id="vo-s05" data-start="37"   data-duration="4.608" data-track-index="11" data-volume="1" src="assets/voiceover/vo-s05.wav"></audio>
+      <audio id="vo-s06" data-start="45.5" data-duration="3.904" data-track-index="11" data-volume="1" src="assets/voiceover/vo-s06.wav"></audio>
     </div>
 
     <script>
@@ -37,8 +44,19 @@
         tl.to("#flash-cover", { opacity: 0, duration: .15, ease: "power2.out" }, t);
       });
 
+      /* duck the music bed under each voiceover line, then restore */
+      var voSpans = [
+        [1, 6.739], [9, 11.325], [15.3, 21.039],
+        [22.5, 29.988], [37, 41.608], [45.5, 49.404]
+      ];
+      voSpans.forEach(function (span) {
+        tl.to("#el-music", { volume: .22, duration: .4, ease: "power2.out" }, Math.max(span[0] - .4, 0));
+        tl.to("#el-music", { volume: .5, duration: .6, ease: "power2.in" }, span[1]);
+      });
+
       /* final resolve: fade to brand-navy at the very end */
-      tl.to("#resolve-cover", { opacity: 1, duration: 1.2, ease: "power2.in" }, 48.8);
+      tl.to("#resolve-cover", { opacity: 1, duration: 1.2, ease: "power2.in" }, 49.8);
+      tl.to("#el-music", { volume: 0, duration: 1.2, ease: "power2.in" }, 49.8);
 
       window.__timelines["main"] = tl;
     </script>
