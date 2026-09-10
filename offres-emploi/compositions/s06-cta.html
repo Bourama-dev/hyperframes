@@ -8,28 +8,30 @@
 html,body{width:1920px;height:1080px;overflow:hidden;background:#F4F6FB}
 #s06{position:relative;width:1920px;height:1080px;overflow:hidden;background:#F4F6FB;display:flex;align-items:center;justify-content:center}
 .bg-shape{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
-.grad{background:linear-gradient(135deg,#003B8E,#00AEEF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .ring{position:absolute;border-radius:50%;border:1.5px solid;pointer-events:none;left:50%;top:50%}
 .num-tile{position:absolute;background:#fff;border:1.5px solid #ECEEF2;border-radius:18px;padding:16px 24px;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.07)}
 .nt-val{font-family:"Outfit",sans-serif;font-size:22px;font-weight:900;color:#111827}
 .nt-lbl{font-family:"Inter",sans-serif;font-size:11px;color:#9CA3AF;margin-top:4px;letter-spacing:.06em;text-transform:uppercase}
 #center-stage{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:980px}
-#s06-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(0,59,142,.07);border:1px solid rgba(0,59,142,.2);border-radius:100px;padding:10px 24px;font-family:"Inter",sans-serif;font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#003B8E;margin-bottom:32px}
+#s06-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.2);border-radius:100px;padding:10px 24px;font-family:"Inter",sans-serif;font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#E91E8C;margin-bottom:32px}
+.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:#E91E8C}
 #s06-title{font-family:"Outfit",sans-serif;font-size:128px;font-weight:900;line-height:.88;letter-spacing:-.04em;text-align:center;color:#111827;margin-bottom:20px}
 #s06-count-line{font-family:"Inter",sans-serif;font-size:22px;color:#6B7280;text-align:center;margin-bottom:52px;letter-spacing:.02em}
-#s06-cta-group{display:flex;align-items:center;gap:22px;margin-bottom:48px}
-#s06-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#003B8E,#0086C3);border-radius:100px;padding:20px 48px;font-family:"Outfit",sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-.01em;border:none;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(0,59,142,.25)}
+#s06-cta-group{display:flex;align-items:center;gap:22px;margin-bottom:32px}
+#s06-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#E91E8C,#06B6D4);border-radius:100px;padding:20px 48px;font-family:"Outfit",sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-.01em;border:none;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(233,30,140,.25)}
 #s06-shimmer{position:absolute;inset:0;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.18) 50%,transparent 80%);pointer-events:none}
-#s06-url{font-family:"Inter",sans-serif;font-size:18px;color:#9CA3AF;letter-spacing:.03em}
+#s06-url{font-family:"Inter",sans-serif;font-size:18px;color:#9CA3AF;letter-spacing:.03em;margin-bottom:16px}
+#s06-ft{font-family:"Inter",sans-serif;font-size:13px;color:#C4C9D4;display:flex;align-items:center;gap:6px;letter-spacing:.03em}
 </style>
 </head><body>
 <div id="s06" data-composition-id="s06-cta" data-width="1920" data-height="1080" data-start="0" data-duration="5">
 
-  <div class="bg-shape" style="width:800px;height:800px;top:-200px;right:-100px;background:rgba(0,59,142,.07)"></div>
-  <div class="bg-shape" style="width:700px;height:700px;bottom:-200px;left:-100px;background:rgba(0,174,239,.06)"></div>
+  <div class="bg-shape" style="width:800px;height:800px;top:-200px;right:-100px;background:rgba(233,30,140,.07)"></div>
+  <div class="bg-shape" style="width:700px;height:700px;bottom:-200px;left:-100px;background:rgba(6,182,212,.06)"></div>
 
-  <div class="ring" id="ring1" style="width:860px;height:860px;margin-left:-430px;margin-top:-430px;border-color:rgba(0,59,142,.1)"></div>
-  <div class="ring" id="ring2" style="width:1160px;height:1160px;margin-left:-580px;margin-top:-580px;border-color:rgba(0,174,239,.07)"></div>
+  <div class="ring" id="ring1" style="width:860px;height:860px;margin-left:-430px;margin-top:-430px;border-color:rgba(233,30,140,.1)"></div>
+  <div class="ring" id="ring2" style="width:1160px;height:1160px;margin-left:-580px;margin-top:-580px;border-color:rgba(6,182,212,.07)"></div>
 
   <div class="num-tile" id="nt1" style="left:80px;top:200px"><div class="nt-val">💻 84 000</div><div class="nt-lbl">Tech & Dev</div></div>
   <div class="num-tile" id="nt2" style="left:60px;top:430px"><div class="nt-val">🏥 62 000</div><div class="nt-lbl">Santé</div></div>
@@ -39,16 +41,17 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#F4F6FB}
   <div class="num-tile" id="nt6" style="right:100px;top:660px"><div class="nt-val">💰 33 000</div><div class="nt-lbl">Finance</div></div>
 
   <div id="center-stage">
-    <div id="s06-eyebrow">💼 France Travail · Offres d'emploi</div>
-    <div id="s06-title"><span class="grad">496 000 offres</span><br>vous attendent.</div>
+    <div id="s06-eyebrow"><div class="eyebrow-dot"></div>CléAvenir · Trouve ton emploi</div>
+    <div id="s06-title"><span class="grad">496 000 offres</span><br>t'attendent.</div>
     <div id="s06-count-line">Actualisées en continu · 8 secteurs · Partout en France</div>
     <div id="s06-cta-group">
       <div id="s06-btn">
-        Accéder aux offres →
+        Découvrir les offres →
         <div id="s06-shimmer"></div>
       </div>
     </div>
-    <div id="s06-url">francetravail.fr</div>
+    <div id="s06-url">cleavenir.com/offres</div>
+    <div id="s06-ft">🏛️ Données issues de France Travail</div>
   </div>
 
 </div>
@@ -61,6 +64,7 @@ gsap.set("#s06-title", { opacity:0, y:30, scale:.96 });
 gsap.set("#s06-count-line", { opacity:0 });
 gsap.set("#s06-cta-group", { opacity:0, y:20 });
 gsap.set("#s06-url", { opacity:0 });
+gsap.set("#s06-ft", { opacity:0 });
 gsap.set("#nt1,#nt2,#nt3,#nt4,#nt5,#nt6", { opacity:0, scale:.85 });
 gsap.set("#ring1,#ring2", { opacity:0, scale:.7 });
 gsap.set("#s06-shimmer", { x:"-100%" });
@@ -74,6 +78,7 @@ tl.fromTo("#s06-title",      { opacity:0, y:30, scale:.96 }, { opacity:1, y:0, s
 tl.fromTo("#s06-count-line", { opacity:0 }, { opacity:1, duration:.3, ease:"power2.out" }, .64);
 tl.fromTo("#s06-cta-group",  { opacity:0, y:20 }, { opacity:1, y:0, duration:.32, ease:"power3.out" }, .76);
 tl.fromTo("#s06-url",        { opacity:0 }, { opacity:1, duration:.28, ease:"power2.out" }, .90);
+tl.fromTo("#s06-ft",         { opacity:0 }, { opacity:1, duration:.28, ease:"power2.out" }, 1.0);
 tl.fromTo("#s06-shimmer", { x:"-100%" }, { x:"200%", duration:.7, ease:"power2.inOut" }, .95);
 tl.fromTo("#s06-shimmer", { x:"-100%" }, { x:"200%", immediateRender:false, duration:.7, ease:"power2.inOut" }, 2.3);
 tl.to("#nt1,#nt2,#nt3", { y:-10, duration:.6, ease:"sine.inOut", yoyo:true, repeat:3 }, 2.0);
