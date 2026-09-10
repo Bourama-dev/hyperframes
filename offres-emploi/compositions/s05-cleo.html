@@ -8,12 +8,18 @@
 html,body{width:1920px;height:1080px;overflow:hidden;background:#F8FAFC}
 #s05{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
 .grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.app-left{position:absolute;left:0;top:0;width:560px;height:1080px;background:#F8FAFC;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 90px}
-.app-eyebrow{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(233,30,140,.08),rgba(6,182,212,.08));border:1px solid rgba(233,30,140,.2);border-radius:100px;padding:8px 18px;width:fit-content;margin-bottom:22px;font-family:"Inter",sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#E91E8C}
+.app-left{position:absolute;left:0;top:0;width:560px;height:1080px;background:#F8FAFC;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 72px}
+.app-eyebrow{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(233,30,140,.08),rgba(6,182,212,.08));border:1px solid rgba(233,30,140,.2);border-radius:100px;padding:8px 18px;width:fit-content;margin-bottom:20px;font-family:"Inter",sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#E91E8C}
 .app-heading{font-family:"Outfit",sans-serif;font-size:62px;line-height:.9;letter-spacing:-.03em;color:#0F172A;margin-bottom:18px;font-weight:900}
-.app-body{font-family:"Inter",sans-serif;font-size:18px;line-height:1.6;color:#64748B;max-width:380px;margin-bottom:28px}
-.cleo-badge{display:inline-flex;align-items:center;gap:8px;background:#0F172A;border-radius:100px;padding:10px 20px;font-family:"Inter",sans-serif;font-size:14px;font-weight:600;color:#fff}
+.app-body{font-family:"Inter",sans-serif;font-size:17px;line-height:1.6;color:#64748B;max-width:370px;margin-bottom:22px}
+.cleo-badge{display:inline-flex;align-items:center;gap:8px;background:#0F172A;border-radius:100px;padding:10px 20px;font-family:"Inter",sans-serif;font-size:14px;font-weight:600;color:#fff;margin-bottom:20px}
 .cleo-dot{width:8px;height:8px;border-radius:50%;background:#22C55E}
+.user-card{background:#fff;border-radius:16px;padding:16px 20px;display:flex;align-items:center;gap:14px;border:1.5px solid #E2E8F0;box-shadow:0 4px 20px rgba(15,23,42,.06);max-width:430px}
+.uc-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#06B6D4);display:flex;align-items:center;justify-content:center;font-family:"Outfit",sans-serif;font-weight:900;font-size:20px;color:#fff;flex-shrink:0}
+.uc-name{font-family:"Outfit",sans-serif;font-weight:800;font-size:17px;color:#0F172A;margin-bottom:3px}
+.uc-title{font-family:"Inter",sans-serif;font-size:12px;color:#64748B;margin-bottom:8px}
+.uc-skills{display:flex;gap:6px;flex-wrap:wrap}
+.uc-sk{font-family:"Inter",sans-serif;font-size:11px;color:#475569;background:#F1F5F9;border:1px solid #E2E8F0;padding:3px 9px;border-radius:5px}
 .browser{position:absolute;left:590px;top:90px;width:1280px;height:860px;border-radius:16px;box-shadow:0 48px 140px rgba(15,23,42,.12);overflow:hidden;background:#fff}
 .b-chrome{height:48px;background:#F1F3F4;display:flex;align-items:center;padding:0 16px;gap:10px;border-bottom:1px solid #E2E8F0}
 .b-lights{display:flex;gap:7px}.b-tc{width:13px;height:13px;border-radius:50%}
@@ -43,8 +49,18 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#F8FAFC}
   <div class="app-left" id="s05-left">
     <div class="app-eyebrow">🤖 Cléo IA</div>
     <div class="app-heading">Cléo<br><span class="grad">filtre<br>pour toi.</span></div>
-    <div class="app-body">Notre IA analyse ton profil et sélectionne les offres qui matchent vraiment avec toi.</div>
+    <div class="app-body">Notre IA analyse ton profil et sélectionne les offres qui matchent vraiment.</div>
     <div class="cleo-badge"><div class="cleo-dot"></div>Cléo en action</div>
+    <div class="user-card" id="s05-profile">
+      <div class="uc-avatar">SP</div>
+      <div>
+        <div class="uc-name">Sophie P.</div>
+        <div class="uc-title">Designer UI/UX · 4 ans d'expérience</div>
+        <div class="uc-skills">
+          <span class="uc-sk">Figma</span><span class="uc-sk">Prototypage</span><span class="uc-sk">UX Research</span>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="browser" id="s05-browser">
     <div class="b-chrome">
@@ -54,7 +70,7 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#F8FAFC}
     <div class="b-content">
       <div class="cleo-bar" id="s05-cleo-bar">
         <div class="cleo-avatar">🤖</div>
-        <div class="cleo-text">Cléo a sélectionné <strong>3 offres</strong> pour ton profil</div>
+        <div class="cleo-text">Cléo a sélectionné <strong>3 offres</strong> pour <strong>Sophie P.</strong></div>
         <div class="cleo-tag">Designer UI/UX · Paris · CDI</div>
       </div>
       <div class="m-card" id="s05-m1">
@@ -97,11 +113,13 @@ var tl = gsap.timeline({ paused: true });
 gsap.set("#s05-left", { opacity:0, x:-28 });
 gsap.set("#s05-browser", { x:70, opacity:0 });
 gsap.set("#s05-cleo-bar,#s05-m1,#s05-m2,#s05-m3", { opacity:0, y:20 });
+gsap.set("#s05-profile", { opacity:0, y:14 });
 
 tl.fromTo("#s05-left",    { opacity:0, x:-28 }, { opacity:1, x:0, duration:.30, ease:"power3.out" }, 0);
 tl.fromTo("#s05-browser", { x:70, opacity:0  }, { x:0, opacity:1, duration:.34, ease:"power3.out" }, .08);
-tl.fromTo("#s05-cleo-bar",{ opacity:0, y:20  }, { opacity:1, y:0, duration:.26, ease:"expo.out"   }, .42);
-[["#s05-m1",.56],["#s05-m2",.68],["#s05-m3",.80]].forEach(function(r){
+tl.fromTo("#s05-profile", { opacity:0, y:14  }, { opacity:1, y:0, duration:.28, ease:"expo.out"   }, .36);
+tl.fromTo("#s05-cleo-bar",{ opacity:0, y:20  }, { opacity:1, y:0, duration:.26, ease:"expo.out"   }, .46);
+[["#s05-m1",.60],["#s05-m2",.72],["#s05-m3",.84]].forEach(function(r){
   tl.fromTo(r[0], { opacity:0, y:20 }, { opacity:1, y:0, duration:.24, ease:"expo.out" }, r[1]);
 });
 tl.to(".cleo-dot", { scale:1.5, duration:.35, repeat:5, yoyo:true, ease:"power1.inOut" }, .5);

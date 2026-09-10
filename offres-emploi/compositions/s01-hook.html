@@ -17,10 +17,41 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#F8FAFC}
 .dot-live{width:10px;height:10px;border-radius:50%;background:#E91E8C;display:inline-block;margin-right:6px}
 #s01-bg-circle1{position:absolute;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(233,30,140,.06) 0%,transparent 70%);top:-200px;right:-200px;pointer-events:none}
 #s01-bg-circle2{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(6,182,212,.06) 0%,transparent 70%);bottom:-100px;left:-100px;pointer-events:none}
+.pc{position:absolute;background:#fff;border-radius:18px;padding:18px 22px;display:flex;align-items:center;gap:14px;box-shadow:0 10px 40px rgba(15,23,42,.09),0 0 0 1px rgba(15,23,42,.05);white-space:nowrap}
+.pc-av{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"Outfit",sans-serif;font-weight:900;font-size:18px;color:#fff;flex-shrink:0}
+.pc-name{font-family:"Outfit",sans-serif;font-weight:800;font-size:17px;color:#0F172A;margin-bottom:3px}
+.pc-role{font-family:"Inter",sans-serif;font-size:12px;color:#64748B;margin-bottom:8px}
+.pc-ok{display:inline-flex;align-items:center;gap:5px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);border-radius:100px;padding:3px 11px;font-family:"Inter",sans-serif;font-size:11px;font-weight:700;color:#16A34A}
 </style></head><body>
 <div id="s01" data-composition-id="s01-hook" data-width="1920" data-height="1080" data-start="0" data-duration="4">
   <div id="s01-bg-circle1"></div>
   <div id="s01-bg-circle2"></div>
+
+  <div class="pc" id="pc1" style="top:118px;left:64px">
+    <div class="pc-av" style="background:linear-gradient(135deg,#E91E8C,#06B6D4)">ML</div>
+    <div><div class="pc-name">Marie L.</div><div class="pc-role">Designer UI · Paris</div><div class="pc-ok">✓ Emploi trouvé</div></div>
+  </div>
+  <div class="pc" id="pc2" style="top:144px;left:1598px">
+    <div class="pc-av" style="background:linear-gradient(135deg,#06B6D4,#22C55E)">TK</div>
+    <div><div class="pc-name">Thomas K.</div><div class="pc-role">Dev Full-Stack · Lyon</div><div class="pc-ok">✓ Emploi trouvé</div></div>
+  </div>
+  <div class="pc" id="pc3" style="top:420px;left:44px">
+    <div class="pc-av" style="background:linear-gradient(135deg,#22C55E,#06B6D4)">CB</div>
+    <div><div class="pc-name">Camille B.</div><div class="pc-role">Chargée RH · Bordeaux</div><div class="pc-ok">✓ Emploi trouvé</div></div>
+  </div>
+  <div class="pc" id="pc4" style="top:440px;left:1594px">
+    <div class="pc-av" style="background:linear-gradient(135deg,#8B5CF6,#E91E8C)">SA</div>
+    <div><div class="pc-name">Sophia A.</div><div class="pc-role">Finance · Toulouse</div><div class="pc-ok">✓ Emploi trouvé</div></div>
+  </div>
+  <div class="pc" id="pc5" style="top:780px;left:64px">
+    <div class="pc-av" style="background:linear-gradient(135deg,#F59E0B,#E91E8C)">LM</div>
+    <div><div class="pc-name">Lucas M.</div><div class="pc-role">Marketing · Nantes</div><div class="pc-ok">✓ Emploi trouvé</div></div>
+  </div>
+  <div class="pc" id="pc6" style="top:800px;left:1596px">
+    <div class="pc-av" style="background:linear-gradient(135deg,#0EA5E9,#8B5CF6)">AR</div>
+    <div><div class="pc-name">Antoine R.</div><div class="pc-role">Ingénieur · Strasbourg</div><div class="pc-ok">✓ Emploi trouvé</div></div>
+  </div>
+
   <div id="s01-eyebrow"><span class="dot-live"></span>Offres d'emploi · CléAvenir</div>
   <div id="s01-counter-wrap">
     <div id="s01-count" class="grad">0</div>
@@ -39,15 +70,29 @@ gsap.set("#s01-counter-wrap", { opacity:0, scale:.85 });
 gsap.set("#s01-label", { opacity:0, y:20 });
 gsap.set("#s01-sub", { opacity:0 });
 gsap.set("#s01-bg-circle1,#s01-bg-circle2", { scale:.5, opacity:0 });
+gsap.set("#pc1", { opacity:0, x:-36, y:12 });
+gsap.set("#pc2", { opacity:0, x:36,  y:12 });
+gsap.set("#pc3", { opacity:0, x:-36 });
+gsap.set("#pc4", { opacity:0, x:36  });
+gsap.set("#pc5", { opacity:0, x:-36, y:-12 });
+gsap.set("#pc6", { opacity:0, x:36,  y:-12 });
 
 tl.fromTo("#s01-bg-circle1,#s01-bg-circle2", { scale:.5, opacity:0 }, { scale:1, opacity:1, duration:1.2, ease:"power2.out" }, 0);
-tl.fromTo("#s01-eyebrow", { opacity:0, y:-20 }, { opacity:1, y:0, duration:.3, ease:"power3.out" }, 0.1);
-tl.fromTo("#s01-counter-wrap", { opacity:0, scale:.85 }, { opacity:1, scale:1, duration:.35, ease:"back.out(1.5)" }, 0.2);
-tl.to(counter, { val: 1248, duration: 1.8, ease:"expo.out", onUpdate: function() {
+tl.fromTo("#s01-eyebrow",    { opacity:0, y:-20 }, { opacity:1, y:0,  duration:.3,  ease:"power3.out"   }, 0.1);
+tl.fromTo("#s01-counter-wrap",{ opacity:0, scale:.85 }, { opacity:1, scale:1, duration:.35, ease:"back.out(1.5)" }, 0.2);
+tl.to(counter, { val: 496000, duration: 2.2, ease:"expo.out", onUpdate: function() {
   document.getElementById("s01-count").textContent = Math.round(counter.val).toLocaleString("fr-FR");
 }}, 0.25);
 tl.fromTo("#s01-label", { opacity:0, y:20 }, { opacity:1, y:0, duration:.3, ease:"power3.out" }, 0.35);
-tl.fromTo("#s01-sub", { opacity:0 }, { opacity:1, duration:.3, ease:"power2.out" }, 0.5);
+tl.fromTo("#s01-sub",   { opacity:0 },       { opacity:1,     duration:.3, ease:"power2.out"  }, 0.5);
+
+tl.fromTo("#pc1", { opacity:0, x:-36, y:12  }, { opacity:1, x:0, y:0, duration:.42, ease:"back.out(1.4)" }, 0.62);
+tl.fromTo("#pc2", { opacity:0, x:36,  y:12  }, { opacity:1, x:0, y:0, duration:.42, ease:"back.out(1.4)" }, 0.74);
+tl.fromTo("#pc3", { opacity:0, x:-36         }, { opacity:1, x:0,     duration:.42, ease:"back.out(1.4)" }, 0.88);
+tl.fromTo("#pc4", { opacity:0, x:36          }, { opacity:1, x:0,     duration:.42, ease:"back.out(1.4)" }, 1.00);
+tl.fromTo("#pc5", { opacity:0, x:-36, y:-12  }, { opacity:1, x:0, y:0, duration:.42, ease:"back.out(1.4)" }, 1.14);
+tl.fromTo("#pc6", { opacity:0, x:36,  y:-12  }, { opacity:1, x:0, y:0, duration:.42, ease:"back.out(1.4)" }, 1.26);
+
 tl.to("#s01", { opacity:0, duration:.18, ease:"power2.in" }, 3.78);
 
 window.__timelines["s01-hook"] = tl;
