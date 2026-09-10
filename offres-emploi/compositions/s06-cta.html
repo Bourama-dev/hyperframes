@@ -1,0 +1,66 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#0A0F1E}
+#s06{position:relative;width:1920px;height:1080px;background:#0A0F1E;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#s06-bg-glow{position:absolute;inset:0;background:radial-gradient(ellipse 1200px 700px at 50% 50%,rgba(233,30,140,.12) 0%,rgba(6,182,212,.08) 50%,transparent 80%);pointer-events:none}
+#s06-particles{position:absolute;inset:0;pointer-events:none}
+.particle{position:absolute;border-radius:50%;background:rgba(233,30,140,.4)}
+#s06-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:8px 22px;font-family:"Inter",sans-serif;font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:32px}
+#s06-title{font-family:"Outfit",sans-serif;font-size:120px;font-weight:900;line-height:.88;letter-spacing:-.04em;text-align:center;color:#fff;margin-bottom:20px}
+#s06-count-line{font-family:"Inter",sans-serif;font-size:22px;color:rgba(255,255,255,.5);text-align:center;margin-bottom:48px;letter-spacing:.02em}
+#s06-cta-group{display:flex;align-items:center;gap:20px;margin-bottom:52px}
+#s06-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#E91E8C,#06B6D4);border-radius:100px;padding:18px 42px;font-family:"Outfit",sans-serif;font-size:22px;font-weight:800;color:#fff;letter-spacing:-.01em;border:none;cursor:pointer}
+#s06-url{font-family:"Inter",sans-serif;font-size:18px;color:rgba(255,255,255,.4);letter-spacing:.02em}
+#s06-shimmer{position:absolute;inset:0;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.06) 50%,transparent 80%);transform:translateX(-100%);pointer-events:none}
+#vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 40%,rgba(0,0,0,.5) 100%)}
+</style></head><body>
+<div id="s06" data-composition-id="s06-cta" data-width="1920" data-height="1080" data-start="0" data-duration="5">
+  <div id="s06-bg-glow"></div>
+  <div id="s06-particles">
+    <div class="particle" style="width:4px;height:4px;top:18%;left:22%"></div>
+    <div class="particle" style="width:6px;height:6px;top:72%;left:78%"></div>
+    <div class="particle" style="width:3px;height:3px;top:35%;left:65%"></div>
+    <div class="particle" style="width:5px;height:5px;top:82%;left:30%"></div>
+    <div class="particle" style="width:4px;height:4px;top:14%;left:55%"></div>
+    <div class="particle" style="width:7px;height:7px;top:60%;left:15%"></div>
+    <div class="particle" style="width:3px;height:3px;top:45%;left:88%"></div>
+  </div>
+  <div id="s06-eyebrow">✦ CléAvenir · Offres d'emploi</div>
+  <div id="s06-title"><span class="grad">1 248 offres</span><br>t'attendent.</div>
+  <div id="s06-count-line">Mises à jour toutes les heures · 8 secteurs · Partout en France</div>
+  <div id="s06-cta-group">
+    <div id="s06-btn">🚀 Découvre toutes les offres</div>
+  </div>
+  <div id="s06-url">cleavenir.com/offres</div>
+  <div id="s06-shimmer"></div>
+  <div id="vignette"></div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+
+gsap.set("#s06-eyebrow", { opacity:0, y:-24 });
+gsap.set("#s06-title", { opacity:0, y:30, scale:.96 });
+gsap.set("#s06-count-line", { opacity:0 });
+gsap.set("#s06-cta-group", { opacity:0, y:20 });
+gsap.set("#s06-url", { opacity:0 });
+gsap.set(".particle", { opacity:0, scale:0 });
+
+tl.fromTo("#s06-bg-glow", { scale:.8, opacity:0 }, { scale:1, opacity:1, duration:1.0, ease:"power2.out" }, 0);
+tl.fromTo(".particle", { opacity:0, scale:0 }, { opacity:1, scale:1, duration:.6, stagger:{ amount:.4, from:"random" }, ease:"back.out(2)" }, 0.15);
+tl.fromTo("#s06-eyebrow",   { opacity:0, y:-24 }, { opacity:1, y:0, duration:.3, ease:"power3.out" }, 0.2);
+tl.fromTo("#s06-title",     { opacity:0, y:30, scale:.96 }, { opacity:1, y:0, scale:1, duration:.4, ease:"back.out(1.2)" }, 0.32);
+tl.fromTo("#s06-count-line",{ opacity:0 }, { opacity:1, duration:.3, ease:"power2.out" }, 0.54);
+tl.fromTo("#s06-cta-group", { opacity:0, y:20 }, { opacity:1, y:0, duration:.32, ease:"power3.out" }, 0.66);
+tl.fromTo("#s06-url",       { opacity:0 }, { opacity:1, duration:.28, ease:"power2.out" }, 0.80);
+tl.fromTo("#s06-shimmer", { x:"-100%" }, { x:"200%", duration:.7, ease:"power2.inOut" }, 0.85);
+tl.fromTo("#s06-shimmer", { x:"-100%" }, { x:"200%", immediateRender:false, duration:.7, ease:"power2.inOut" }, 2.2);
+
+window.__timelines["s06-cta"] = tl;
+</script></body></html>

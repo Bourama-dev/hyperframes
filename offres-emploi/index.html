@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=1920, height=1080"/>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{width:1920px;height:1080px;overflow:hidden;background:#F8FAFC}
+    #flash-cover{position:fixed;inset:0;background:#F8FAFC;opacity:0;z-index:9999;pointer-events:none}
+    #grid-overlay{position:fixed;inset:0;pointer-events:none;z-index:9998;display:grid}
+    #grid-overlay .cell{background:#E91E8C;transform-origin:center center}
+    #bubble-overlay{position:fixed;inset:0;pointer-events:none;z-index:9997;overflow:hidden}
+    .bbl{position:absolute;border-radius:50%;transform-origin:center center}
+    #resolve-cover{position:fixed;inset:0;background:#0A0F1E;opacity:0;z-index:10000;pointer-events:none}
+  </style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1920" data-height="1080">
+
+  <div id="slot-s01" class="clip" data-composition-id="s01-hook"      data-composition-src="compositions/s01-hook.html"       data-start="0"    data-duration="4"   data-track-index="1"></div>
+  <div id="slot-s02" class="clip" data-composition-id="s02-secteurs"  data-composition-src="compositions/s02-secteurs.html"    data-start="4"    data-duration="3.5" data-track-index="2"></div>
+  <div id="slot-s03" class="clip" data-composition-id="s03-ui"        data-composition-src="compositions/s03-ui.html"          data-start="7.5"  data-duration="4"   data-track-index="3"></div>
+  <div id="slot-s04" class="clip" data-composition-id="s04-realtime"  data-composition-src="compositions/s04-realtime.html"    data-start="11.5" data-duration="3.5" data-track-index="4"></div>
+  <div id="slot-s05" class="clip" data-composition-id="s05-cleo"      data-composition-src="compositions/s05-cleo.html"        data-start="15"   data-duration="4"   data-track-index="5"></div>
+  <div id="slot-s06" class="clip" data-composition-id="s06-cta"       data-composition-src="compositions/s06-cta.html"         data-start="19"   data-duration="5"   data-track-index="6"></div>
+
+  <div id="flash-cover"    data-layout-ignore></div>
+  <div id="grid-overlay"   data-layout-ignore></div>
+  <div id="bubble-overlay" data-layout-ignore></div>
+  <div id="resolve-cover"  data-layout-ignore></div>
+
+  <audio id="el-music" class="clip" data-start="0" data-duration="24" data-track-index="0" data-volume="0.35" src="assets/music.mp3"></audio>
+</div>
+
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+
+(function() {
+  var COLS = 16, ROWS = 9;
+  var grid = document.getElementById("grid-overlay");
+  grid.style.gridTemplateColumns = "repeat("+COLS+",1fr)";
+  grid.style.gridTemplateRows   = "repeat("+ROWS+",1fr)";
+  for (var i = 0; i < COLS * ROWS; i++) {
+    var cell = document.createElement("div");
+    cell.className = "cell";
+    grid.appendChild(cell);
+  }
+  gsap.set(".cell", { scale: 0 });
+})();
+
+function flash(t) {
+  tl.to("#flash-cover", { opacity:1, duration:.05, ease:"none" }, t);
+  tl.to("#flash-cover", { opacity:0, duration:.22, ease:"power2.out" }, t + .05);
+}
+
+function gridCover(t, from) {
+  tl.to(".cell", { scale:1, duration:.15, stagger:{ amount:.12, from:from||"center" }, ease:"power2.in" }, t);
+  tl.to(".cell", { scale:0, duration:.15, stagger:{ amount:.12, from:"edges" }, ease:"power2.out" }, t + .18);
+}
+
+(function() {
+  var bblData = [
+    { x:960,  y:540,  d:2400, color:"#F8FAFC" },
+    { x:0,    y:0,    d:1600, color:"#E91E8C" },
+    { x:1920, y:0,    d:1600, color:"#06B6D4" },
+    { x:1920, y:1080, d:1600, color:"#E91E8C" },
+    { x:0,    y:1080, d:1600, color:"#06B6D4" },
+    { x:960,  y:0,    d:1200, color:"#F8FAFC" },
+    { x:960,  y:1080, d:1200, color:"#F8FAFC" },
+  ];
+  var overlay = document.getElementById("bubble-overlay");
+  bblData.forEach(function(b, i) {
+    var el = document.createElement("div");
+    el.className = "bbl";
+    el.id = "bbl" + i;
+    el.style.width       = b.d + "px";
+    el.style.height      = b.d + "px";
+    el.style.left        = (b.x - b.d / 2) + "px";
+    el.style.top         = (b.y - b.d / 2) + "px";
+    el.style.background  = b.color;
+    overlay.appendChild(el);
+  });
+  gsap.set(".bbl", { scale: 0 });
+})();
+
+function bubbleWipe(t) {
+  tl.to(".bbl", { scale:1, duration:.18, stagger:{ amount:.12, from:"center" }, ease:"power3.in"  }, t);
+  tl.to(".bbl", { scale:0, duration:.16, stagger:{ amount:.10, from:"edges"  }, ease:"power3.out" }, t + .28);
+}
+
+flash(3.92);
+flash(7.42);
+gridCover(11.22, "center");
+flash(14.92);
+bubbleWipe(18.92);
+tl.fromTo("#resolve-cover", { opacity:0 }, { opacity:1, duration:1.5, ease:"power2.inOut" }, 22.5);
+
+window.__timelines["main"] = tl;
+</script>
+</body>
+</html>

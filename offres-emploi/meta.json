@@ -1,0 +1,15 @@
+{
+  "id": "offres-emploi",
+  "name": "CléAvenir — Offres d'Emploi",
+  "title": "CléAvenir — Page Offres d'Emploi",
+  "version": "1.0.0",
+  "duration": 24,
+  "fps": 30,
+  "resolution": { "width": 1920, "height": 1080 },
+  "scenes": 6,
+  "brand": {
+    "colors": { "pink": "#E91E8C", "teal": "#06B6D4", "green": "#22C55E", "navy": "#0F172A" },
+    "fonts": ["Outfit", "Inter"]
+  },
+  "audio": { "music": "assets/music.mp3", "voiceover": null }
+}
