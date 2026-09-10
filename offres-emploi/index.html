@@ -2,11 +2,11 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=1920, height=1080"/>
+  <meta name="viewport" content="width=1080, height=1920"/>
   <script src="node_modules/gsap/dist/gsap.min.js"></script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    html,body{width:1920px;height:1080px;overflow:hidden;background:#0D1117}
+    html,body{width:1080px;height:1920px;overflow:hidden;background:#0D1117}
     #flash-cover{position:fixed;inset:0;background:#fff;opacity:0;z-index:9999;pointer-events:none}
     #grid-overlay{position:fixed;inset:0;pointer-events:none;z-index:9998;display:grid}
     #grid-overlay .cell{background:#E91E8C;transform-origin:center center}
@@ -16,7 +16,7 @@
   </style>
 </head>
 <body>
-<div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1920" data-height="1080">
+<div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920">
 
   <div id="slot-s01" class="clip" data-composition-id="s01-hook"     data-composition-src="compositions/s01-hook.html"     data-start="0"    data-duration="4"   data-track-index="1"></div>
   <div id="slot-s02" class="clip" data-composition-id="s02-app"      data-composition-src="compositions/s02-app.html"      data-start="4"    data-duration="3.5" data-track-index="2"></div>
@@ -38,7 +38,7 @@ window.__timelines = window.__timelines || {};
 var tl = gsap.timeline({ paused: true });
 
 (function() {
-  var COLS = 16, ROWS = 9;
+  var COLS = 9, ROWS = 16;
   var grid = document.getElementById("grid-overlay");
   grid.style.gridTemplateColumns = "repeat("+COLS+",1fr)";
   grid.style.gridTemplateRows   = "repeat("+ROWS+",1fr)";
@@ -62,13 +62,13 @@ function gridCover(t, from) {
 
 (function() {
   var bblData = [
-    { x:960,  y:540,  d:2400, color:"#EFEFEF" },
+    { x:540,  y:960,  d:2400, color:"#EFEFEF" },
     { x:0,    y:0,    d:1600, color:"#E91E8C" },
-    { x:1920, y:0,    d:1600, color:"#06B6D4" },
-    { x:1920, y:1080, d:1600, color:"#E91E8C" },
-    { x:0,    y:1080, d:1600, color:"#06B6D4" },
-    { x:960,  y:0,    d:1200, color:"#EFEFEF" },
-    { x:960,  y:1080, d:1200, color:"#EFEFEF" },
+    { x:1080, y:0,    d:1600, color:"#06B6D4" },
+    { x:1080, y:1920, d:1600, color:"#E91E8C" },
+    { x:0,    y:1920, d:1600, color:"#06B6D4" },
+    { x:540,  y:0,    d:1200, color:"#EFEFEF" },
+    { x:540,  y:1920, d:1200, color:"#EFEFEF" },
   ];
   var overlay = document.getElementById("bubble-overlay");
   bblData.forEach(function(b, i) {
@@ -90,7 +90,7 @@ function bubbleWipe(t) {
   tl.to(".bbl", { scale:0, duration:.16, stagger:{ amount:.10, from:"edges"  }, ease:"power3.out" }, t + .28);
 }
 
-/* S1→S2: flash (phone zoom ends white) */
+/* S1→S2: flash */
 flash(3.92);
 /* S2→S3: flash */
 flash(7.42);
