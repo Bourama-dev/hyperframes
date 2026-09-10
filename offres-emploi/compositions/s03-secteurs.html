@@ -1,0 +1,119 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#F0EEF5}
+#s03{position:relative;width:1920px;height:1080px;overflow:hidden;background:#F0EEF5}
+.bg-blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(100px)}
+/* Left: character + text */
+.left-panel{position:absolute;left:0;top:0;width:720px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 80px}
+.s03-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(233,30,140,.08);border:1px solid rgba(233,30,140,.2);border-radius:100px;padding:8px 20px;width:fit-content;margin-bottom:24px;font-family:"Inter",sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#E91E8C}
+.s03-title{font-family:"Outfit",sans-serif;font-size:72px;font-weight:900;line-height:.9;letter-spacing:-.03em;color:#1C1C1E;margin-bottom:20px}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.s03-sub{font-family:"Inter",sans-serif;font-size:20px;color:#6B7280;line-height:1.5;max-width:440px}
+/* Sophie character */
+#sophie{position:absolute;bottom:0;left:380px;width:320px;height:640px}
+/* Right: sector bubbles grid */
+.right-panel{position:absolute;right:0;top:0;width:1160px;height:1080px;display:flex;flex-direction:column;justify-content:center;padding:0 80px 0 60px}
+.sectors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.sector-card{background:#fff;border-radius:24px;padding:28px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;box-shadow:0 6px 30px rgba(0,0,0,.06);border:1.5px solid rgba(255,255,255,.8)}
+.sector-icon{font-size:44px;line-height:1}
+.sector-name{font-family:"Outfit",sans-serif;font-size:18px;font-weight:800;color:#1C1C1E;letter-spacing:-.02em}
+.sector-count{font-family:"Inter",sans-serif;font-size:13px;color:#8E8E93}
+.sector-bar{width:60%;height:4px;border-radius:2px;background:#E91E8C;opacity:.5}
+</style>
+</head><body>
+<div id="s03" data-composition-id="s03-secteurs" data-width="1920" data-height="1080" data-start="0" data-duration="4">
+
+  <div class="bg-blob" style="width:600px;height:600px;top:-100px;left:200px;background:rgba(233,30,140,.06)"></div>
+  <div class="bg-blob" style="width:500px;height:500px;bottom:-100px;right:200px;background:rgba(6,182,212,.06)"></div>
+
+  <!-- Left panel: text + character -->
+  <div class="left-panel">
+    <div id="s03-eyebrow" class="s03-eyebrow">✦ 8 secteurs</div>
+    <div id="s03-title" class="s03-title">Tous les<br>emplois de<br><span class="grad">France.</span></div>
+    <div id="s03-sub" class="s03-sub">Explore 496 000 offres dans tous les secteurs. Tech, santé, commerce… tout est là.</div>
+  </div>
+
+  <!-- Sophie -->
+  <svg id="sophie" viewBox="0 0 220 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="110" cy="474" rx="72" ry="10" fill="rgba(15,23,42,.15)"/>
+    <rect x="72" y="310" width="28" height="154" rx="14" fill="#06B6D4"/>
+    <rect x="120" y="310" width="28" height="154" rx="14" fill="#06B6D4"/>
+    <path d="M66 462 Q66 450 80 450 L96 450 Q112 450 113 459 Q113 469 97 469 L70 469 Q66 469 66 462Z" fill="#0D1117"/>
+    <path d="M114 462 Q114 450 128 450 L144 450 Q158 450 158 459 Q158 469 144 469 L118 469 Q114 469 114 462Z" fill="#0D1117"/>
+    <rect x="66" y="302" width="88" height="12" rx="5" fill="#1E293B" opacity=".4"/>
+    <path d="M40 186 Q60 164 110 158 Q160 164 180 186 L186 314 L34 314Z" fill="#8B2FC9"/>
+    <path d="M40 196 Q12 234 18 288" stroke="#8B2FC9" stroke-width="30" fill="none" stroke-linecap="round"/>
+    <path d="M180 196 Q208 226 204 278" stroke="#8B2FC9" stroke-width="30" fill="none" stroke-linecap="round"/>
+    <circle cx="18" cy="294" r="18" fill="#F4C09A"/>
+    <circle cx="206" cy="282" r="18" fill="#F4C09A"/>
+    <rect x="97" y="146" width="26" height="22" rx="7" fill="#F4C09A"/>
+    <circle cx="110" cy="104" r="70" fill="#F4C09A"/>
+    <ellipse cx="110" cy="64" rx="72" ry="52" fill="#2C1810"/>
+    <path d="M40 100 Q20 178 34 286" stroke="#2C1810" stroke-width="22" fill="none" stroke-linecap="round"/>
+    <path d="M180 100 Q200 178 186 286" stroke="#2C1810" stroke-width="22" fill="none" stroke-linecap="round"/>
+    <ellipse cx="42" cy="108" rx="10" ry="13" fill="#F4C09A"/>
+    <ellipse cx="178" cy="108" rx="10" ry="13" fill="#F4C09A"/>
+    <circle cx="42" cy="120" r="6" fill="#E91E8C"/>
+    <circle cx="178" cy="120" r="6" fill="#E91E8C"/>
+    <ellipse cx="88" cy="108" rx="13" ry="14" fill="white"/>
+    <ellipse cx="132" cy="108" rx="13" ry="14" fill="white"/>
+    <circle cx="89" cy="110" r="8" fill="#2C1810"/>
+    <circle cx="133" cy="110" r="8" fill="#2C1810"/>
+    <circle cx="92" cy="107" r="3" fill="white"/>
+    <circle cx="136" cy="107" r="3" fill="white"/>
+    <path d="M76 95 Q88 87 100 93" stroke="#2C1810" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M120 93 Q132 87 144 95" stroke="#2C1810" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M106 122 Q110 128 114 122" stroke="#D4936A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <path d="M92 138 Q110 154 128 138" stroke="#C47850" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M94 140 Q110 154 126 140 L124 143 Q110 156 96 143Z" fill="white" opacity=".75"/>
+    <ellipse cx="74" cy="124" rx="14" ry="9" fill="#E91E8C" opacity=".22"/>
+    <ellipse cx="146" cy="124" rx="14" ry="9" fill="#E91E8C" opacity=".22"/>
+    <path d="M40 88 Q58 42 110 38 Q162 42 180 88 Q174 62 156 48 Q134 36 110 34 Q86 36 64 48 Q46 62 40 88Z" fill="#2C1810"/>
+  </svg>
+
+  <!-- Right: sectors grid -->
+  <div class="right-panel">
+    <div class="sectors-grid">
+      <div class="sector-card" id="sc1"><div class="sector-icon">💻</div><div class="sector-name">Tech & Dev</div><div class="sector-count">84 000 offres</div><div class="sector-bar"></div></div>
+      <div class="sector-card" id="sc2"><div class="sector-icon">🏥</div><div class="sector-name">Santé</div><div class="sector-count">62 000 offres</div><div class="sector-bar" style="background:#06B6D4"></div></div>
+      <div class="sector-card" id="sc3"><div class="sector-icon">🛒</div><div class="sector-name">Commerce</div><div class="sector-count">71 000 offres</div><div class="sector-bar" style="background:#8B2FC9"></div></div>
+      <div class="sector-card" id="sc4"><div class="sector-icon">🍽️</div><div class="sector-name">Restauration</div><div class="sector-count">48 000 offres</div><div class="sector-bar" style="background:#F59E0B"></div></div>
+      <div class="sector-card" id="sc5"><div class="sector-icon">🚗</div><div class="sector-name">Transport</div><div class="sector-count">39 000 offres</div><div class="sector-bar" style="background:#06B6D4"></div></div>
+      <div class="sector-card" id="sc6"><div class="sector-icon">🏗️</div><div class="sector-name">Construction</div><div class="sector-count">45 000 offres</div><div class="sector-bar" style="background:#22C55E"></div></div>
+      <div class="sector-card" id="sc7"><div class="sector-icon">💰</div><div class="sector-name">Finance</div><div class="sector-count">33 000 offres</div><div class="sector-bar" style="background:#8B2FC9"></div></div>
+      <div class="sector-card" id="sc8"><div class="sector-icon">🎨</div><div class="sector-name">Arts & Médias</div><div class="sector-count">28 000 offres</div><div class="sector-bar" style="background:#E91E8C"></div></div>
+    </div>
+  </div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+
+gsap.set("#s03-eyebrow,#s03-title,#s03-sub", { opacity:0, x:-30 });
+gsap.set("#sophie", { opacity:0, x:-40 });
+gsap.set("#sc1,#sc2,#sc3,#sc4,#sc5,#sc6,#sc7,#sc8", { opacity:0, y:40, scale:.9 });
+
+tl.fromTo("#s03-eyebrow", { opacity:0, x:-30 }, { opacity:1, x:0, duration:.3, ease:"power3.out" }, .05);
+tl.fromTo("#s03-title",   { opacity:0, x:-30 }, { opacity:1, x:0, duration:.35, ease:"power3.out" }, .15);
+tl.fromTo("#s03-sub",     { opacity:0, x:-30 }, { opacity:1, x:0, duration:.3, ease:"power3.out" }, .28);
+tl.fromTo("#sophie",      { opacity:0, x:-40 }, { opacity:1, x:0, duration:.4, ease:"power3.out" }, .18);
+
+/* Sector cards stagger in */
+["#sc1","#sc2","#sc3","#sc4","#sc5","#sc6","#sc7","#sc8"].forEach(function(id, i) {
+  tl.fromTo(id, { opacity:0, y:40, scale:.9 }, { opacity:1, y:0, scale:1, duration:.28, ease:"back.out(1.5)" }, .5 + i * .08);
+});
+
+/* Sophie arm wave at t=2.2s */
+tl.to("#sophie", { x:10, duration:.15, ease:"power2.out" }, 2.2);
+tl.to("#sophie", { x:0, duration:.25, ease:"elastic.out(1,.5)" }, 2.35);
+
+tl.to("#s03", { opacity:0, duration:.2, ease:"power2.in" }, 3.78);
+
+window.__timelines["s03-secteurs"] = tl;
+</script></body></html>

@@ -6,8 +6,8 @@
   <script src="node_modules/gsap/dist/gsap.min.js"></script>
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    html,body{width:1920px;height:1080px;overflow:hidden;background:#F8FAFC}
-    #flash-cover{position:fixed;inset:0;background:#F8FAFC;opacity:0;z-index:9999;pointer-events:none}
+    html,body{width:1920px;height:1080px;overflow:hidden;background:#0D1117}
+    #flash-cover{position:fixed;inset:0;background:#fff;opacity:0;z-index:9999;pointer-events:none}
     #grid-overlay{position:fixed;inset:0;pointer-events:none;z-index:9998;display:grid}
     #grid-overlay .cell{background:#E91E8C;transform-origin:center center}
     #bubble-overlay{position:fixed;inset:0;pointer-events:none;z-index:9997;overflow:hidden}
@@ -18,12 +18,12 @@
 <body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1920" data-height="1080">
 
-  <div id="slot-s01" class="clip" data-composition-id="s01-hook"      data-composition-src="compositions/s01-hook.html"       data-start="0"    data-duration="4"   data-track-index="1"></div>
-  <div id="slot-s02" class="clip" data-composition-id="s02-secteurs"  data-composition-src="compositions/s02-secteurs.html"    data-start="4"    data-duration="3.5" data-track-index="2"></div>
-  <div id="slot-s03" class="clip" data-composition-id="s03-ui"        data-composition-src="compositions/s03-ui.html"          data-start="7.5"  data-duration="4"   data-track-index="3"></div>
-  <div id="slot-s04" class="clip" data-composition-id="s04-realtime"  data-composition-src="compositions/s04-realtime.html"    data-start="11.5" data-duration="3.5" data-track-index="4"></div>
-  <div id="slot-s05" class="clip" data-composition-id="s05-cleo"      data-composition-src="compositions/s05-cleo.html"        data-start="15"   data-duration="4"   data-track-index="5"></div>
-  <div id="slot-s06" class="clip" data-composition-id="s06-cta"       data-composition-src="compositions/s06-cta.html"         data-start="19"   data-duration="5"   data-track-index="6"></div>
+  <div id="slot-s01" class="clip" data-composition-id="s01-hook"     data-composition-src="compositions/s01-hook.html"     data-start="0"    data-duration="4"   data-track-index="1"></div>
+  <div id="slot-s02" class="clip" data-composition-id="s02-app"      data-composition-src="compositions/s02-app.html"      data-start="4"    data-duration="3.5" data-track-index="2"></div>
+  <div id="slot-s03" class="clip" data-composition-id="s03-secteurs" data-composition-src="compositions/s03-secteurs.html" data-start="7.5"  data-duration="4"   data-track-index="3"></div>
+  <div id="slot-s04" class="clip" data-composition-id="s04-match"    data-composition-src="compositions/s04-match.html"    data-start="11.5" data-duration="3.5" data-track-index="4"></div>
+  <div id="slot-s05" class="clip" data-composition-id="s05-postuler" data-composition-src="compositions/s05-postuler.html" data-start="15"   data-duration="4"   data-track-index="5"></div>
+  <div id="slot-s06" class="clip" data-composition-id="s06-cta"      data-composition-src="compositions/s06-cta.html"      data-start="19"   data-duration="5"   data-track-index="6"></div>
 
   <div id="flash-cover"    data-layout-ignore></div>
   <div id="grid-overlay"   data-layout-ignore></div>
@@ -62,13 +62,13 @@ function gridCover(t, from) {
 
 (function() {
   var bblData = [
-    { x:960,  y:540,  d:2400, color:"#F8FAFC" },
+    { x:960,  y:540,  d:2400, color:"#EFEFEF" },
     { x:0,    y:0,    d:1600, color:"#E91E8C" },
     { x:1920, y:0,    d:1600, color:"#06B6D4" },
     { x:1920, y:1080, d:1600, color:"#E91E8C" },
     { x:0,    y:1080, d:1600, color:"#06B6D4" },
-    { x:960,  y:0,    d:1200, color:"#F8FAFC" },
-    { x:960,  y:1080, d:1200, color:"#F8FAFC" },
+    { x:960,  y:0,    d:1200, color:"#EFEFEF" },
+    { x:960,  y:1080, d:1200, color:"#EFEFEF" },
   ];
   var overlay = document.getElementById("bubble-overlay");
   bblData.forEach(function(b, i) {
@@ -90,11 +90,17 @@ function bubbleWipe(t) {
   tl.to(".bbl", { scale:0, duration:.16, stagger:{ amount:.10, from:"edges"  }, ease:"power3.out" }, t + .28);
 }
 
+/* S1→S2: flash (phone zoom ends white) */
 flash(3.92);
+/* S2→S3: flash */
 flash(7.42);
+/* S3→S4: grid wipe */
 gridCover(11.22, "center");
+/* S4→S5: flash */
 flash(14.92);
+/* S5→S6: bubble wipe */
 bubbleWipe(18.92);
+/* Fin: resolve cover */
 tl.fromTo("#resolve-cover", { opacity:0 }, { opacity:1, duration:1.5, ease:"power2.inOut" }, 22.5);
 
 window.__timelines["main"] = tl;
