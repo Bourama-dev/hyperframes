@@ -7,12 +7,11 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1920px;height:1080px;overflow:hidden;background:#F4F6FB}
 #s03{position:relative;width:1920px;height:1080px;overflow:hidden;background:#F4F6FB;display:flex;flex-direction:column;align-items:center;justify-content:center}
-/* Subtle bg shapes */
-.bg-shape{position:absolute;border-radius:50%;pointer-events:none}
-.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.bg-shape{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+.grad{background:linear-gradient(135deg,#003B8E,#00AEEF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 /* Header */
 #s03-head{text-align:center;margin-bottom:52px}
-.s03-eyebrow{font-family:"Inter",sans-serif;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#E91E8C;margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:8px}
+.s03-eyebrow{font-family:"Inter",sans-serif;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#003B8E;margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:8px}
 .s03-title{font-family:"Outfit",sans-serif;font-size:80px;font-weight:900;line-height:.88;letter-spacing:-.04em;color:#111827}
 /* Sector grid */
 #s03-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;width:1600px}
@@ -26,23 +25,23 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#F4F6FB}
 </head><body>
 <div id="s03" data-composition-id="s03-secteurs" data-width="1920" data-height="1080" data-start="0" data-duration="4">
 
-  <div class="bg-shape" style="width:700px;height:700px;top:-200px;right:-100px;background:radial-gradient(circle,rgba(233,30,140,.06),transparent 70%);filter:blur(60px)"></div>
-  <div class="bg-shape" style="width:600px;height:600px;bottom:-150px;left:-100px;background:radial-gradient(circle,rgba(6,182,212,.06),transparent 70%);filter:blur(60px)"></div>
+  <div class="bg-shape" style="width:700px;height:700px;top:-200px;right:-100px;background:rgba(0,59,142,.07);"></div>
+  <div class="bg-shape" style="width:600px;height:600px;bottom:-150px;left:-100px;background:rgba(0,174,239,.06);"></div>
 
   <div id="s03-head">
-    <div class="s03-eyebrow">✦ Explore tous les domaines</div>
+    <div class="s03-eyebrow">✦ France Travail · Offres par secteur</div>
     <div class="s03-title"><span class="grad">8 secteurs</span> qui recrutent</div>
   </div>
 
   <div id="s03-grid">
-    <div class="sc" id="sc1"><div class="sc-accent" style="background:linear-gradient(90deg,#E91E8C,#C4166F)"></div><div class="sc-icon">💻</div><div class="sc-name">Tech & Dev</div><div class="sc-count" style="color:#E91E8C">84 000</div><div class="sc-label">offres</div></div>
-    <div class="sc" id="sc2"><div class="sc-accent" style="background:linear-gradient(90deg,#06B6D4,#0891B2)"></div><div class="sc-icon">🏥</div><div class="sc-name">Santé</div><div class="sc-count" style="color:#06B6D4">62 000</div><div class="sc-label">offres</div></div>
-    <div class="sc" id="sc3"><div class="sc-accent" style="background:linear-gradient(90deg,#8B2FC9,#6D24A1)"></div><div class="sc-icon">🛒</div><div class="sc-name">Commerce</div><div class="sc-count" style="color:#8B2FC9">71 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc1"><div class="sc-accent" style="background:linear-gradient(90deg,#003B8E,#0067CC)"></div><div class="sc-icon">💻</div><div class="sc-name">Tech & Dev</div><div class="sc-count" style="color:#003B8E">84 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc2"><div class="sc-accent" style="background:linear-gradient(90deg,#00AEEF,#0086C3)"></div><div class="sc-icon">🏥</div><div class="sc-name">Santé</div><div class="sc-count" style="color:#0086C3">62 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc3"><div class="sc-accent" style="background:linear-gradient(90deg,#0067CC,#003B8E)"></div><div class="sc-icon">🛒</div><div class="sc-name">Commerce</div><div class="sc-count" style="color:#0067CC">71 000</div><div class="sc-label">offres</div></div>
     <div class="sc" id="sc4"><div class="sc-accent" style="background:linear-gradient(90deg,#F59E0B,#D97706)"></div><div class="sc-icon">🍽️</div><div class="sc-name">Restauration</div><div class="sc-count" style="color:#F59E0B">48 000</div><div class="sc-label">offres</div></div>
-    <div class="sc" id="sc5"><div class="sc-accent" style="background:linear-gradient(90deg,#06B6D4,#0891B2)"></div><div class="sc-icon">🚗</div><div class="sc-name">Transport</div><div class="sc-count" style="color:#06B6D4">39 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc5"><div class="sc-accent" style="background:linear-gradient(90deg,#00AEEF,#0067CC)"></div><div class="sc-icon">🚗</div><div class="sc-name">Transport</div><div class="sc-count" style="color:#00AEEF">39 000</div><div class="sc-label">offres</div></div>
     <div class="sc" id="sc6"><div class="sc-accent" style="background:linear-gradient(90deg,#22C55E,#16A34A)"></div><div class="sc-icon">🏗️</div><div class="sc-name">Construction</div><div class="sc-count" style="color:#22C55E">45 000</div><div class="sc-label">offres</div></div>
-    <div class="sc" id="sc7"><div class="sc-accent" style="background:linear-gradient(90deg,#8B2FC9,#6D24A1)"></div><div class="sc-icon">💰</div><div class="sc-name">Finance</div><div class="sc-count" style="color:#8B2FC9">33 000</div><div class="sc-label">offres</div></div>
-    <div class="sc" id="sc8"><div class="sc-accent" style="background:linear-gradient(90deg,#E91E8C,#C4166F)"></div><div class="sc-icon">🎨</div><div class="sc-name">Arts & Médias</div><div class="sc-count" style="color:#E91E8C">28 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc7"><div class="sc-accent" style="background:linear-gradient(90deg,#003B8E,#00AEEF)"></div><div class="sc-icon">💰</div><div class="sc-name">Finance</div><div class="sc-count" style="color:#003B8E">33 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc8"><div class="sc-accent" style="background:linear-gradient(90deg,#0086C3,#003B8E)"></div><div class="sc-icon">🎨</div><div class="sc-name">Arts & Médias</div><div class="sc-count" style="color:#0086C3">28 000</div><div class="sc-label">offres</div></div>
   </div>
 
 </div>
@@ -55,11 +54,9 @@ gsap.set("#s03-head", { opacity:0, y:-30 });
 gsap.set(cards, { opacity:0, y:40, scale:.92 });
 
 tl.fromTo("#s03-head", { opacity:0, y:-30 }, { opacity:1, y:0, duration:.4, ease:"power3.out" }, .05);
-
 cards.forEach(function(id, i) {
   tl.fromTo(id, { opacity:0, y:40, scale:.92 }, { opacity:1, y:0, scale:1, duration:.3, ease:"back.out(1.5)" }, .35 + i * .07);
 });
-
 tl.to("#s03", { opacity:0, duration:.2, ease:"power2.in" }, 3.78);
 
 window.__timelines["s03-secteurs"] = tl;

@@ -8,58 +8,50 @@
 html,body{width:1920px;height:1080px;overflow:hidden;background:#F4F6FB}
 #s05{position:relative;width:1920px;height:1080px;overflow:hidden;background:#F4F6FB}
 .bg-shape{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
-.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-/* Center content */
+.grad{background:linear-gradient(135deg,#003B8E,#00AEEF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 #center-content{position:absolute;left:0;top:0;width:1920px;height:1080px;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
-/* Check circle */
 #check-wrap{width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,#22C55E,#16A34A);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 48px rgba(34,197,94,.3);margin-bottom:32px}
 .check-icon{font-size:80px;line-height:1}
-/* Big text */
 .cel-title{font-family:"Outfit",sans-serif;font-size:96px;font-weight:900;line-height:.9;letter-spacing:-.04em;color:#111827;text-align:center;margin-bottom:16px}
 .cel-sub{font-family:"Inter",sans-serif;font-size:24px;color:#6B7280;text-align:center;margin-bottom:48px}
-/* Notification toast */
-#toast{background:#fff;border:1.5px solid #ECEEF2;border-radius:20px;padding:22px 36px;display:flex;align-items:center;gap:18px;min-width:480px;box-shadow:0 8px 40px rgba(0,0,0,.1)}
-.toast-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#E91E8C,#06B6D4);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
+#toast{background:#fff;border:1.5px solid #ECEEF2;border-radius:20px;padding:22px 36px;display:flex;align-items:center;gap:18px;min-width:500px;box-shadow:0 8px 40px rgba(0,0,0,.1)}
+.toast-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#003B8E,#00AEEF);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
 .toast-title{font-family:"Outfit",sans-serif;font-size:20px;font-weight:800;color:#111827;margin-bottom:4px}
 .toast-detail{font-family:"Inter",sans-serif;font-size:15px;color:#9CA3AF}
-/* Confetti particles */
 .confetti{position:absolute;border-radius:3px;pointer-events:none}
-/* Star particles */
-.star{position:absolute;pointer-events:none;font-size:28px;color:#E91E8C}
+.star{position:absolute;pointer-events:none;font-size:28px;color:#003B8E}
 </style>
 </head><body>
 <div id="s05" data-composition-id="s05-postuler" data-width="1920" data-height="1080" data-start="0" data-duration="4">
 
-  <div class="bg-shape" style="width:800px;height:800px;top:-200px;right:-100px;background:rgba(233,30,140,.08)"></div>
-  <div class="bg-shape" style="width:700px;height:700px;bottom:-200px;left:-100px;background:rgba(6,182,212,.07)"></div>
-  <div class="bg-shape" style="width:600px;height:600px;top:50%;left:50%;background:rgba(34,197,94,.06)"></div>
+  <div class="bg-shape" style="width:800px;height:800px;top:-200px;right:-100px;background:rgba(0,59,142,.07)"></div>
+  <div class="bg-shape" style="width:700px;height:700px;bottom:-200px;left:-100px;background:rgba(0,174,239,.06)"></div>
+  <div class="bg-shape" style="width:600px;height:600px;top:50%;left:50%;background:rgba(34,197,94,.05)"></div>
 
-  <!-- Confetti elements -->
-  <div class="confetti" id="cf1"  style="width:14px;height:8px;top:100px;left:300px;background:#E91E8C"></div>
-  <div class="confetti" id="cf2"  style="width:10px;height:10px;top:150px;left:700px;background:#06B6D4;border-radius:50%"></div>
+  <div class="confetti" id="cf1"  style="width:14px;height:8px;top:100px;left:300px;background:#003B8E"></div>
+  <div class="confetti" id="cf2"  style="width:10px;height:10px;top:150px;left:700px;background:#00AEEF;border-radius:50%"></div>
   <div class="confetti" id="cf3"  style="width:12px;height:6px;top:80px;left:1100px;background:#22C55E"></div>
   <div class="confetti" id="cf4"  style="width:8px;height:8px;top:120px;left:1500px;background:#FBBF24;border-radius:50%"></div>
-  <div class="confetti" id="cf5"  style="width:14px;height:7px;top:200px;left:1700px;background:#8B2FC9"></div>
-  <div class="confetti" id="cf6"  style="width:10px;height:10px;top:50px;left:500px;background:#06B6D4;border-radius:50%"></div>
-  <div class="confetti" id="cf7"  style="width:12px;height:6px;top:180px;left:900px;background:#E91E8C"></div>
+  <div class="confetti" id="cf5"  style="width:14px;height:7px;top:200px;left:1700px;background:#0067CC"></div>
+  <div class="confetti" id="cf6"  style="width:10px;height:10px;top:50px;left:500px;background:#00AEEF;border-radius:50%"></div>
+  <div class="confetti" id="cf7"  style="width:12px;height:6px;top:180px;left:900px;background:#003B8E"></div>
   <div class="confetti" id="cf8"  style="width:16px;height:8px;top:60px;left:1300px;background:#FBBF24"></div>
   <div class="confetti" id="cf9"  style="width:8px;height:14px;top:140px;left:200px;background:#22C55E"></div>
-  <div class="confetti" id="cf10" style="width:10px;height:10px;top:90px;left:1600px;background:#E91E8C;border-radius:50%"></div>
+  <div class="confetti" id="cf10" style="width:10px;height:10px;top:90px;left:1600px;background:#003B8E;border-radius:50%"></div>
   <div class="star" id="st1" style="top:200px;left:250px">✦</div>
   <div class="star" id="st2" style="top:160px;left:1600px">✦</div>
-  <div class="star" id="st3" style="top:300px;left:1750px;font-size:18px;color:#06B6D4">✦</div>
-  <div class="star" id="st4" style="top:280px;left:100px;font-size:18px;color:#8B2FC9">✦</div>
+  <div class="star" id="st3" style="top:300px;left:1750px;font-size:18px;color:#00AEEF">✦</div>
+  <div class="star" id="st4" style="top:280px;left:100px;font-size:18px;color:#0067CC">✦</div>
 
-  <!-- Center content -->
   <div id="center-content">
     <div id="check-wrap"><div class="check-icon">✓</div></div>
     <div class="cel-title" id="s05-title">Candidature<br><span class="grad">envoyée !</span></div>
-    <div class="cel-sub" id="s05-sub">Tu viens de postuler à Lead Dev Full-Stack · TechVentures</div>
+    <div class="cel-sub" id="s05-sub">Vous venez de postuler à Lead Dev Full-Stack · TechVentures</div>
     <div id="toast">
       <div class="toast-icon">🚀</div>
       <div class="toast-info">
-        <div class="toast-title">+1 candidature envoyée</div>
-        <div class="toast-detail">Cléo suit ta candidature pour toi · Réponse estimée sous 48h</div>
+        <div class="toast-title">+1 candidature envoyée via France Travail</div>
+        <div class="toast-detail">Votre dossier est transmis au recruteur · Réponse estimée sous 48h</div>
       </div>
     </div>
   </div>
@@ -69,7 +61,6 @@ html,body{width:1920px;height:1080px;overflow:hidden;background:#F4F6FB}
 window.__timelines = window.__timelines || {};
 var tl = gsap.timeline({ paused: true });
 var confIds = ["#cf1","#cf2","#cf3","#cf4","#cf5","#cf6","#cf7","#cf8","#cf9","#cf10"];
-/* Seeded PRNG (mulberry32) for deterministic renders */
 function mulberry32(seed) {
   return function() {
     seed |= 0; seed = seed + 0x6D2B79F5 | 0;
@@ -87,24 +78,15 @@ gsap.set("#toast", { opacity:0, y:30 });
 gsap.set("#st1,#st2,#st3,#st4", { opacity:0, scale:0 });
 confIds.forEach(function(id) { gsap.set(id, { opacity:0, scale:0 }); });
 
-/* Check mark bounces in */
 tl.fromTo("#check-wrap", { opacity:0, scale:0 }, { opacity:1, scale:1, duration:.4, ease:"elastic.out(1.2,.5)" }, .2);
-
-/* Title + sub */
 tl.fromTo("#s05-title", { opacity:0, y:30 }, { opacity:1, y:0, duration:.3, ease:"power3.out" }, .45);
 tl.fromTo("#s05-sub",   { opacity:0 },       { opacity:1, duration:.25, ease:"power2.out" }, .62);
-
-/* Toast notification */
 tl.fromTo("#toast", { opacity:0, y:30 }, { opacity:1, y:0, duration:.3, ease:"back.out(1.2)" }, .75);
-
-/* Stars + confetti burst */
 tl.fromTo("#st1,#st2,#st3,#st4", { opacity:0, scale:0 }, { opacity:1, scale:1, duration:.2, stagger:.06, ease:"back.out(2)" }, 1.0);
 confIds.forEach(function(id, i) {
   tl.fromTo(id, { opacity:0, scale:0 }, { opacity:1, scale:1, duration:.15, ease:"back.out(2)" }, 1.0 + i*.04);
   tl.to(id, { y:700+rng()*300, x:(rng()-.5)*500, rotation:720*(rng()>.5?1:-1), opacity:0, duration:1.8+rng()*.5, ease:"power1.in" }, 1.15+i*.04);
 });
-
-/* Fade out */
 tl.to("#s05", { opacity:0, duration:.2, ease:"power2.in" }, 3.78);
 
 window.__timelines["s05-postuler"] = tl;
