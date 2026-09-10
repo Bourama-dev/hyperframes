@@ -5,62 +5,47 @@
 <script src="node_modules/gsap/dist/gsap.min.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1920px;height:1080px;overflow:hidden;background:#060A14}
-#s06{position:relative;width:1920px;height:1080px;overflow:hidden;background:#060A14;display:flex;align-items:center;justify-content:center}
-.bg-blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(120px)}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#F4F6FB}
+#s06{position:relative;width:1920px;height:1080px;overflow:hidden;background:#F4F6FB;display:flex;align-items:center;justify-content:center}
+.bg-shape{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
 .grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-/* Background radial glow */
-#bg-glow{position:absolute;inset:0;background:radial-gradient(ellipse 1100px 700px at 50% 50%,rgba(233,30,140,.1) 0%,rgba(6,182,212,.07) 50%,transparent 80%);pointer-events:none}
-/* Decorative rings */
-.ring{position:absolute;border-radius:50%;border:1px solid;pointer-events:none;left:50%;top:50%}
 /* Floating number tiles */
-.num-tile{position:absolute;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px 22px;white-space:nowrap;pointer-events:none}
-.nt-val{font-family:"Outfit",sans-serif;font-size:22px;font-weight:900;color:white}
-.nt-lbl{font-family:"Inter",sans-serif;font-size:11px;color:rgba(255,255,255,.4);margin-top:3px;letter-spacing:.06em;text-transform:uppercase}
-/* Particles */
-.particle{position:absolute;border-radius:50%}
+.num-tile{position:absolute;background:#fff;border:1.5px solid #ECEEF2;border-radius:18px;padding:16px 24px;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.07)}
+.nt-val{font-family:"Outfit",sans-serif;font-size:22px;font-weight:900;color:#111827}
+.nt-lbl{font-family:"Inter",sans-serif;font-size:11px;color:#9CA3AF;margin-top:4px;letter-spacing:.06em;text-transform:uppercase}
+/* Decorative rings */
+.ring{position:absolute;border-radius:50%;border:1.5px solid;pointer-events:none;left:50%;top:50%}
 /* Center stage */
-#center-stage{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:960px}
+#center-stage{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:980px}
 /* Eyebrow */
-#s06-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:10px 24px;font-family:"Inter",sans-serif;font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:32px}
+#s06-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(233,30,140,.06);border:1px solid rgba(233,30,140,.2);border-radius:100px;padding:10px 24px;font-family:"Inter",sans-serif;font-weight:600;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:#E91E8C;margin-bottom:32px}
 /* Main title */
-#s06-title{font-family:"Outfit",sans-serif;font-size:128px;font-weight:900;line-height:.88;letter-spacing:-.04em;text-align:center;color:#fff;margin-bottom:20px}
-#s06-count-line{font-family:"Inter",sans-serif;font-size:22px;color:rgba(255,255,255,.45);text-align:center;margin-bottom:52px;letter-spacing:.02em}
+#s06-title{font-family:"Outfit",sans-serif;font-size:128px;font-weight:900;line-height:.88;letter-spacing:-.04em;text-align:center;color:#111827;margin-bottom:20px}
+#s06-count-line{font-family:"Inter",sans-serif;font-size:22px;color:#6B7280;text-align:center;margin-bottom:52px;letter-spacing:.02em}
 /* CTA */
-#s06-cta-group{display:flex;align-items:center;gap:22px;margin-bottom:52px}
-#s06-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#E91E8C,#06B6D4);border-radius:100px;padding:20px 48px;font-family:"Outfit",sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-.01em;border:none;cursor:pointer;position:relative;overflow:hidden}
-#s06-shimmer{position:absolute;inset:0;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.12) 50%,transparent 80%);pointer-events:none}
-#s06-url{font-family:"Inter",sans-serif;font-size:18px;color:rgba(255,255,255,.35);letter-spacing:.03em}
+#s06-cta-group{display:flex;align-items:center;gap:22px;margin-bottom:48px}
+#s06-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#E91E8C,#06B6D4);border-radius:100px;padding:20px 48px;font-family:"Outfit",sans-serif;font-size:24px;font-weight:800;color:#fff;letter-spacing:-.01em;border:none;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(233,30,140,.3)}
+#s06-shimmer{position:absolute;inset:0;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.18) 50%,transparent 80%);pointer-events:none}
+#s06-url{font-family:"Inter",sans-serif;font-size:18px;color:#9CA3AF;letter-spacing:.03em}
 </style>
 </head><body>
 <div id="s06" data-composition-id="s06-cta" data-width="1920" data-height="1080" data-start="0" data-duration="5">
 
-  <div id="bg-glow"></div>
-  <div class="bg-blob" style="width:800px;height:800px;top:50%;left:50%;background:rgba(233,30,140,.06)"></div>
-  <div class="bg-blob" style="width:500px;height:500px;top:-100px;right:-50px;background:rgba(6,182,212,.06)"></div>
-  <div class="bg-blob" style="width:400px;height:400px;bottom:-80px;left:-50px;background:rgba(139,47,201,.05)"></div>
+  <div class="bg-shape" style="width:800px;height:800px;top:-200px;right:-100px;background:rgba(233,30,140,.08)"></div>
+  <div class="bg-shape" style="width:700px;height:700px;bottom:-200px;left:-100px;background:rgba(6,182,212,.07)"></div>
+  <div class="bg-shape" style="width:500px;height:500px;top:50%;left:50%;background:rgba(139,47,201,.05)"></div>
 
   <!-- Decorative rings -->
-  <div class="ring" id="ring1" style="width:900px;height:900px;margin-left:-450px;margin-top:-450px;border-color:rgba(233,30,140,.08)"></div>
-  <div class="ring" id="ring2" style="width:1200px;height:1200px;margin-left:-600px;margin-top:-600px;border-color:rgba(6,182,212,.05)"></div>
-  <div class="ring" id="ring3" style="width:600px;height:600px;margin-left:-300px;margin-top:-300px;border-color:rgba(139,47,201,.1)"></div>
+  <div class="ring" id="ring1" style="width:860px;height:860px;margin-left:-430px;margin-top:-430px;border-color:rgba(233,30,140,.1)"></div>
+  <div class="ring" id="ring2" style="width:1160px;height:1160px;margin-left:-580px;margin-top:-580px;border-color:rgba(6,182,212,.08)"></div>
 
   <!-- Floating number tiles -->
   <div class="num-tile" id="nt1" style="left:80px;top:200px"><div class="nt-val">💻 84 000</div><div class="nt-lbl">Tech & Dev</div></div>
-  <div class="num-tile" id="nt2" style="left:60px;top:420px"><div class="nt-val">🏥 62 000</div><div class="nt-lbl">Santé</div></div>
-  <div class="num-tile" id="nt3" style="left:100px;top:640px"><div class="nt-val">🛒 71 000</div><div class="nt-lbl">Commerce</div></div>
+  <div class="num-tile" id="nt2" style="left:60px;top:430px"><div class="nt-val">🏥 62 000</div><div class="nt-lbl">Santé</div></div>
+  <div class="num-tile" id="nt3" style="left:100px;top:660px"><div class="nt-val">🛒 71 000</div><div class="nt-lbl">Commerce</div></div>
   <div class="num-tile" id="nt4" style="right:80px;top:180px"><div class="nt-val">🍽️ 48 000</div><div class="nt-lbl">Restauration</div></div>
-  <div class="num-tile" id="nt5" style="right:60px;top:420px"><div class="nt-val">🏗️ 45 000</div><div class="nt-lbl">Construction</div></div>
+  <div class="num-tile" id="nt5" style="right:60px;top:430px"><div class="nt-val">🏗️ 45 000</div><div class="nt-lbl">Construction</div></div>
   <div class="num-tile" id="nt6" style="right:100px;top:660px"><div class="nt-val">💰 33 000</div><div class="nt-lbl">Finance</div></div>
-
-  <!-- Particles -->
-  <div class="particle" id="p1" style="width:5px;height:5px;top:18%;left:22%;background:rgba(233,30,140,.5)"></div>
-  <div class="particle" id="p2" style="width:7px;height:7px;top:72%;left:78%;background:rgba(6,182,212,.5)"></div>
-  <div class="particle" id="p3" style="width:4px;height:4px;top:35%;left:65%;background:rgba(233,30,140,.4)"></div>
-  <div class="particle" id="p4" style="width:6px;height:6px;top:82%;left:30%;background:rgba(139,47,201,.5)"></div>
-  <div class="particle" id="p5" style="width:4px;height:4px;top:14%;left:55%;background:rgba(6,182,212,.4)"></div>
-  <div class="particle" id="p6" style="width:8px;height:8px;top:60%;left:15%;background:rgba(6,182,212,.4)"></div>
-  <div class="particle" id="p7" style="width:4px;height:4px;top:45%;left:88%;background:rgba(233,30,140,.4)"></div>
 
   <!-- Center CTA -->
   <div id="center-stage">
@@ -86,39 +71,32 @@ gsap.set("#s06-title", { opacity:0, y:30, scale:.96 });
 gsap.set("#s06-count-line", { opacity:0 });
 gsap.set("#s06-cta-group", { opacity:0, y:20 });
 gsap.set("#s06-url", { opacity:0 });
-gsap.set("#p1,#p2,#p3,#p4,#p5,#p6,#p7", { opacity:0, scale:0 });
 gsap.set("#nt1,#nt2,#nt3,#nt4,#nt5,#nt6", { opacity:0, scale:.85 });
-gsap.set("#ring1,#ring2,#ring3", { opacity:0, scale:.7 });
+gsap.set("#ring1,#ring2", { opacity:0, scale:.7 });
 gsap.set("#s06-shimmer", { x:"-100%" });
 
-/* Background glow */
-tl.fromTo("#bg-glow", { scale:.8, opacity:0 }, { scale:1, opacity:1, duration:1.0, ease:"power2.out" }, 0);
-
 /* Rings expand */
-tl.fromTo("#ring1,#ring2,#ring3", { opacity:0, scale:.7 }, { opacity:1, scale:1, duration:.8, stagger:.1, ease:"power3.out" }, 0);
+tl.fromTo("#ring1,#ring2", { opacity:0, scale:.7 }, { opacity:1, scale:1, duration:.8, stagger:.1, ease:"power3.out" }, 0);
 
-/* Particles */
-tl.fromTo("#p1,#p2,#p3,#p4,#p5,#p6,#p7", { opacity:0, scale:0 }, { opacity:1, scale:1, duration:.6, stagger:.06, ease:"back.out(2)" }, .15);
+/* Tiles stagger */
+tl.fromTo("#nt1,#nt4", { opacity:0, scale:.85 }, { opacity:1, scale:1, duration:.3, stagger:.1, ease:"back.out(1.4)" }, .15);
+tl.fromTo("#nt2,#nt5", { opacity:0, scale:.85 }, { opacity:1, scale:1, duration:.3, stagger:.1, ease:"back.out(1.4)" }, .3);
+tl.fromTo("#nt3,#nt6", { opacity:0, scale:.85 }, { opacity:1, scale:1, duration:.3, stagger:.1, ease:"back.out(1.4)" }, .45);
 
-/* Number tiles stagger */
-tl.fromTo("#nt1,#nt4", { opacity:0, scale:.85 }, { opacity:1, scale:1, duration:.3, stagger:.1, ease:"back.out(1.4)" }, .2);
-tl.fromTo("#nt2,#nt5", { opacity:0, scale:.85 }, { opacity:1, scale:1, duration:.3, stagger:.1, ease:"back.out(1.4)" }, .35);
-tl.fromTo("#nt3,#nt6", { opacity:0, scale:.85 }, { opacity:1, scale:1, duration:.3, stagger:.1, ease:"back.out(1.4)" }, .5);
+/* Text */
+tl.fromTo("#s06-eyebrow",    { opacity:0, y:-24 }, { opacity:1, y:0, duration:.3, ease:"power3.out" }, .3);
+tl.fromTo("#s06-title",      { opacity:0, y:30, scale:.96 }, { opacity:1, y:0, scale:1, duration:.4, ease:"back.out(1.2)" }, .42);
+tl.fromTo("#s06-count-line", { opacity:0 }, { opacity:1, duration:.3, ease:"power2.out" }, .64);
+tl.fromTo("#s06-cta-group",  { opacity:0, y:20 }, { opacity:1, y:0, duration:.32, ease:"power3.out" }, .76);
+tl.fromTo("#s06-url",        { opacity:0 }, { opacity:1, duration:.28, ease:"power2.out" }, .90);
 
-/* Text elements */
-tl.fromTo("#s06-eyebrow",   { opacity:0, y:-24 }, { opacity:1, y:0, duration:.3, ease:"power3.out" }, 0.3);
-tl.fromTo("#s06-title",     { opacity:0, y:30, scale:.96 }, { opacity:1, y:0, scale:1, duration:.4, ease:"back.out(1.2)" }, 0.42);
-tl.fromTo("#s06-count-line",{ opacity:0 }, { opacity:1, duration:.3, ease:"power2.out" }, 0.64);
-tl.fromTo("#s06-cta-group", { opacity:0, y:20 }, { opacity:1, y:0, duration:.32, ease:"power3.out" }, 0.76);
-tl.fromTo("#s06-url",       { opacity:0 }, { opacity:1, duration:.28, ease:"power2.out" }, 0.90);
-
-/* Button shimmer */
-tl.fromTo("#s06-shimmer", { x:"-100%" }, { x:"200%", duration:.7, ease:"power2.inOut" }, 0.95);
+/* Shimmer */
+tl.fromTo("#s06-shimmer", { x:"-100%" }, { x:"200%", duration:.7, ease:"power2.inOut" }, .95);
 tl.fromTo("#s06-shimmer", { x:"-100%" }, { x:"200%", immediateRender:false, duration:.7, ease:"power2.inOut" }, 2.3);
 
-/* Gentle tile float */
-tl.to("#nt1,#nt2,#nt3", { y:-8, duration:.5, ease:"sine.inOut", yoyo:true, repeat:3 }, 2.0);
-tl.to("#nt4,#nt5,#nt6", { y:8, duration:.5, ease:"sine.inOut", yoyo:true, repeat:3 }, 2.2);
+/* Tile float */
+tl.to("#nt1,#nt2,#nt3", { y:-10, duration:.6, ease:"sine.inOut", yoyo:true, repeat:3 }, 2.0);
+tl.to("#nt4,#nt5,#nt6", { y:10, duration:.6, ease:"sine.inOut", yoyo:true, repeat:3 }, 2.2);
 
 window.__timelines["s06-cta"] = tl;
 </script></body></html>
