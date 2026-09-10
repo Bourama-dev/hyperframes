@@ -6,156 +6,111 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:1920px;height:1080px;overflow:hidden;background:#fff}
-#s02{position:relative;width:1920px;height:1080px;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center}
-/* Full-screen iOS-style app */
-.ios-wrap{width:1920px;height:1080px;background:#F2F2F7;display:flex;flex-direction:column;position:relative;overflow:hidden}
+#s02{position:relative;width:1920px;height:1080px;overflow:hidden;display:flex;flex-direction:column;background:#F4F6FA}
 /* Status bar */
-.status-bar{height:54px;background:#fff;display:flex;align-items:center;padding:0 40px;justify-content:space-between;border-bottom:1px solid #E5E5EA;flex-shrink:0}
-.sb-time{font-family:-apple-system,sans-serif;font-size:17px;font-weight:600;color:#000}
-.sb-icons{display:flex;align-items:center;gap:6px;font-size:14px;color:#000}
-/* App header */
-.app-header{background:linear-gradient(135deg,#E91E8C,#9B59B6,#06B6D4);padding:48px 80px 36px;flex-shrink:0}
-.app-logo-row{display:flex;align-items:center;gap:20px;margin-bottom:28px}
-.logo-circle{width:70px;height:70px;background:rgba(255,255,255,.2);border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:36px;backdrop-filter:blur(10px)}
-.logo-name{font-family:"Outfit",sans-serif;font-size:32px;font-weight:900;color:white;letter-spacing:-.5px}
-.logo-tagline{font-family:"Inter",sans-serif;font-size:14px;color:rgba(255,255,255,.7);margin-top:2px}
-/* Big counter */
-.counter-block{text-align:center}
-.counter-val{font-family:"Outfit",sans-serif;font-size:110px;font-weight:900;color:white;line-height:1;letter-spacing:-.04em}
-.counter-label{font-family:"Inter",sans-serif;font-size:20px;color:rgba(255,255,255,.8);margin-top:6px;letter-spacing:.02em}
-/* Search bar */
-.search-bar{margin:24px 80px 0;background:rgba(255,255,255,.95);border-radius:16px;padding:16px 24px;display:flex;align-items:center;gap:14px}
-.search-icon{font-size:20px}
-.search-text{font-family:"Inter",sans-serif;font-size:18px;color:#8E8E93}
-/* Content area */
-.content-area{flex:1;padding:24px 80px;overflow:hidden;display:flex;flex-direction:column;gap:16px}
-.section-title{font-family:"Outfit",sans-serif;font-size:24px;font-weight:800;color:#1C1C1E;margin-bottom:4px}
-/* Job cards */
-.job-card{background:#fff;border-radius:20px;padding:24px 28px;display:flex;align-items:center;gap:20px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
-.jc-logo{width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
-.jc-info{flex:1}
-.jc-title{font-family:"Outfit",sans-serif;font-size:18px;font-weight:800;color:#1C1C1E;margin-bottom:4px}
-.jc-company{font-family:"Inter",sans-serif;font-size:14px;color:#8E8E93;margin-bottom:10px}
-.jc-tags{display:flex;gap:8px;flex-wrap:wrap}
-.jc-tag{font-family:"Inter",sans-serif;font-size:12px;color:#636366;background:#F2F2F7;padding:4px 12px;border-radius:8px;border:1px solid #E5E5EA}
-.jc-badge{font-family:"Inter",sans-serif;font-size:12px;font-weight:700;padding:5px 14px;border-radius:100px;flex-shrink:0}
-.badge-new{background:#22C55E;color:#fff}
-.badge-match{background:linear-gradient(135deg,#E91E8C,#06B6D4);color:#fff}
-.jc-btn{background:#E91E8C;color:#fff;border:none;padding:12px 22px;border-radius:100px;font-family:"Outfit",sans-serif;font-size:14px;font-weight:700;flex-shrink:0;cursor:pointer}
-/* Live indicator */
-.live-row{display:flex;align-items:center;gap:8px}
-.live-dot{width:10px;height:10px;border-radius:50%;background:#E91E8C}
-.live-txt{font-family:"Inter",sans-serif;font-size:14px;color:#E91E8C;font-weight:600}
-.update-txt{font-family:"Inter",sans-serif;font-size:14px;color:#8E8E93;margin-left:4px}
+.status-bar{height:52px;background:#fff;display:flex;align-items:center;padding:0 48px;justify-content:space-between;border-bottom:1px solid #ECEEF2;flex-shrink:0}
+.sb-time{font-family:-apple-system,sans-serif;font-size:17px;font-weight:600;color:#111}
+.sb-right{display:flex;align-items:center;gap:6px;font-size:13px;color:#888}
+/* Gradient header */
+.app-header{background:linear-gradient(135deg,#0C0520,#1A0835,#060E1C);padding:44px 80px 40px;flex-shrink:0;position:relative;overflow:hidden}
+.header-glow{position:absolute;inset:0;background:radial-gradient(ellipse 800px 300px at 30% 150%,rgba(233,30,140,.18) 0%,transparent 60%),radial-gradient(ellipse 600px 300px at 80% -50%,rgba(6,182,212,.12) 0%,transparent 60%);pointer-events:none}
+.header-row{display:flex;align-items:center;gap:20px;margin-bottom:28px;position:relative;z-index:1}
+.logo-box{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#E91E8C,#8B2FC9,#06B6D4);display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 8px 30px rgba(233,30,140,.3)}
+.logo-name{font-family:"Outfit",sans-serif;font-size:28px;font-weight:900;color:white;letter-spacing:-.4px}
+.logo-tag{font-family:"Inter",sans-serif;font-size:13px;color:rgba(255,255,255,.5);margin-top:3px}
+.live-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(233,30,140,.4);border-radius:100px;padding:6px 16px;font-family:"Inter",sans-serif;font-size:12px;font-weight:600;color:#E91E8C;margin-left:auto}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#E91E8C}
+/* Counter block */
+.counter-block{position:relative;z-index:1}
+.counter-val{font-family:"Outfit",sans-serif;font-size:108px;font-weight:900;color:white;line-height:1;letter-spacing:-.05em;background:linear-gradient(135deg,#fff 40%,rgba(255,255,255,.7));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.counter-label{font-family:"Inter",sans-serif;font-size:18px;color:rgba(255,255,255,.4);margin-top:8px;letter-spacing:.02em}
+/* Search */
+.search-row{margin:20px 80px 0;background:#fff;border-radius:14px;padding:14px 22px;display:flex;align-items:center;gap:12px;border:1.5px solid #E8EAF0;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.search-txt{font-family:"Inter",sans-serif;font-size:17px;color:#B0B5C4}
+/* Content */
+.content{flex:1;padding:20px 80px;overflow:hidden;display:flex;flex-direction:column;gap:14px}
+.section-label{font-family:"Outfit",sans-serif;font-size:22px;font-weight:800;color:#111827;letter-spacing:-.02em}
+/* Cards */
+.job-card{background:#fff;border-radius:18px;padding:22px 26px;display:flex;align-items:center;gap:18px;border:1.5px solid #ECEEF2;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.jc-logo{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.jc-body{flex:1}
+.jc-title{font-family:"Outfit",sans-serif;font-size:17px;font-weight:800;color:#111827;margin-bottom:3px}
+.jc-co{font-family:"Inter",sans-serif;font-size:13px;color:#9CA3AF;margin-bottom:9px}
+.jc-tags{display:flex;gap:7px}
+.tag{font-family:"Inter",sans-serif;font-size:12px;color:#6B7280;background:#F3F4F6;padding:3px 10px;border-radius:6px}
+.badge-new{font-family:"Inter",sans-serif;font-size:11px;font-weight:700;background:#22C55E;color:#fff;padding:5px 14px;border-radius:100px;flex-shrink:0}
+.badge-match{font-family:"Inter",sans-serif;font-size:11px;font-weight:700;background:linear-gradient(135deg,#E91E8C,#06B6D4);color:#fff;padding:5px 14px;border-radius:100px;flex-shrink:0}
+.btn-apply{background:#E91E8C;color:#fff;border:none;padding:11px 22px;border-radius:100px;font-family:"Outfit",sans-serif;font-size:14px;font-weight:700;cursor:pointer;flex-shrink:0}
 </style>
 </head><body>
 <div id="s02" data-composition-id="s02-app" data-width="1920" data-height="1080" data-start="0" data-duration="3.5">
-  <div class="ios-wrap">
-    <!-- Status bar -->
-    <div class="status-bar">
-      <div class="sb-time">9:41</div>
-      <div class="sb-icons">
-        <span>●●●</span><span>WiFi</span><span>🔋</span>
-      </div>
+  <div class="status-bar">
+    <div class="sb-time">9:41</div>
+    <div class="sb-right"><span>●●●</span><span>WiFi</span><span>🔋</span></div>
+  </div>
+  <div id="app-header" class="app-header">
+    <div class="header-glow"></div>
+    <div class="header-row">
+      <div class="logo-box">🎯</div>
+      <div><div class="logo-name">CléAvenir</div><div class="logo-tag">Toutes les offres d'emploi en France</div></div>
+      <div class="live-badge"><div class="live-dot"></div>Live · mis à jour toutes les heures</div>
     </div>
-
-    <!-- App header with counter -->
-    <div id="app-header" class="app-header">
-      <div class="app-logo-row">
-        <div class="logo-circle">🎯</div>
-        <div>
-          <div class="logo-name">CléAvenir</div>
-          <div class="logo-tagline">Toutes les offres d'emploi en France</div>
-        </div>
-        <div class="live-row" style="margin-left:auto">
-          <div class="live-dot"></div>
-          <div class="live-txt">Live</div>
-          <div class="update-txt">· Mis à jour toutes les heures</div>
-        </div>
-      </div>
-      <div class="counter-block">
-        <div class="counter-val" id="s02-counter">0</div>
-        <div class="counter-label">offres d'emploi disponibles · 8 secteurs · Toute la France</div>
-      </div>
+    <div class="counter-block">
+      <div class="counter-val" id="s02-counter">0</div>
+      <div class="counter-label">offres d'emploi · 8 secteurs · Toute la France</div>
     </div>
-
-    <!-- Search -->
-    <div id="s02-search" class="search-bar">
-      <div class="search-icon">🔍</div>
-      <div class="search-text">Rechercher un poste, une ville, un secteur...</div>
+  </div>
+  <div id="s02-search" class="search-row"><span style="font-size:18px">🔍</span><div class="search-txt">Rechercher un poste, une ville, un secteur…</div></div>
+  <div class="content">
+    <div class="section-label" id="s02-sec">💼 Offres pour ton profil</div>
+    <div class="job-card" id="s02-c1">
+      <div class="jc-logo" style="background:linear-gradient(135deg,rgba(233,30,140,.08),rgba(233,30,140,.18))">💻</div>
+      <div class="jc-body">
+        <div class="jc-title">Développeur React — Junior</div>
+        <div class="jc-co">TechVentures · Paris 8e</div>
+        <div class="jc-tags"><span class="tag">💰 32–38k€</span><span class="tag">📋 CDI</span><span class="tag">🏠 3j télétravail</span></div>
+      </div>
+      <div class="badge-new">NOUVEAU</div><button class="btn-apply">Postuler →</button>
     </div>
-
-    <!-- Cards -->
-    <div class="content-area">
-      <div class="section-title" id="s02-sec">💼 Offres pour ton profil</div>
-      <div class="job-card" id="s02-c1">
-        <div class="jc-logo" style="background:linear-gradient(135deg,rgba(233,30,140,.1),rgba(233,30,140,.2))">💻</div>
-        <div class="jc-info">
-          <div class="jc-title">Développeur React — Junior</div>
-          <div class="jc-company">TechVentures · Paris 8e</div>
-          <div class="jc-tags"><span class="jc-tag">💰 32–38k€</span><span class="jc-tag">📋 CDI</span><span class="jc-tag">🏠 3j télétravail</span></div>
-        </div>
-        <div class="jc-badge badge-new">NOUVEAU</div>
-        <button class="jc-btn">Postuler →</button>
+    <div class="job-card" id="s02-c2">
+      <div class="jc-logo" style="background:linear-gradient(135deg,rgba(6,182,212,.08),rgba(6,182,212,.18))">🤖</div>
+      <div class="jc-body">
+        <div class="jc-title">Ingénieur ML — IA Générative</div>
+        <div class="jc-co">StartAI · Paris 11e</div>
+        <div class="jc-tags"><span class="tag">💰 55–70k€</span><span class="tag">📋 CDI</span><span class="tag">🏠 Full Remote</span></div>
       </div>
-      <div class="job-card" id="s02-c2">
-        <div class="jc-logo" style="background:linear-gradient(135deg,rgba(6,182,212,.1),rgba(6,182,212,.2))">🤖</div>
-        <div class="jc-info">
-          <div class="jc-title">Ingénieur ML — IA Générative</div>
-          <div class="jc-company">StartAI · Paris 11e</div>
-          <div class="jc-tags"><span class="jc-tag">💰 55–70k€</span><span class="jc-tag">📋 CDI</span><span class="jc-tag">🏠 Full Remote</span></div>
-        </div>
-        <div class="jc-badge badge-match">92% match</div>
-        <button class="jc-btn">Postuler →</button>
+      <div class="badge-match">92% match</div><button class="btn-apply">Postuler →</button>
+    </div>
+    <div class="job-card" id="s02-c3">
+      <div class="jc-logo" style="background:linear-gradient(135deg,rgba(139,47,201,.08),rgba(139,47,201,.18))">🎨</div>
+      <div class="jc-body">
+        <div class="jc-title">UX Designer — Confirmé</div>
+        <div class="jc-co">Pixel Studio · Bordeaux</div>
+        <div class="jc-tags"><span class="tag">💰 38–45k€</span><span class="tag">📋 CDI</span><span class="tag">🌍 Hybride</span></div>
       </div>
-      <div class="job-card" id="s02-c3">
-        <div class="jc-logo" style="background:linear-gradient(135deg,rgba(139,47,201,.1),rgba(139,47,201,.2))">🎨</div>
-        <div class="jc-info">
-          <div class="jc-title">UX Designer — Confirmé</div>
-          <div class="jc-company">Pixel Studio · Bordeaux</div>
-          <div class="jc-tags"><span class="jc-tag">💰 38–45k€</span><span class="jc-tag">📋 CDI</span><span class="jc-tag">🌍 Hybride</span></div>
-        </div>
-        <div class="jc-badge badge-match">88% match</div>
-        <button class="jc-btn">Postuler →</button>
-      </div>
+      <div class="badge-match">88% match</div><button class="btn-apply">Postuler →</button>
     </div>
   </div>
 </div>
 <script>
 window.__timelines = window.__timelines || {};
 var tl = gsap.timeline({ paused: true });
-var counterObj = { val: 0 };
+var cObj = { val:0 };
 
 gsap.set("#app-header", { opacity:0, y:-30 });
-gsap.set("#s02-search", { opacity:0, y:20 });
+gsap.set("#s02-search", { opacity:0, y:16 });
 gsap.set("#s02-sec", { opacity:0 });
-gsap.set("#s02-c1,#s02-c2,#s02-c3", { opacity:0, y:30 });
-gsap.set("#s02-counter", { textContent:"0" });
+gsap.set("#s02-c1,#s02-c2,#s02-c3", { opacity:0, y:28 });
 
-/* Fade in from white */
-tl.fromTo("#s02", { background:"#ffffff" }, { background:"#F2F2F7", duration:.2 }, 0);
-
-/* Header slides down */
 tl.fromTo("#app-header", { opacity:0, y:-30 }, { opacity:1, y:0, duration:.4, ease:"power3.out" }, .1);
-
-/* Counter animates */
-tl.to(counterObj, { val:496000, duration:1.6, ease:"power2.out",
-  onUpdate: function() {
-    document.getElementById("s02-counter").textContent =
-      Math.round(counterObj.val).toLocaleString("fr-FR");
-  }
+tl.to(cObj, { val:496000, duration:1.6, ease:"power2.out",
+  onUpdate:function(){ document.getElementById("s02-counter").textContent = Math.round(cObj.val).toLocaleString("fr-FR"); }
 }, .3);
-
-/* Search bar */
-tl.fromTo("#s02-search", { opacity:0, y:20 }, { opacity:1, y:0, duration:.3, ease:"power3.out" }, .5);
-
-/* Section + cards stagger */
-tl.fromTo("#s02-sec", { opacity:0 }, { opacity:1, duration:.25 }, .8);
-tl.fromTo("#s02-c1", { opacity:0, y:30 }, { opacity:1, y:0, duration:.3, ease:"back.out(1.3)" }, .9);
-tl.fromTo("#s02-c2", { opacity:0, y:30 }, { opacity:1, y:0, duration:.3, ease:"back.out(1.3)" }, 1.05);
-tl.fromTo("#s02-c3", { opacity:0, y:30 }, { opacity:1, y:0, duration:.3, ease:"back.out(1.3)" }, 1.2);
-
-/* Fade out */
+tl.fromTo("#s02-search", { opacity:0, y:16 }, { opacity:1, y:0, duration:.3, ease:"power3.out" }, .5);
+tl.fromTo("#s02-sec",    { opacity:0 }, { opacity:1, duration:.2 }, .8);
+tl.fromTo("#s02-c1", { opacity:0, y:28 }, { opacity:1, y:0, duration:.28, ease:"back.out(1.3)" }, .9);
+tl.fromTo("#s02-c2", { opacity:0, y:28 }, { opacity:1, y:0, duration:.28, ease:"back.out(1.3)" }, 1.04);
+tl.fromTo("#s02-c3", { opacity:0, y:28 }, { opacity:1, y:0, duration:.28, ease:"back.out(1.3)" }, 1.18);
 tl.to("#s02", { opacity:0, duration:.2, ease:"power2.in" }, 3.28);
 
 window.__timelines["s02-app"] = tl;
