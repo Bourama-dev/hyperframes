@@ -1,0 +1,63 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1080,height=1920"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#F4F6FB}
+#s03{position:relative;width:1080px;height:1920px;overflow:hidden;background:#F4F6FB;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.bg-shape{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#s03-head{text-align:center;margin-bottom:40px}
+.s03-eyebrow{font-family:"Inter",sans-serif;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#E91E8C;margin-bottom:14px;display:flex;align-items:center;justify-content:center;gap:8px}
+.s03-title{font-family:"Outfit",sans-serif;font-size:72px;font-weight:900;line-height:.88;letter-spacing:-.04em;color:#111827}
+.s03-source{font-family:"Inter",sans-serif;font-size:14px;color:#9CA3AF;margin-top:14px;display:flex;align-items:center;justify-content:center;gap:6px}
+#s03-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;width:960px}
+.sc{background:#fff;border:1.5px solid #ECEEF2;border-radius:20px;padding:28px 20px 22px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;position:relative;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.05)}
+.sc-accent{position:absolute;top:0;left:0;right:0;height:4px;border-radius:20px 20px 0 0}
+.sc-icon{font-size:40px;line-height:1}
+.sc-name{font-family:"Outfit",sans-serif;font-size:17px;font-weight:800;color:#111827}
+.sc-count{font-family:"Outfit",sans-serif;font-size:28px;font-weight:900}
+.sc-label{font-family:"Inter",sans-serif;font-size:12px;color:#9CA3AF}
+</style>
+</head><body>
+<div id="s03" data-composition-id="s03-secteurs" data-width="1080" data-height="1920" data-start="0" data-duration="4">
+
+  <div class="bg-shape" style="width:600px;height:600px;top:-150px;right:-150px;background:rgba(233,30,140,.07)"></div>
+  <div class="bg-shape" style="width:500px;height:500px;bottom:-100px;left:-100px;background:rgba(6,182,212,.06)"></div>
+
+  <div id="s03-head">
+    <div class="s03-eyebrow">✦ CléAvenir · Explore tous les domaines</div>
+    <div class="s03-title"><span class="grad">8 secteurs</span> qui recrutent</div>
+    <div class="s03-source">🏛️ Offres issues de France Travail</div>
+  </div>
+
+  <div id="s03-grid">
+    <div class="sc" id="sc1"><div class="sc-accent" style="background:linear-gradient(90deg,#E91E8C,#C4166F)"></div><div class="sc-icon">💻</div><div class="sc-name">Tech & Dev</div><div class="sc-count" style="color:#E91E8C">84 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc2"><div class="sc-accent" style="background:linear-gradient(90deg,#06B6D4,#0891B2)"></div><div class="sc-icon">🏥</div><div class="sc-name">Santé</div><div class="sc-count" style="color:#06B6D4">62 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc3"><div class="sc-accent" style="background:linear-gradient(90deg,#8B2FC9,#6D24A1)"></div><div class="sc-icon">🛒</div><div class="sc-name">Commerce</div><div class="sc-count" style="color:#8B2FC9">71 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc4"><div class="sc-accent" style="background:linear-gradient(90deg,#F59E0B,#D97706)"></div><div class="sc-icon">🍽️</div><div class="sc-name">Restauration</div><div class="sc-count" style="color:#F59E0B">48 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc5"><div class="sc-accent" style="background:linear-gradient(90deg,#06B6D4,#0891B2)"></div><div class="sc-icon">🚗</div><div class="sc-name">Transport</div><div class="sc-count" style="color:#06B6D4">39 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc6"><div class="sc-accent" style="background:linear-gradient(90deg,#22C55E,#16A34A)"></div><div class="sc-icon">🏗️</div><div class="sc-name">Construction</div><div class="sc-count" style="color:#22C55E">45 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc7"><div class="sc-accent" style="background:linear-gradient(90deg,#8B2FC9,#6D24A1)"></div><div class="sc-icon">💰</div><div class="sc-name">Finance</div><div class="sc-count" style="color:#8B2FC9">33 000</div><div class="sc-label">offres</div></div>
+    <div class="sc" id="sc8"><div class="sc-accent" style="background:linear-gradient(90deg,#E91E8C,#C4166F)"></div><div class="sc-icon">🎨</div><div class="sc-name">Arts & Médias</div><div class="sc-count" style="color:#E91E8C">28 000</div><div class="sc-label">offres</div></div>
+  </div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+var cards = ["#sc1","#sc2","#sc3","#sc4","#sc5","#sc6","#sc7","#sc8"];
+
+gsap.set("#s03-head", { opacity:0, y:-30 });
+gsap.set(cards, { opacity:0, y:40, scale:.92 });
+
+tl.fromTo("#s03-head", { opacity:0, y:-30 }, { opacity:1, y:0, duration:.4, ease:"power3.out" }, .05);
+cards.forEach(function(id, i) {
+  tl.fromTo(id, { opacity:0, y:40, scale:.92 }, { opacity:1, y:0, scale:1, duration:.3, ease:"back.out(1.5)" }, .35 + i * .07);
+});
+tl.to("#s03", { opacity:0, duration:.2, ease:"power2.in" }, 3.78);
+
+window.__timelines["s03-secteurs"] = tl;
+</script></body></html>

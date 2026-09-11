@@ -1,0 +1,90 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#F8FAFC}
+#s04{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:100px}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+#s04-left{display:flex;flex-direction:column;justify-content:center;max-width:640px}
+#s04-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:100px;padding:8px 18px;width:fit-content;margin-bottom:24px;font-family:"Inter",sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#EF4444}
+.live-pulse{width:9px;height:9px;border-radius:50%;background:#EF4444;flex-shrink:0}
+#s04-title{font-family:"Outfit",sans-serif;font-size:80px;font-weight:900;line-height:.88;letter-spacing:-.035em;color:#0F172A;margin-bottom:20px}
+#s04-body{font-family:"Inter",sans-serif;font-size:20px;line-height:1.6;color:#64748B;max-width:520px}
+#s04-right{display:flex;flex-direction:column;gap:14px;width:580px}
+.rt-card{background:#fff;border-radius:14px;padding:16px 20px;border:1.5px solid #E2E8F0;display:flex;align-items:center;gap:16px}
+.rt-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.rt-icon.pink{background:rgba(233,30,140,.1)}
+.rt-icon.teal{background:rgba(6,182,212,.1)}
+.rt-icon.green{background:rgba(34,197,94,.1)}
+.rt-info{flex:1}
+.rt-title{font-family:"Outfit",sans-serif;font-weight:700;font-size:15px;color:#0F172A;margin-bottom:3px}
+.rt-sub{font-family:"Inter",sans-serif;font-size:13px;color:#64748B}
+.rt-time{font-family:"Inter",sans-serif;font-size:11px;color:#94A3B8;font-weight:500}
+.rt-new{background:#E91E8C;color:#fff;font-family:"Inter",sans-serif;font-size:10px;font-weight:700;padding:3px 9px;border-radius:100px;flex-shrink:0}
+#s04-stat{background:#fff;border-radius:14px;padding:20px 24px;border:1.5px solid #E2E8F0;display:flex;align-items:center;justify-content:space-between}
+#s04-stat-num{font-family:"Outfit",sans-serif;font-size:42px;font-weight:900;line-height:1}
+#s04-stat-label{font-family:"Inter",sans-serif;font-size:13px;color:#64748B;margin-top:4px}
+#s04-stat-right{font-family:"Inter",sans-serif;font-size:12px;color:#22C55E;font-weight:600;display:flex;align-items:center;gap:5px}
+</style></head><body>
+<div id="s04" data-composition-id="s04-realtime" data-width="1920" data-height="1080" data-start="0" data-duration="3.5">
+  <div id="s04-left">
+    <div id="s04-eyebrow"><div class="live-pulse"></div>Mise à jour en direct</div>
+    <div id="s04-title">Toujours<br><span class="grad">les plus<br>récentes.</span></div>
+    <div id="s04-body">Chaque minute, de nouvelles offres arrivent. Sois le premier à postuler.</div>
+  </div>
+  <div id="s04-right">
+    <div id="s04-stat">
+      <div><div id="s04-stat-num" class="grad">+47</div><div id="s04-stat-label">nouvelles offres aujourd'hui</div></div>
+      <div id="s04-stat-right">↑ 23% vs hier</div>
+    </div>
+    <div class="rt-card" id="rt1">
+      <div class="rt-icon pink">💻</div>
+      <div class="rt-info">
+        <div class="rt-title">Lead Dev Node.js — Startup SaaS</div>
+        <div class="rt-sub">Fintech · Paris · 55–70k€ · CDI</div>
+      </div>
+      <div class="rt-time">Il y a 2 min</div>
+      <div class="rt-new">NEW</div>
+    </div>
+    <div class="rt-card" id="rt2">
+      <div class="rt-icon teal">📊</div>
+      <div class="rt-info">
+        <div class="rt-title">Growth Manager — Série B</div>
+        <div class="rt-sub">E-commerce · Lyon · 45–55k€ · CDI</div>
+      </div>
+      <div class="rt-time">Il y a 5 min</div>
+      <div class="rt-new">NEW</div>
+    </div>
+    <div class="rt-card" id="rt3">
+      <div class="rt-icon green">🎨</div>
+      <div class="rt-info">
+        <div class="rt-title">Product Designer — Remote First</div>
+        <div class="rt-sub">Healthtech · Full Remote · 40–48k€</div>
+      </div>
+      <div class="rt-time">Il y a 9 min</div>
+      <div class="rt-new">NEW</div>
+    </div>
+  </div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+
+gsap.set("#s04-eyebrow,#s04-title,#s04-body", { opacity:0, x:-24 });
+gsap.set("#s04-stat,#rt1,#rt2,#rt3", { opacity:0, x:30 });
+
+tl.fromTo("#s04-eyebrow", { opacity:0, x:-24 }, { opacity:1, x:0, duration:.26, ease:"power3.out" }, 0);
+tl.fromTo("#s04-title",   { opacity:0, x:-24 }, { opacity:1, x:0, duration:.30, ease:"power3.out" }, .1);
+tl.fromTo("#s04-body",    { opacity:0, x:-24 }, { opacity:1, x:0, duration:.26, ease:"power3.out" }, .2);
+tl.fromTo("#s04-stat", { opacity:0, x:30 }, { opacity:1, x:0, duration:.28, ease:"power3.out" }, .18);
+[["#rt1",.34],["#rt2",.46],["#rt3",.58]].forEach(function(r){
+  tl.fromTo(r[0], { opacity:0, x:30 }, { opacity:1, x:0, duration:.26, ease:"expo.out" }, r[1]);
+});
+tl.to(".live-pulse", { scale:1.4, duration:.4, repeat:4, yoyo:true, ease:"power1.inOut" }, .6);
+tl.to("#s04", { opacity:0, duration:.18, ease:"power2.in" }, 3.28);
+
+window.__timelines["s04-realtime"] = tl;
+</script></body></html>

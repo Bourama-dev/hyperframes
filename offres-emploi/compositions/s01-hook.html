@@ -1,0 +1,51 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1080,height=1920"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#F4F6FB}
+#s01{position:relative;width:1080px;height:1920px;overflow:hidden;background:#F4F6FB}
+.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+#s01-center{position:absolute;left:0;top:0;width:1080px;height:1920px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.s01-eyebrow{font-family:"Inter",sans-serif;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#E91E8C;margin-bottom:20px;display:flex;flex-direction:row;align-items:center;gap:8px}
+.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:#E91E8C;flex-shrink:0}
+.s01-title{font-family:"Outfit",sans-serif;font-size:96px;font-weight:900;line-height:.88;letter-spacing:-.04em;color:#111827;text-align:center;margin-bottom:24px}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.s01-sub{font-family:"Inter",sans-serif;font-size:20px;color:#6B7280;text-align:center;max-width:760px;line-height:1.6;margin-bottom:24px}
+.ft-mention{display:inline-flex;align-items:center;gap:6px;font-family:"Inter",sans-serif;font-size:14px;color:#9CA3AF;margin-bottom:48px}
+#pill-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:900px}
+.stat-pill{background:#fff;border:1.5px solid #ECEEF2;border-radius:16px;padding:16px 20px;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.sp-val{font-family:"Outfit",sans-serif;font-size:20px;font-weight:900;color:#111827}
+.sp-lbl{font-family:"Inter",sans-serif;font-size:12px;color:#9CA3AF;margin-top:4px}
+</style>
+</head><body>
+<div id="s01" data-composition-id="s01-hook" data-width="1080" data-height="1920" data-start="0" data-duration="4">
+  <div class="orb" style="width:600px;height:600px;top:-80px;right:-60px;background:rgba(233,30,140,.07)"></div>
+  <div class="orb" style="width:500px;height:500px;bottom:-80px;left:-60px;background:rgba(6,182,212,.06)"></div>
+  <div id="s01-center">
+    <div class="s01-eyebrow"><div class="eyebrow-dot"></div>CléAvenir · Live</div>
+    <div class="s01-title"><span class="grad">496 000</span><br>offres<br>t'attendent.</div>
+    <div class="s01-sub">Toutes les offres d'emploi en France, filtrées pour ton profil.</div>
+    <div class="ft-mention"><span>🏛️</span>Données issues de France Travail</div>
+    <div id="pill-grid">
+      <div class="stat-pill"><div class="sp-val">💻 84 000</div><div class="sp-lbl">Tech & Dev</div></div>
+      <div class="stat-pill"><div class="sp-val">🍽️ 48 000</div><div class="sp-lbl">Restauration</div></div>
+      <div class="stat-pill"><div class="sp-val">🏥 62 000</div><div class="sp-lbl">Santé</div></div>
+      <div class="stat-pill"><div class="sp-val">🏗️ 45 000</div><div class="sp-lbl">Construction</div></div>
+      <div class="stat-pill"><div class="sp-val">🛒 71 000</div><div class="sp-lbl">Commerce</div></div>
+      <div class="stat-pill"><div class="sp-val">💰 33 000</div><div class="sp-lbl">Finance</div></div>
+    </div>
+  </div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+gsap.set("#s01-center", { opacity:0, y:30 });
+gsap.set("#pill-grid .stat-pill", { opacity:0, y:24, scale:.9 });
+tl.fromTo("#s01-center", { opacity:0, y:30 }, { opacity:1, y:0, duration:.5, ease:"power3.out" }, 0);
+tl.fromTo("#pill-grid .stat-pill", { opacity:0, y:24, scale:.9 }, { opacity:1, y:0, scale:1, duration:.28, stagger:.07, ease:"back.out(1.4)" }, .5);
+tl.to("#s01", { opacity:0, duration:.2, ease:"power2.in" }, 3.78);
+window.__timelines["s01-hook"] = tl;
+</script></body></html>

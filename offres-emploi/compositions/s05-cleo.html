@@ -1,0 +1,129 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1920,height=1080"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script src="node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1920px;height:1080px;overflow:hidden;background:#F8FAFC}
+#s05{position:relative;width:1920px;height:1080px;background:#F8FAFC;overflow:hidden}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.app-left{position:absolute;left:0;top:0;width:560px;height:1080px;background:#F8FAFC;display:flex;flex-direction:column;justify-content:center;padding:0 0 0 72px}
+.app-eyebrow{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(233,30,140,.08),rgba(6,182,212,.08));border:1px solid rgba(233,30,140,.2);border-radius:100px;padding:8px 18px;width:fit-content;margin-bottom:20px;font-family:"Inter",sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#E91E8C}
+.app-heading{font-family:"Outfit",sans-serif;font-size:62px;line-height:.9;letter-spacing:-.03em;color:#0F172A;margin-bottom:18px;font-weight:900}
+.app-body{font-family:"Inter",sans-serif;font-size:17px;line-height:1.6;color:#64748B;max-width:370px;margin-bottom:22px}
+.cleo-badge{display:inline-flex;align-items:center;gap:8px;background:#0F172A;border-radius:100px;padding:10px 20px;font-family:"Inter",sans-serif;font-size:14px;font-weight:600;color:#fff;margin-bottom:20px}
+.cleo-dot{width:8px;height:8px;border-radius:50%;background:#22C55E}
+.user-card{background:#fff;border-radius:16px;padding:16px 20px;display:flex;align-items:center;gap:14px;border:1.5px solid #E2E8F0;box-shadow:0 4px 20px rgba(15,23,42,.06);max-width:430px}
+.uc-avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#06B6D4);display:flex;align-items:center;justify-content:center;font-family:"Outfit",sans-serif;font-weight:900;font-size:20px;color:#fff;flex-shrink:0}
+.uc-name{font-family:"Outfit",sans-serif;font-weight:800;font-size:17px;color:#0F172A;margin-bottom:3px}
+.uc-title{font-family:"Inter",sans-serif;font-size:12px;color:#64748B;margin-bottom:8px}
+.uc-skills{display:flex;gap:6px;flex-wrap:wrap}
+.uc-sk{font-family:"Inter",sans-serif;font-size:11px;color:#475569;background:#F1F5F9;border:1px solid #E2E8F0;padding:3px 9px;border-radius:5px}
+.browser{position:absolute;left:590px;top:90px;width:1280px;height:860px;border-radius:16px;box-shadow:0 48px 140px rgba(15,23,42,.12);overflow:hidden;background:#fff}
+.b-chrome{height:48px;background:#F1F3F4;display:flex;align-items:center;padding:0 16px;gap:10px;border-bottom:1px solid #E2E8F0}
+.b-lights{display:flex;gap:7px}.b-tc{width:13px;height:13px;border-radius:50%}
+.b-red{background:#FF5F57}.b-yellow{background:#FFBD2E}.b-green{background:#28C840}
+.b-url{flex:1;height:28px;max-width:380px;margin:0 auto;background:#fff;border:1px solid #E2E8F0;border-radius:6px;display:flex;align-items:center;padding:0 12px;gap:6px;font-family:"Inter",sans-serif;font-size:13px;color:#475569}
+.b-content{height:812px;overflow:hidden;position:relative;background:#F8FAFC;padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.cleo-bar{background:#fff;border-radius:12px;padding:14px 18px;border:1px solid #E2E8F0;display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.cleo-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#E91E8C,#06B6D4);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.cleo-text{font-family:"Inter",sans-serif;font-size:14px;color:#0F172A;font-weight:500}
+.cleo-tag{background:rgba(233,30,140,.08);border:1px solid rgba(233,30,140,.18);border-radius:100px;padding:2px 10px;font-family:"Inter",sans-serif;font-size:11px;color:#E91E8C;font-weight:600}
+.m-card{background:#fff;border-radius:12px;padding:14px 18px;border:1.5px solid #E2E8F0;display:flex;gap:14px;align-items:center}
+.m-logo{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.m-info{flex:1}
+.m-t{font-family:"Outfit",sans-serif;font-weight:700;font-size:15px;color:#0F172A;margin-bottom:3px}
+.m-co{font-family:"Inter",sans-serif;font-size:12px;color:#64748B;margin-bottom:6px}
+.m-tags{display:flex;gap:7px;flex-wrap:wrap}
+.m-tag{font-family:"Inter",sans-serif;font-size:11px;color:#475569;background:#F1F5F9;border:1px solid #E2E8F0;padding:3px 8px;border-radius:5px}
+.m-score{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.m-pct{font-family:"Outfit",sans-serif;font-weight:900;font-size:22px;line-height:1}
+.m-pct-label{font-family:"Inter",sans-serif;font-size:10px;color:#64748B;font-weight:500;text-align:center}
+.score-95{color:#22C55E}
+.score-88{color:#06B6D4}
+.score-82{color:#E91E8C}
+.m-btn{background:#E91E8C;color:#fff;border:none;padding:9px 18px;border-radius:100px;font-family:"Inter",sans-serif;font-size:13px;font-weight:600;cursor:pointer;flex-shrink:0}
+</style></head><body>
+<div id="s05" data-composition-id="s05-cleo" data-width="1920" data-height="1080" data-start="0" data-duration="4">
+  <div class="app-left" id="s05-left">
+    <div class="app-eyebrow">🤖 Cléo IA</div>
+    <div class="app-heading">Cléo<br><span class="grad">filtre<br>pour toi.</span></div>
+    <div class="app-body">Notre IA analyse ton profil et sélectionne les offres qui matchent vraiment.</div>
+    <div class="cleo-badge"><div class="cleo-dot"></div>Cléo en action</div>
+    <div class="user-card" id="s05-profile">
+      <div class="uc-avatar">SP</div>
+      <div>
+        <div class="uc-name">Sophie P.</div>
+        <div class="uc-title">Designer UI/UX · 4 ans d'expérience</div>
+        <div class="uc-skills">
+          <span class="uc-sk">Figma</span><span class="uc-sk">Prototypage</span><span class="uc-sk">UX Research</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="browser" id="s05-browser">
+    <div class="b-chrome">
+      <div class="b-lights"><div class="b-tc b-red"></div><div class="b-tc b-yellow"></div><div class="b-tc b-green"></div></div>
+      <div class="b-url">🔒 cleavenir.com/offres</div>
+    </div>
+    <div class="b-content">
+      <div class="cleo-bar" id="s05-cleo-bar">
+        <div class="cleo-avatar">🤖</div>
+        <div class="cleo-text">Cléo a sélectionné <strong>3 offres</strong> pour <strong>Sophie P.</strong></div>
+        <div class="cleo-tag">Designer UI/UX · Paris · CDI</div>
+      </div>
+      <div class="m-card" id="s05-m1">
+        <div class="m-logo" style="background:rgba(233,30,140,.1)">🎨</div>
+        <div class="m-info">
+          <div class="m-t">Senior Product Designer</div>
+          <div class="m-co">Figma Studio · Paris 9e · Hybride</div>
+          <div class="m-tags"><span class="m-tag">💰 48–58k€</span><span class="m-tag">📋 CDI</span><span class="m-tag">🎯 Ton secteur</span></div>
+        </div>
+        <div class="m-score"><div class="m-pct score-95">95%</div><div class="m-pct-label">match</div></div>
+        <button class="m-btn">Postuler →</button>
+      </div>
+      <div class="m-card" id="s05-m2">
+        <div class="m-logo" style="background:rgba(6,182,212,.1)">💡</div>
+        <div class="m-info">
+          <div class="m-t">UX Lead — FinTech</div>
+          <div class="m-co">PayScale · Lyon · Full Remote</div>
+          <div class="m-tags"><span class="m-tag">💰 42–52k€</span><span class="m-tag">📋 CDI</span><span class="m-tag">🏠 Remote</span></div>
+        </div>
+        <div class="m-score"><div class="m-pct score-88">88%</div><div class="m-pct-label">match</div></div>
+        <button class="m-btn">Postuler →</button>
+      </div>
+      <div class="m-card" id="s05-m3">
+        <div class="m-logo" style="background:rgba(34,197,94,.1)">🚀</div>
+        <div class="m-info">
+          <div class="m-t">Brand Designer — Startup Scale-up</div>
+          <div class="m-co">NovaTech · Nantes · Hybride</div>
+          <div class="m-tags"><span class="m-tag">💰 38–46k€</span><span class="m-tag">📋 CDI</span><span class="m-tag">✨ Nouveau</span></div>
+        </div>
+        <div class="m-score"><div class="m-pct score-82">82%</div><div class="m-pct-label">match</div></div>
+        <button class="m-btn">Postuler →</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+
+gsap.set("#s05-left", { opacity:0, x:-28 });
+gsap.set("#s05-browser", { x:70, opacity:0 });
+gsap.set("#s05-cleo-bar,#s05-m1,#s05-m2,#s05-m3", { opacity:0, y:20 });
+gsap.set("#s05-profile", { opacity:0, y:14 });
+
+tl.fromTo("#s05-left",    { opacity:0, x:-28 }, { opacity:1, x:0, duration:.30, ease:"power3.out" }, 0);
+tl.fromTo("#s05-browser", { x:70, opacity:0  }, { x:0, opacity:1, duration:.34, ease:"power3.out" }, .08);
+tl.fromTo("#s05-profile", { opacity:0, y:14  }, { opacity:1, y:0, duration:.28, ease:"expo.out"   }, .36);
+tl.fromTo("#s05-cleo-bar",{ opacity:0, y:20  }, { opacity:1, y:0, duration:.26, ease:"expo.out"   }, .46);
+[["#s05-m1",.60],["#s05-m2",.72],["#s05-m3",.84]].forEach(function(r){
+  tl.fromTo(r[0], { opacity:0, y:20 }, { opacity:1, y:0, duration:.24, ease:"expo.out" }, r[1]);
+});
+tl.to(".cleo-dot", { scale:1.5, duration:.35, repeat:5, yoyo:true, ease:"power1.inOut" }, .5);
+tl.to("#s05", { opacity:0, duration:.18, ease:"power2.in" }, 3.78);
+
+window.__timelines["s05-cleo"] = tl;
+</script></body></html>

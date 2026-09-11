@@ -1,0 +1,140 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1080,height=1920"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#fff}
+#s02{position:relative;width:1080px;height:1920px;overflow:hidden;display:flex;flex-direction:column;background:#F4F6FB}
+.status-bar{height:52px;background:#fff;display:flex;align-items:center;padding:0 40px;justify-content:space-between;border-bottom:1px solid #ECEEF2;flex-shrink:0}
+.sb-time{font-family:"Inter",sans-serif;font-size:17px;font-weight:600;color:#111}
+.sb-right{display:flex;align-items:center;gap:6px;font-family:"Inter",sans-serif;font-size:13px;color:#888}
+.app-header{background:linear-gradient(135deg,#0C0520,#1A0835,#060E1C);padding:48px 48px 44px;flex-shrink:0;position:relative;overflow:hidden}
+.header-glow{position:absolute;inset:0;background:radial-gradient(ellipse 700px 400px at 20% 150%,rgba(233,30,140,.18) 0%,transparent 60%),radial-gradient(ellipse 500px 300px at 90% -30%,rgba(6,182,212,.12) 0%,transparent 60%);pointer-events:none}
+.header-row{display:flex;align-items:center;gap:18px;margin-bottom:32px;position:relative;z-index:1}
+.logo-box{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#E91E8C,#8B2FC9,#06B6D4);display:flex;align-items:center;justify-content:center;font-size:32px;box-shadow:0 8px 30px rgba(233,30,140,.3);flex-shrink:0}
+.logo-name{font-family:"Outfit",sans-serif;font-size:26px;font-weight:900;color:#fff}
+.logo-tag{font-family:"Inter",sans-serif;font-size:13px;color:rgba(255,255,255,.5);margin-top:3px}
+.ft-tag{font-family:"Inter",sans-serif;font-size:11px;color:rgba(255,255,255,.35);margin-top:2px;display:flex;align-items:center;gap:4px}
+.live-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(233,30,140,.4);border-radius:100px;padding:6px 14px;font-family:"Inter",sans-serif;font-size:12px;font-weight:600;color:#E91E8C;margin-left:auto;flex-shrink:0}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#E91E8C;flex-shrink:0}
+.counter-block{position:relative;z-index:1}
+.counter-val{font-family:"Outfit",sans-serif;font-size:88px;font-weight:900;color:#fff;line-height:1;letter-spacing:-.05em;background:linear-gradient(135deg,#fff 40%,rgba(255,255,255,.7));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.counter-label{font-family:"Inter",sans-serif;font-size:16px;color:rgba(255,255,255,.4);margin-top:8px}
+.search-row{margin:20px 40px 0;background:#fff;border-radius:14px;padding:14px 20px;display:flex;align-items:center;gap:10px;border:1.5px solid #ECEEF2;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.search-icon{font-size:18px;flex-shrink:0}
+.search-txt{font-family:"Inter",sans-serif;font-size:17px;color:#B0B5C4}
+.content{flex:1;padding:20px 40px;overflow:hidden;display:flex;flex-direction:column;gap:16px}
+.section-label{font-family:"Outfit",sans-serif;font-size:20px;font-weight:800;color:#111827;letter-spacing:-.02em}
+.job-card{background:#fff;border-radius:18px;padding:22px 22px;display:flex;align-items:center;gap:16px;border:1.5px solid #ECEEF2;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.jc-logo{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:26px;flex-shrink:0}
+.jc-logo-pink{background:linear-gradient(135deg,#E91E8C,#8B2FC9)}
+.jc-logo-cyan{background:linear-gradient(135deg,#06B6D4,#0284C7)}
+.jc-logo-purple{background:linear-gradient(135deg,#8B2FC9,#6D28D9)}
+.jc-body{flex:1;min-width:0}
+.jc-title{font-family:"Outfit",sans-serif;font-size:17px;font-weight:800;color:#111827;margin-bottom:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.jc-co{font-family:"Inter",sans-serif;font-size:13px;color:#9CA3AF;margin-bottom:9px}
+.jc-tags{display:flex;gap:7px;flex-wrap:wrap}
+.tag{font-family:"Inter",sans-serif;font-size:12px;color:#6B7280;background:#F3F4F6;padding:3px 10px;border-radius:6px}
+.jc-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
+.badge-new{font-family:"Inter",sans-serif;font-size:11px;font-weight:700;background:#22C55E;color:#fff;padding:5px 14px;border-radius:100px}
+.badge-match{font-family:"Inter",sans-serif;font-size:11px;font-weight:700;background:linear-gradient(135deg,#E91E8C,#06B6D4);color:#fff;padding:5px 14px;border-radius:100px}
+.btn-apply{background:#E91E8C;color:#fff;border:none;padding:11px 22px;border-radius:100px;font-family:"Outfit",sans-serif;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap}
+</style>
+</head><body>
+<div id="s02" data-composition-id="s02-app" data-width="1080" data-height="1920" data-start="0" data-duration="3.5">
+  <div class="status-bar">
+    <div class="sb-time">9:41</div>
+    <div class="sb-right"><span>●●●</span><span>WiFi</span><span>🔋</span></div>
+  </div>
+  <div id="app-header" class="app-header">
+    <div class="header-glow"></div>
+    <div class="header-row">
+      <div class="logo-box">🎯</div>
+      <div>
+        <div class="logo-name">CléAvenir</div>
+        <div class="logo-tag">Toutes les offres d'emploi en France</div>
+        <div class="ft-tag"><span>🏛️</span>Données issues de France Travail</div>
+      </div>
+      <div class="live-badge"><div class="live-dot"></div>Live · mis à jour toutes les heures</div>
+    </div>
+    <div class="counter-block">
+      <div class="counter-val" id="s02-counter">0</div>
+      <div class="counter-label">offres France Travail · 8 secteurs · Toute la France</div>
+    </div>
+  </div>
+  <div id="s02-search" class="search-row">
+    <span class="search-icon">🔍</span>
+    <span class="search-txt">Rechercher un poste, une ville, un secteur…</span>
+  </div>
+  <div class="content">
+    <div class="section-label" id="s02-sec">💼 Offres pour ton profil</div>
+    <div class="job-card" id="s02-c1">
+      <div class="jc-logo jc-logo-pink">💻</div>
+      <div class="jc-body">
+        <div class="jc-title">Développeur React — Junior</div>
+        <div class="jc-co">TechVentures · Paris 8e</div>
+        <div class="jc-tags">
+          <span class="tag">💰 32–38k€</span>
+          <span class="tag">📋 CDI</span>
+          <span class="tag">🏠 3j télétravail</span>
+        </div>
+      </div>
+      <div class="jc-right">
+        <span class="badge-new">NOUVEAU</span>
+        <button class="btn-apply">Postuler →</button>
+      </div>
+    </div>
+    <div class="job-card" id="s02-c2">
+      <div class="jc-logo jc-logo-cyan">🤖</div>
+      <div class="jc-body">
+        <div class="jc-title">Ingénieur ML — IA Générative</div>
+        <div class="jc-co">StartAI · Paris 11e</div>
+        <div class="jc-tags">
+          <span class="tag">💰 52–68k€</span>
+          <span class="tag">📋 CDI</span>
+          <span class="tag">🏠 Full remote</span>
+        </div>
+      </div>
+      <div class="jc-right">
+        <span class="badge-match">92% match</span>
+        <button class="btn-apply">Postuler →</button>
+      </div>
+    </div>
+    <div class="job-card" id="s02-c3">
+      <div class="jc-logo jc-logo-purple">🎨</div>
+      <div class="jc-body">
+        <div class="jc-title">UX Designer — Confirmé</div>
+        <div class="jc-co">Pixel Studio · Bordeaux</div>
+        <div class="jc-tags">
+          <span class="tag">💰 38–46k€</span>
+          <span class="tag">📋 CDI</span>
+          <span class="tag">🏠 2j télétravail</span>
+        </div>
+      </div>
+      <div class="jc-right">
+        <span class="badge-match">88% match</span>
+        <button class="btn-apply">Postuler →</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var cObj = { val: 0 };
+var tl = gsap.timeline({ paused: true });
+gsap.set("#app-header", { opacity:0, y:-30 });
+gsap.set("#s02-search", { opacity:0, y:16 });
+gsap.set("#s02-sec", { opacity:0 });
+gsap.set("#s02-c1,#s02-c2,#s02-c3", { opacity:0, y:28 });
+tl.fromTo("#app-header", { opacity:0, y:-30 }, { opacity:1, y:0, duration:.4, ease:"power3.out" }, .1);
+tl.to(cObj, { val:496000, duration:1.4, ease:"power2.out", onUpdate: function(){ document.getElementById("s02-counter").textContent = Math.round(cObj.val).toLocaleString("fr-FR"); } }, .3);
+tl.fromTo("#s02-search", { opacity:0, y:16 }, { opacity:1, y:0, duration:.3, ease:"power3.out" }, .5);
+tl.fromTo("#s02-sec", { opacity:0 }, { opacity:1, duration:.2 }, .8);
+tl.fromTo("#s02-c1", { opacity:0, y:28 }, { opacity:1, y:0, duration:.28, ease:"back.out(1.3)" }, .9);
+tl.fromTo("#s02-c2", { opacity:0, y:28 }, { opacity:1, y:0, duration:.28, ease:"back.out(1.3)" }, 1.04);
+tl.fromTo("#s02-c3", { opacity:0, y:28 }, { opacity:1, y:0, duration:.28, ease:"back.out(1.3)" }, 1.18);
+tl.to("#s02", { opacity:0, duration:.2, ease:"power2.in" }, 3.28);
+window.__timelines["s02-app"] = tl;
+</script></body></html>

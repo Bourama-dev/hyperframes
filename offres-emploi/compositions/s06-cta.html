@@ -1,0 +1,85 @@
+<!doctype html><html lang="fr"><head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=1080,height=1920"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="node_modules/gsap/dist/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#F4F6FB}
+#s06{position:relative;width:1080px;height:1920px;overflow:hidden;background:#F4F6FB;display:flex;align-items:center;justify-content:center}
+.bg-shape{position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px)}
+.grad{background:linear-gradient(135deg,#E91E8C,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ring{position:absolute;border-radius:50%;border:1.5px solid;pointer-events:none;left:50%;top:50%}
+.num-tile{position:absolute;background:#fff;border:1.5px solid #ECEEF2;border-radius:16px;padding:14px 20px;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,.07)}
+.nt-val{font-family:"Outfit",sans-serif;font-size:20px;font-weight:900;color:#111827}
+.nt-lbl{font-family:"Inter",sans-serif;font-size:11px;color:#9CA3AF;margin-top:4px;text-transform:uppercase;letter-spacing:.06em}
+#center-stage{position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;text-align:center;max-width:800px;padding:0 40px}
+#s06-eyebrow{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:rgba(233,30,140,.07);border:1px solid rgba(233,30,140,.2);border-radius:100px;padding:10px 24px;font-family:"Inter",sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:#E91E8C;margin-bottom:32px}
+.eyebrow-dot{width:8px;height:8px;border-radius:50%;background:#E91E8C;flex-shrink:0}
+#s06-title{font-family:"Outfit",sans-serif;font-size:100px;font-weight:900;line-height:.88;letter-spacing:-.04em;text-align:center;color:#111827;margin-bottom:20px;text-wrap:balance}
+#s06-count-line{font-family:"Inter",sans-serif;font-size:20px;color:#6B7280;text-align:center;margin-bottom:52px}
+#s06-cta-group{display:flex;align-items:center;justify-content:center;gap:22px;margin-bottom:32px}
+#s06-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,#E91E8C,#06B6D4);border-radius:100px;padding:20px 48px;font-family:"Outfit",sans-serif;font-size:24px;font-weight:800;color:#fff;border:none;cursor:pointer;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(233,30,140,.25)}
+#s06-shimmer{position:absolute;inset:0;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.18) 50%,transparent 80%);pointer-events:none}
+#s06-url{font-family:"Inter",sans-serif;font-size:18px;color:#9CA3AF;letter-spacing:.03em;margin-bottom:16px}
+#s06-ft{font-family:"Inter",sans-serif;font-size:13px;color:#C4C9D4;display:flex;align-items:center;justify-content:center;gap:6px}
+</style>
+</head><body>
+<div id="s06" data-composition-id="s06-cta" data-width="1080" data-height="1920" data-start="0" data-duration="5">
+
+  <div class="bg-shape" style="width:700px;height:700px;top:-180px;right:-180px;background:rgba(233,30,140,.07)"></div>
+  <div class="bg-shape" style="width:600px;height:600px;bottom:-180px;left:-180px;background:rgba(6,182,212,.06)"></div>
+
+  <div class="ring" id="ring1" style="width:700px;height:700px;margin-left:-350px;margin-top:-350px;border-color:rgba(233,30,140,.1)"></div>
+  <div class="ring" id="ring2" style="width:960px;height:960px;margin-left:-480px;margin-top:-480px;border-color:rgba(6,182,212,.07)"></div>
+
+  <div class="num-tile" id="nt1" style="left:24px;top:400px"><div class="nt-val">💻 84 000</div><div class="nt-lbl">Tech &amp; Dev</div></div>
+  <div class="num-tile" id="nt2" style="left:24px;top:640px"><div class="nt-val">🏥 62 000</div><div class="nt-lbl">Santé</div></div>
+  <div class="num-tile" id="nt3" style="left:24px;top:880px"><div class="nt-val">🛒 71 000</div><div class="nt-lbl">Commerce</div></div>
+  <div class="num-tile" id="nt4" style="right:24px;top:440px"><div class="nt-val">🍽️ 48 000</div><div class="nt-lbl">Restauration</div></div>
+  <div class="num-tile" id="nt5" style="right:24px;top:680px"><div class="nt-val">🏗️ 45 000</div><div class="nt-lbl">Construction</div></div>
+  <div class="num-tile" id="nt6" style="right:24px;top:920px"><div class="nt-val">💰 33 000</div><div class="nt-lbl">Finance</div></div>
+
+  <div id="center-stage">
+    <div id="s06-eyebrow"><div class="eyebrow-dot"></div>CléAvenir · Trouve ton emploi</div>
+    <div id="s06-title"><span class="grad">496 000 offres</span><br>t'attendent.</div>
+    <div id="s06-count-line">Actualisées en continu · 8 secteurs · Partout en France</div>
+    <div id="s06-cta-group">
+      <div id="s06-btn">Découvrir les offres →<div id="s06-shimmer"></div></div>
+    </div>
+    <div id="s06-url">cleavenir.com/offres</div>
+    <div id="s06-ft">🏛️ Données issues de France Travail</div>
+  </div>
+
+</div>
+<script>
+window.__timelines = window.__timelines || {};
+var tl = gsap.timeline({ paused: true });
+
+gsap.set("#s06-eyebrow", { opacity:0, y:-24 });
+gsap.set("#s06-title", { opacity:0, y:30, scale:.96 });
+gsap.set("#s06-count-line", { opacity:0 });
+gsap.set("#s06-cta-group", { opacity:0, y:20 });
+gsap.set("#s06-url", { opacity:0 });
+gsap.set("#s06-ft", { opacity:0 });
+gsap.set("#nt1,#nt2,#nt3,#nt4,#nt5,#nt6", { opacity:0, scale:.85 });
+gsap.set("#ring1,#ring2", { opacity:0, scale:.7 });
+gsap.set("#s06-shimmer", { x:"-100%" });
+
+tl.fromTo("#ring1,#ring2", { opacity:0, scale:.7 }, { opacity:1, scale:1, duration:.8, stagger:.1, ease:"power3.out" }, 0);
+tl.fromTo("#nt1,#nt4", { opacity:0, scale:.85 }, { opacity:1, scale:1, duration:.3, stagger:.1, ease:"back.out(1.4)" }, .15);
+tl.fromTo("#nt2,#nt5", { opacity:0, scale:.85 }, { opacity:1, scale:1, duration:.3, stagger:.1, ease:"back.out(1.4)" }, .3);
+tl.fromTo("#nt3,#nt6", { opacity:0, scale:.85 }, { opacity:1, scale:1, duration:.3, stagger:.1, ease:"back.out(1.4)" }, .45);
+tl.fromTo("#s06-eyebrow", { opacity:0, y:-24 }, { opacity:1, y:0, duration:.3, ease:"power3.out" }, .3);
+tl.fromTo("#s06-title", { opacity:0, y:30, scale:.96 }, { opacity:1, y:0, scale:1, duration:.4, ease:"back.out(1.2)" }, .42);
+tl.fromTo("#s06-count-line", { opacity:0 }, { opacity:1, duration:.3, ease:"power2.out" }, .64);
+tl.fromTo("#s06-cta-group", { opacity:0, y:20 }, { opacity:1, y:0, duration:.32, ease:"power3.out" }, .76);
+tl.fromTo("#s06-url", { opacity:0 }, { opacity:1, duration:.28, ease:"power2.out" }, .90);
+tl.fromTo("#s06-ft", { opacity:0 }, { opacity:1, duration:.28, ease:"power2.out" }, 1.0);
+tl.fromTo("#s06-shimmer", { x:"-100%" }, { x:"200%", duration:.7, ease:"power2.inOut" }, .95);
+tl.fromTo("#s06-shimmer", { x:"-100%" }, { x:"200%", immediateRender:false, duration:.7, ease:"power2.inOut" }, 2.3);
+tl.to("#nt1,#nt2,#nt3", { y:-8, duration:.6, ease:"sine.inOut", yoyo:true, repeat:3 }, 2.0);
+tl.to("#nt4,#nt5,#nt6", { y:8, duration:.6, ease:"sine.inOut", yoyo:true, repeat:3 }, 2.2);
+
+window.__timelines["s06-cta"] = tl;
+</script></body></html>
